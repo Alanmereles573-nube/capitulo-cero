@@ -3,78 +3,238 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Para el amor de mi vida ❤️</title>
+<title>Felices 9 meses ❤️</title>
 
 <style>
-body{
-    margin:0;
-    background:linear-gradient(135deg,#ff4d6d,#ff8fab);
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    height:100vh;
-    font-family:Arial,sans-serif;
-    color:white;
-    text-align:center;
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,Helvetica,sans-serif;
 }
 
-.caja{
-    background:rgba(255,255,255,0.15);
-    padding:30px;
-    border-radius:20px;
-    width:85%;
-    max-width:400px;
+body{
+background:linear-gradient(135deg,#ff4d6d,#ff8fab);
+color:white;
+overflow:hidden;
+}
+
+.seccion{
+width:100%;
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+padding:25px;
+text-align:center;
+transition:.8s;
+}
+
+.carta{
+max-width:700px;
+background:rgba(255,255,255,.12);
+backdrop-filter:blur(8px);
+padding:30px;
+border-radius:25px;
+box-shadow:0 0 20px rgba(0,0,0,.2);
+}
+
+h1{
+font-size:38px;
+margin-bottom:20px;
+}
+
+p{
+font-size:20px;
+line-height:1.8;
 }
 
 button{
-    background:white;
-    color:#ff4d6d;
-    border:none;
-    padding:15px 25px;
-    font-size:18px;
-    border-radius:12px;
-    cursor:pointer;
-    margin-top:20px;
+margin-top:30px;
+padding:16px 35px;
+font-size:20px;
+border:none;
+border-radius:50px;
+background:white;
+color:#ff4d6d;
+cursor:pointer;
+font-weight:bold;
 }
 
-#mensaje{
-    display:none;
-    margin-top:25px;
-    font-size:22px;
+#segunda{
+display:none;
+}
+
+#contador{
+display:flex;
+gap:15px;
+margin-top:35px;
+flex-wrap:wrap;
+justify-content:center;
+}
+
+.caja{
+background:rgba(255,255,255,.18);
+padding:20px;
+border-radius:20px;
+min-width:95px;
+}
+
+.numero{
+font-size:40px;
+font-weight:bold;
+}
+
+.texto{
+font-size:16px;
+}
+
+.corazon{
+position:fixed;
+color:#fff;
+font-size:25px;
+animation:subir 8s linear infinite;
+opacity:.8;
+}
+
+@keyframes subir{
+0%{
+transform:translateY(100vh);
+opacity:0;
+}
+20%{
+opacity:1;
+}
+100%{
+transform:translateY(-120vh);
+opacity:0;
+}
 }
 </style>
-</head>
 
+</head>
 <body>
 
-<div class="caja">
-<h1>❤️ Tengo una sorpresa para ti ❤️</h1>
+<div class="seccion" id="primera">
 
-<p>Pulsa el botón...</p>
+<div class="carta">
 
-<button onclick="mostrar()">
-Abrir sorpresa 🎁
-</button>
-
-<div id="mensaje">
-<h2>Te amo muchísimo ❤️</h2>
+<h1>❤️ Felices 9 meses, mi amor ❤️</h1>
 
 <p>
-Gracias por estar en mi vida.<br><br>
-Eres la persona más importante para mí.<br><br>
-Prometo seguir haciéndote sonreír cada día.<br><br>
 
-✨ Feliz cumpleaños, mi amor. ✨
+Hoy celebramos nueve meses desde que nuestras vidas se unieron y, aunque el tiempo haya pasado tan rápido, cada momento contigo ha quedado grabado en mi corazón.
+
+Gracias por cada abrazo, por cada risa, por cada palabra de apoyo y por hacerme sentir amado de una forma que nunca imaginé.
+
+Contigo aprendí que el amor se encuentra en los pequeños detalles, en las conversaciones interminables, en las miradas que dicen más que mil palabras y en la tranquilidad de saber que siempre estás ahí.
+
+Estos nueve meses son solo el comienzo de todo lo hermoso que quiero vivir a tu lado.
+
+Y porque eres tan importante para mí, he estado preparando algo muy especial...
+
+Espero que cuando llegue el momento te haga sonreír tanto como tú me haces sonreír a mí todos los días.
+
+Te amo con todo mi corazón.
+
+❤️ Gracias por estos maravillosos 9 meses. ❤️
+
 </p>
 
-<h1>💖🥹🌹</h1>
+<button onclick="mostrar()">
+Continuar ❤️
+</button>
+
 </div>
+
+</div>
+
+<div class="seccion" id="segunda">
+
+<h1>✨ Próximamente... ✨</h1>
+
+<p style="max-width:600px;font-size:24px;">
+Cada segundo que pasa nos acerca a una sorpresa preparada con muchísimo amor para ti.
+</p>
+
+<div id="contador">
+
+<div class="caja">
+<div id="dias" class="numero">00</div>
+<div class="texto">Días</div>
+</div>
+
+<div class="caja">
+<div id="horas" class="numero">00</div>
+<div class="texto">Horas</div>
+</div>
+
+<div class="caja">
+<div id="minutos" class="numero">00</div>
+<div class="texto">Minutos</div>
+</div>
+
+<div class="caja">
+<div id="segundos" class="numero">00</div>
+<div class="texto">Segundos</div>
+</div>
+
+</div>
+
 </div>
 
 <script>
+
 function mostrar(){
-document.getElementById("mensaje").style.display="block";
+document.getElementById("primera").style.display="none";
+document.getElementById("segunda").style.display="flex";
 }
+
+const diasRestantes = 53; // CAMBIA ESTE NÚMERO
+
+let tiempo = diasRestantes*24*60*60;
+
+setInterval(()=>{
+
+let dias=Math.floor(tiempo/86400);
+let horas=Math.floor((tiempo%86400)/3600);
+let minutos=Math.floor((tiempo%3600)/60);
+let segundos=tiempo%60;
+
+document.getElementById("dias").innerHTML=dias;
+document.getElementById("horas").innerHTML=horas;
+document.getElementById("minutos").innerHTML=minutos;
+document.getElementById("segundos").innerHTML=segundos;
+
+if(tiempo>0){
+tiempo--;
+}
+
+},1000);
+
+function crearCorazon(){
+
+const c=document.createElement("div");
+
+c.className="corazon";
+
+c.innerHTML="❤️";
+
+c.style.left=Math.random()*100+"vw";
+
+c.style.fontSize=(20+Math.random()*25)+"px";
+
+document.body.appendChild(c);
+
+setTimeout(()=>{
+c.remove();
+},8000);
+
+}
+
+setInterval(crearCorazon,400);
+
 </script>
 
 </body>
