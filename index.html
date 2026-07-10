@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>?</title>
+
+<style>
+body{
+margin:0;
+background:#000;
+color:white;
+font-family:Arial,Helvetica,sans-serif;
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
+text-align:center;
+overflow:hidden;
+}
+
+.container{
+padding:30px;
+max-width:700px;
+z-index:2;
+}
+
+h1{
+font-size:70px;
+margin-bottom:15px;
+}
+
+.frase{
+font-size:20px;
+opacity:.85;
+margin-bottom:40px;
+line-height:1.6;
+}
+
+.contador{
+margin:25px 0;
+padding:20px;
+border:1px solid rgba(255,255,255,.2);
+border-radius:20px;
+background:rgba(255,255,255,.04);
+backdrop-filter:blur(8px);
+}
+
+.fecha{
+font-size:26px;
+margin-top:10px;
+font-weight:bold;
+}
+
+.final{
+margin-top:45px;
+opacity:.6;
+font-style:italic;
+}
+
+.star{
+position:absolute;
+width:2px;
+height:2px;
+background:white;
+border-radius:50%;
+animation:brillar 3s infinite alternate;
+}
+
+@keyframes brillar{
+from{opacity:.2;}
+to{opacity:1;}
+}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+<h1>?</h1>
+
+<p class="frase">
+Hay historias que no empiezan cuando alguien las cuenta.<br><br>
+Esta es una de ellas.
+</p>
+
+<div class="contador">
+<h2>🌙 El comienzo</h2>
+<div class="fecha">01 • Septiembre • 2026</div>
+</div>
+
+<div class="contador">
+<h2>🎂 El momento esperado</h2>
+<div class="fecha">22 • Septiembre • 2026</div>
+</div>
+
+<div class="contador">
+<h2>❤️ El último capítulo</h2>
+<div class="fecha">10 • Octubre • 2026</div>
+</div>
+
+<p class="final">
+"No hace falta entenderlo hoy."
+</p>
+
+</div>
+
+<script>
+
+for(let i=0;i<120;i++){
+
+let s=document.createElement("div");
+
+s.className="star";
+
+s.style.left=Math.random()*100+"vw";
+
+s.style.top=Math.random()*100+"vh";
+
+s.style.animationDelay=Math.random()*3+"s";
+
+document.body.appendChild(s);
+
+}
+
+</script>
+
+</body>
+</html>
