@@ -3,237 +3,126 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Felices 9 meses ❤️</title>
+<title>?</title>
 
 <style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,Helvetica,sans-serif;
-}
-
 body{
-background:linear-gradient(135deg,#ff4d6d,#ff8fab);
+margin:0;
+background:#000;
 color:white;
+font-family:Arial,Helvetica,sans-serif;
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
+text-align:center;
 overflow:hidden;
 }
 
-.seccion{
-width:100%;
-height:100vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-padding:25px;
-text-align:center;
-transition:.8s;
-}
-
-.carta{
-max-width:700px;
-background:rgba(255,255,255,.12);
-backdrop-filter:blur(8px);
+.container{
 padding:30px;
-border-radius:25px;
-box-shadow:0 0 20px rgba(0,0,0,.2);
+max-width:700px;
+z-index:2;
 }
 
 h1{
-font-size:38px;
-margin-bottom:20px;
+font-size:70px;
+margin-bottom:15px;
 }
 
-p{
+.frase{
 font-size:20px;
-line-height:1.8;
+opacity:.85;
+margin-bottom:40px;
+line-height:1.6;
 }
 
-button{
-margin-top:30px;
-padding:16px 35px;
-font-size:20px;
-border:none;
-border-radius:50px;
-background:white;
-color:#ff4d6d;
-cursor:pointer;
-font-weight:bold;
-}
-
-#segunda{
-display:none;
-}
-
-#contador{
-display:flex;
-gap:15px;
-margin-top:35px;
-flex-wrap:wrap;
-justify-content:center;
-}
-
-.caja{
-background:rgba(255,255,255,.18);
+.contador{
+margin:25px 0;
 padding:20px;
+border:1px solid rgba(255,255,255,.2);
 border-radius:20px;
-min-width:95px;
+background:rgba(255,255,255,.04);
+backdrop-filter:blur(8px);
 }
 
-.numero{
-font-size:40px;
+.fecha{
+font-size:26px;
+margin-top:10px;
 font-weight:bold;
 }
 
-.texto{
-font-size:16px;
+.final{
+margin-top:45px;
+opacity:.6;
+font-style:italic;
 }
 
-.corazon{
-position:fixed;
-color:#fff;
-font-size:25px;
-animation:subir 8s linear infinite;
-opacity:.8;
+.star{
+position:absolute;
+width:2px;
+height:2px;
+background:white;
+border-radius:50%;
+animation:brillar 3s infinite alternate;
 }
 
-@keyframes subir{
-0%{
-transform:translateY(100vh);
-opacity:0;
-}
-20%{
-opacity:1;
-}
-100%{
-transform:translateY(-120vh);
-opacity:0;
-}
+@keyframes brillar{
+from{opacity:.2;}
+to{opacity:1;}
 }
 </style>
 
 </head>
 <body>
 
-<div class="seccion" id="primera">
+<div class="container">
 
-<div class="carta">
+<h1>?</h1>
 
-<h1>❤️ Felices 9 meses, mi amor ❤️</h1>
-
-<p>
-
-Hoy celebramos nueve meses desde que nuestras vidas se unieron y, aunque el tiempo haya pasado tan rápido, cada momento contigo ha quedado grabado en mi corazón.
-
-Gracias por cada abrazo, por cada risa, por cada palabra de apoyo y por hacerme sentir amado de una forma que nunca imaginé.
-
-Contigo aprendí que el amor se encuentra en los pequeños detalles, en las conversaciones interminables, en las miradas que dicen más que mil palabras y en la tranquilidad de saber que siempre estás ahí.
-
-Estos nueve meses son solo el comienzo de todo lo hermoso que quiero vivir a tu lado.
-
-Y porque eres tan importante para mí, he estado preparando algo muy especial...
-
-Espero que cuando llegue el momento te haga sonreír tanto como tú me haces sonreír a mí todos los días.
-
-Te amo con todo mi corazón.
-
-❤️ Gracias por estos maravillosos 9 meses. ❤️
-
+<p class="frase">
+Hay historias que no empiezan cuando alguien las cuenta.<br><br>
+Esta es una de ellas.
 </p>
 
-<button onclick="mostrar()">
-Continuar ❤️
-</button>
-
+<div class="contador">
+<h2>🌙 El comienzo</h2>
+<div class="fecha">01</div>
 </div>
 
+<div class="contador">
+<h2> El momento esperado</h2>
+<div class="fecha">?</div>
 </div>
 
-<div class="seccion" id="segunda">
+<div class="contador">
+<h2>❤️ El último capítulo</h2>
+<div class="fecha">?</div>
+</div>
 
-<h1>✨ Próximamente... ✨</h1>
-
-<p style="max-width:600px;font-size:24px;">
-Cada segundo que pasa nos acerca a una sorpresa preparada con muchísimo amor para ti.
+<p class="final">
+"No hace falta entenderlo hoy."
 </p>
-
-<div id="contador">
-
-<div class="caja">
-<div id="dias" class="numero">00</div>
-<div class="texto">Días</div>
-</div>
-
-<div class="caja">
-<div id="horas" class="numero">00</div>
-<div class="texto">Horas</div>
-</div>
-
-<div class="caja">
-<div id="minutos" class="numero">00</div>
-<div class="texto">Minutos</div>
-</div>
-
-<div class="caja">
-<div id="segundos" class="numero">00</div>
-<div class="texto">Segundos</div>
-</div>
-
-</div>
 
 </div>
 
 <script>
 
-function mostrar(){
-document.getElementById("primera").style.display="none";
-document.getElementById("segunda").style.display="flex";
-}
+for(let i=0;i<120;i++){
 
-const diasRestantes = 53; // CAMBIA ESTE NÚMERO
+let s=document.createElement("div");
 
-let tiempo = diasRestantes*24*60*60;
+s.className="star";
 
-setInterval(()=>{
+s.style.left=Math.random()*100+"vw";
 
-let dias=Math.floor(tiempo/86400);
-let horas=Math.floor((tiempo%86400)/3600);
-let minutos=Math.floor((tiempo%3600)/60);
-let segundos=tiempo%60;
+s.style.top=Math.random()*100+"vh";
 
-document.getElementById("dias").innerHTML=dias;
-document.getElementById("horas").innerHTML=horas;
-document.getElementById("minutos").innerHTML=minutos;
-document.getElementById("segundos").innerHTML=segundos;
+s.style.animationDelay=Math.random()*3+"s";
 
-if(tiempo>0){
-tiempo--;
-}
-
-},1000);
-
-function crearCorazon(){
-
-const c=document.createElement("div");
-
-c.className="corazon";
-
-c.innerHTML="❤️";
-
-c.style.left=Math.random()*100+"vw";
-
-c.style.fontSize=(20+Math.random()*25)+"px";
-
-document.body.appendChild(c);
-
-setTimeout(()=>{
-c.remove();
-},8000);
+document.body.appendChild(s);
 
 }
-
-setInterval(crearCorazon,400);
 
 </script>
 
