@@ -3,657 +3,1099 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#08080d">
 
-<title>Para vos ❤️</title>
+<title>Para Camila ❤️</title>
 
 <style>
+
 *{
-    margin:0;
-    padding:0;
     box-sizing:border-box;
 }
 
-html{
-    scroll-behavior:smooth;
-}
-
 body{
+    margin:0;
     min-height:100vh;
+    font-family:Arial,sans-serif;
+    color:white;
     background:
-        radial-gradient(circle at 50% 20%, #24101b 0%, #0d0a10 45%, #050507 100%);
-    color:#fff;
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-    overflow-x:hidden;
-}
-
-/* ESTRELLAS */
-
-.estrellas{
-    position:fixed;
-    inset:0;
-    pointer-events:none;
-    z-index:0;
-}
-
-.estrella{
-    position:absolute;
-    width:2px;
-    height:2px;
-    background:white;
-    border-radius:50%;
-    opacity:.5;
-    animation:brillar 3s infinite alternate;
-}
-
-@keyframes brillar{
-    from{
-        opacity:.15;
-        transform:scale(.7);
-    }
-    to{
-        opacity:.9;
-        transform:scale(1.4);
-    }
-}
-
-/* CORAZONES */
-
-.corazon{
-    position:fixed;
-    bottom:-30px;
-    pointer-events:none;
-    z-index:1;
-    animation:subir 8s linear forwards;
-    opacity:0;
-}
-
-@keyframes subir{
-    0%{
-        transform:translateY(0) rotate(0deg);
-        opacity:0;
-    }
-
-    15%{
-        opacity:.7;
-    }
-
-    100%{
-        transform:translateY(-110vh) rotate(25deg);
-        opacity:0;
-    }
-}
-
-/* SECCIONES */
-
-.seccion{
-    position:relative;
-    z-index:2;
-    min-height:100vh;
+    radial-gradient(circle at top,#ffb6c9,#ff6f91 45%,#8e3150);
     display:flex;
     justify-content:center;
     align-items:center;
-    padding:30px 20px;
+    overflow:hidden;
 }
 
-.contenido{
-    width:100%;
-    max-width:720px;
+body:before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background-image:
+    radial-gradient(circle,rgba(255,255,255,.25) 2px,transparent 2px);
+    background-size:35px 35px;
+    opacity:.35;
+    pointer-events:none;
+}
+
+.caja{
+    width:92%;
+    max-width:650px;
+    max-height:92vh;
+    overflow:auto;
+    padding:35px 25px;
     text-align:center;
+    border-radius:30px;
+    background:rgba(255,255,255,.14);
+    backdrop-filter:blur(18px);
+    box-shadow:0 20px 60px rgba(0,0,0,.3);
+    position:relative;
 }
-
-/* SIGNO */
-
-.signo{
-    font-size:75px;
-    font-weight:200;
-    margin-bottom:15px;
-    cursor:pointer;
-    text-shadow:0 0 30px rgba(255,255,255,.35);
-    transition:.4s;
-    user-select:none;
-}
-
-.signo:active{
-    transform:scale(.9);
-}
-
-/* TITULOS */
 
 h1{
-    font-size:clamp(32px,8vw,58px);
-    font-weight:500;
-    letter-spacing:-1px;
-    margin-bottom:25px;
+    font-size:36px;
+    margin:5px 0 15px;
 }
 
-h2{
-    font-size:28px;
-    font-weight:400;
-    margin-bottom:20px;
-}
-
-.texto{
+p{
     font-size:18px;
-    line-height:1.9;
-    color:rgba(255,255,255,.88);
+    line-height:1.6;
 }
 
-/* CARTA */
-
-.carta{
-    background:rgba(255,255,255,.055);
-    border:1px solid rgba(255,255,255,.12);
-    border-radius:28px;
-    padding:32px 25px;
-    backdrop-filter:blur(12px);
-    box-shadow:
-        0 20px 70px rgba(0,0,0,.35),
-        inset 0 0 30px rgba(255,255,255,.02);
-}
-
-.firma{
-    margin-top:25px;
-    font-size:20px;
-    color:#ffb6c7;
-}
-
-/* BOTON */
-
-.boton{
-    margin-top:30px;
-    padding:15px 30px;
-    border:1px solid rgba(255,255,255,.3);
-    border-radius:50px;
-    background:rgba(255,255,255,.08);
-    color:white;
+button{
+    border:0;
+    border-radius:30px;
+    padding:15px 28px;
+    margin-top:18px;
     font-size:17px;
+    font-weight:bold;
+    color:#d83e68;
+    background:white;
     cursor:pointer;
-    transition:.3s;
-    backdrop-filter:blur(8px);
+    transition:.25s;
 }
 
-.boton:hover{
-    background:rgba(255,255,255,.18);
-    transform:translateY(-2px);
+button:hover{
+    transform:scale(1.06);
 }
 
-/* SEGUNDA PANTALLA */
+input{
+    width:85%;
+    max-width:330px;
+    padding:14px;
+    border:0;
+    border-radius:25px;
+    text-align:center;
+    font-size:17px;
+    outline:none;
+    margin-top:10px;
+}
 
-#proximamente{
+.oculto{
     display:none;
 }
 
-.subtitulo{
-    font-size:20px;
-    line-height:1.7;
-    color:rgba(255,255,255,.75);
-    margin-bottom:35px;
+.pista{
+    padding:20px;
+    margin:20px 0;
+    border-radius:20px;
+    background:rgba(255,255,255,.13);
 }
 
-/* CONTADOR */
+.error{
+    font-weight:bold;
+    min-height:25px;
+}
+
+.letras{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:12px;
+    margin:25px 0;
+}
+
+.letra{
+    width:55px;
+    height:55px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:50%;
+    background:white;
+    color:#e44c76;
+    font-size:23px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.letra:hover{
+    transform:scale(1.15);
+}
 
 .contador{
     display:flex;
     justify-content:center;
     gap:12px;
     flex-wrap:wrap;
-    margin:30px auto;
+    margin:25px 0;
 }
 
-.bloque{
-    width:105px;
-    padding:18px 8px;
+.tiempo{
+    min-width:90px;
+    padding:18px 10px;
     border-radius:20px;
-    background:rgba(255,255,255,.07);
-    border:1px solid rgba(255,255,255,.12);
-    backdrop-filter:blur(10px);
+    background:rgba(255,255,255,.18);
 }
 
 .numero{
-    font-size:35px;
-    font-weight:600;
+    font-size:42px;
+    font-weight:bold;
 }
 
-.etiqueta{
-    margin-top:5px;
+.nombre{
     font-size:12px;
-    text-transform:uppercase;
-    letter-spacing:1px;
-    color:rgba(255,255,255,.6);
+    margin-top:5px;
 }
 
-/* PISTA */
-
-.pista{
-    margin:45px auto 0;
-    max-width:500px;
-    padding:25px;
-    border-radius:22px;
-    background:rgba(255,255,255,.04);
-    border:1px solid rgba(255,255,255,.1);
+.tarjeta{
+    background:rgba(255,255,255,.12);
+    border-radius:20px;
+    padding:20px;
+    margin:18px 0;
 }
 
-.pista-numero{
-    color:#ff9db5;
-    font-size:13px;
-    letter-spacing:2px;
-    text-transform:uppercase;
-    margin-bottom:12px;
-}
-
-.pista-texto{
-    font-size:22px;
-    line-height:1.5;
-    font-style:italic;
-}
-
-/* MENSAJE SECRETO */
-
-#secreto{
-    display:none;
-    margin-top:25px;
-    color:#ffb6c7;
-    font-size:16px;
-    animation:aparecer 1s ease;
+.final{
+    animation:aparecer 1.5s ease;
 }
 
 @keyframes aparecer{
+
     from{
         opacity:0;
-        transform:translateY(10px);
+        transform:scale(.6);
     }
+
     to{
         opacity:1;
-        transform:translateY(0);
+        transform:scale(1);
     }
+
 }
 
-/* FOOTER */
+.corazon{
+    position:fixed;
+    bottom:-30px;
+    pointer-events:none;
+    animation:subir linear forwards;
+    opacity:.8;
+}
 
-.final{
-    margin-top:50px;
-    color:rgba(255,255,255,.45);
+@keyframes subir{
+
+    to{
+        transform:translateY(-110vh) rotate(360deg);
+        opacity:0;
+    }
+
+}
+
+.pequeno{
     font-size:14px;
-    letter-spacing:.5px;
+    opacity:.8;
 }
 
-/* CELULAR */
-
-@media(max-width:500px){
-
-    .seccion{
-        padding:25px 16px;
-    }
-
-    .carta{
-        padding:28px 20px;
-    }
-
-    .texto{
-        font-size:17px;
-        line-height:1.8;
-    }
-
-    .contador{
-        gap:8px;
-    }
-
-    .bloque{
-        width:78px;
-        padding:15px 5px;
-    }
-
-    .numero{
-        font-size:27px;
-    }
-
-    .etiqueta{
-        font-size:10px;
-    }
-
-}
 </style>
 </head>
 
+
 <body>
 
-<!-- ESTRELLAS -->
-<div class="estrellas" id="estrellas"></div>
+
+<div class="caja">
 
 
-<!-- ========================= -->
-<!-- PRIMERA PANTALLA -->
-<!-- ========================= -->
+<!-- INICIO -->
 
-<section class="seccion" id="inicio">
+<section id="n1">
 
-<div class="contenido">
+<h1>💌 Hola, Camila</h1>
 
-<div class="signo" id="signo">?</div>
-
-<div class="carta">
-
-<h1>Felices 10 meses, mi amor ❤️</h1>
-
-<p class="texto">
-
-Hoy cumplimos diez meses juntos y todavía me cuesta creer
-todo lo que hemos vivido en este tiempo.
-
-Gracias por cada momento, por cada abrazo, por cada sonrisa,
-por cada conversación y por todas esas pequeñas cosas que,
-aunque quizás parezcan simples, para mí significan muchísimo.
-
-Desde que llegaste a mi vida, muchos momentos cambiaron.
-Aprendí que no hace falta que pase algo enorme para ser feliz;
-a veces simplemente estar con la persona que uno quiere
-es suficiente.
-
-Estos diez meses me regalaron recuerdos que voy a guardar
-siempre en mi corazón.
-
-Y si algo tengo claro es que no quiero que esta historia
-termine acá.
-
-Quiero seguir compartiendo días contigo,
-seguir riéndonos juntos,
-seguir creando recuerdos
-y seguir descubriendo todo lo que todavía nos queda por vivir.
-
-Por eso hoy quería decirte algo:
-
-<b>Gracias por estos diez meses.</b>
-
-Gracias por elegirme, por acompañarme y por formar parte
-de mi vida.
-
-Te amo muchísimo y espero que podamos seguir escribiendo
-juntos muchos capítulos más.
-
+<p>
+Si llegaste hasta acá...
+es porque hay algo preparado especialmente para vos.
 </p>
 
-<p class="firma">
-Con todo mi amor ❤️
+<p>
+Pero no voy a dejar que lo descubras
+tan fácilmente. 😏❤️
 </p>
 
-<button class="boton" onclick="mostrarSorpresa()">
-Hay algo más...
+<p>
+Vas a tener que superar algunas pruebas.
+</p>
+
+<button onclick="ir(1)">
+COMENZAR 🔐
+</button>
+
+</section>
+
+
+
+<!-- NIVEL 1 -->
+
+<section id="n2" class="oculto">
+
+<h1>🔎 NIVEL 1</h1>
+
+<p>
+Hay una palabra escondida.
+</p>
+
+<p>
+Tocá las letras en el orden correcto.
+</p>
+
+<div class="letras">
+
+<span class="letra" onclick="letra('A')">A</span>
+
+<span class="letra" onclick="letra('M')">M</span>
+
+<span class="letra" onclick="letra('O')">O</span>
+
+<span class="letra" onclick="letra('R')">R</span>
+
+<span class="letra" onclick="letra('T')">T</span>
+
+<span class="letra" onclick="letra('X')">X</span>
+
+</div>
+
+<p id="r1"></p>
+
+</section>
+
+
+
+<!-- NIVEL 2 -->
+
+<section id="n3" class="oculto">
+
+<h1>🌊 NIVEL 2</h1>
+
+<p>
+Primera pista importante.
+</p>
+
+<div class="pista">
+
+🌊 Cerca del río.<br><br>
+
+🌳 Un lugar para caminar.<br><br>
+
+❤️ Un lugar que guarda recuerdos.
+
+</div>
+
+<p>
+¿Dónde te lleva esta pista?
+</p>
+
+<input
+id="resp3"
+placeholder="Escribí el lugar"
+>
+
+<br>
+
+<button onclick="nivel3()">
+CONTINUAR
+</button>
+
+<p id="e3" class="error"></p>
+
+</section>
+
+
+
+<!-- NIVEL 3 -->
+
+<section id="n4" class="oculto">
+
+<h1>📅 NIVEL 3</h1>
+
+<p>
+Hay una fecha que tiene
+un significado especial.
+</p>
+
+<div class="tarjeta">
+
+❤️ 10 / 10 ❤️
+
+</div>
+
+<p>
+Escribí la fecha completa.
+</p>
+
+<input
+id="resp4"
+placeholder="Ej: 10 de octubre"
+>
+
+<br>
+
+<button onclick="nivel4()">
+DESBLOQUEAR 🔐
+</button>
+
+<p id="e4" class="error"></p>
+
+</section>
+
+
+
+<!-- NIVEL 4 -->
+
+<section id="n5" class="oculto">
+
+<h1>🎵 NIVEL 4</h1>
+
+<p>
+Hay dos canciones escondidas
+en esta historia.
+</p>
+
+<div class="tarjeta">
+
+🎵 BOKeTE
+
+</div>
+
+<div class="tarjeta">
+
+🎵 BABYSITA
+
+</div>
+
+<p>
+No necesitás escribir los nombres.
+</p>
+
+<p>
+Pensá en lo que significan
+para nosotros. ❤️
+</p>
+
+<button onclick="nivel5()">
+YA LO PENSÉ ❤️
+</button>
+
+</section>
+
+
+
+<!-- NIVEL 5 -->
+
+<section id="n6" class="oculto">
+
+<h1>😂 NIVEL 5</h1>
+
+<p>
+Ahora viene una prueba
+que seguramente te va a sacar una sonrisa.
+</p>
+
+<div class="pista">
+
+Alguien intentaba hablar
+un idioma...
+
+<br><br>
+
+Y cuando conseguía decir algo,
+se emocionaba muchísimo. 😂❤️
+
+</div>
+
+<p>
+¿Qué idioma era?
+</p>
+
+<input
+id="resp6"
+placeholder="Escribilo"
+>
+
+<br>
+
+<button onclick="nivel6()">
+CONTINUAR 😂
+</button>
+
+<p id="e6" class="error"></p>
+
+</section>
+
+
+
+<!-- NIVEL 6 -->
+
+<section id="n7" class="oculto">
+
+<h1>🧠 NIVEL 6</h1>
+
+<p>
+De todas estas palabras...
+</p>
+
+<p>
+¿Cuál describe mejor
+lo que está pasando?
+</p>
+
+<div>
+
+<button onclick="respuesta7('espera')">
+ESPERA
+</button>
+
+<button onclick="respuesta7('sorpresa')">
+SORPRESA
+</button>
+
+<button onclick="respuesta7('regalo')">
+REGALO
 </button>
 
 </div>
 
-</div>
+<p id="r7"></p>
 
 </section>
 
 
-<!-- ========================= -->
-<!-- SEGUNDA PANTALLA -->
-<!-- ========================= -->
 
-<section class="seccion" id="proximamente">
+<!-- NIVEL 7 -->
 
-<div class="contenido">
+<section id="n8" class="oculto">
 
-<div class="signo">?</div>
+<h1>🔐 NIVEL 7</h1>
 
-<h1>Próximamente...</h1>
-
-<p class="subtitulo">
-
-Si llegaste hasta acá, significa que ya descubriste
-que hay algo más.
-
-No puedo contarte todavía qué es.
-
-Solo puedo decirte que llevo un tiempo preparando
-algo pensado especialmente para vos.
-
-Y cada segundo que pasa nos acerca un poquito más.
-
+<p>
+La siguiente contraseña
+está relacionada con algo
+que seguramente te gusta.
 </p>
 
+<p>
+No es una fecha.
+</p>
 
-<!-- CUENTA REGRESIVA -->
+<p>
+No es un lugar.
+</p>
+
+<p>
+No es una canción.
+</p>
+
+<input
+id="resp8"
+placeholder="Escribí la contraseña"
+>
+
+<br>
+
+<button onclick="nivel8()">
+ABRIR 🔓
+</button>
+
+<p id="e8" class="error"></p>
+
+</section>
+
+
+
+<!-- NIVEL 8 -->
+
+<section id="n9" class="oculto">
+
+<h1>❤️ NIVEL 8</h1>
+
+<p>
+Llegaste bastante lejos...
+</p>
+
+<div class="tarjeta">
+
+No todo lo importante
+tiene que ser enorme.
+
+<br><br>
+
+A veces algo pequeño,
+preparado con cariño,
+puede significar muchísimo.
+
+❤️
+
+</div>
+
+<button onclick="ir(9)">
+CONTINUAR 🥹
+</button>
+
+</section>
+
+
+
+<!-- NIVEL 9 -->
+
+<section id="n10" class="oculto">
+
+<h1>🎁 NIVEL FINAL</h1>
+
+<p>
+Camila...
+</p>
+
+<p>
+Ya descubriste lugares,
+fechas, canciones
+y recuerdos.
+</p>
+
+<p>
+Pero todavía no descubriste
+qué te espera.
+</p>
+
+<div class="tarjeta">
+
+✨ Hay una sorpresa esperándote. ✨
+
+<br><br>
+
+Y esta vez...
+no voy a darte ninguna pista.
+
+😏❤️
+
+</div>
+
+<p>
+Solo una última cosa.
+</p>
+
+<button onclick="mostrarContador()">
+VER LA ÚLTIMA PISTA ⏰
+</button>
+
+</section>
+
+
+
+<!-- CONTADOR -->
+
+<section id="contador" class="oculto">
+
+<h1>⏰ CASI...</h1>
+
+<p>
+Llegaste hasta acá.
+</p>
+
+<p>
+Ahora solamente queda esperar.
+</p>
 
 <div class="contador">
 
-<div class="bloque">
-<div class="numero" id="dias">00</div>
-<div class="etiqueta">Días</div>
+<div class="tiempo">
+
+<div
+class="numero"
+id="h">
+00
 </div>
 
-<div class="bloque">
-<div class="numero" id="horas">00</div>
-<div class="etiqueta">Horas</div>
-</div>
-
-<div class="bloque">
-<div class="numero" id="minutos">00</div>
-<div class="etiqueta">Minutos</div>
-</div>
-
-<div class="bloque">
-<div class="numero" id="segundos">00</div>
-<div class="etiqueta">Segundos</div>
+<div class="nombre">
+HORAS
 </div>
 
 </div>
 
 
-<!-- PISTA -->
+<div class="tiempo">
 
-<div class="pista">
-
-<div class="pista-numero">
-Pista #01
+<div
+class="numero"
+id="m">
+00
 </div>
 
-<div class="pista-texto">
-"No es una sola cosa."
+<div class="nombre">
+MINUTOS
 </div>
 
-</div>
-
-
-<div id="secreto">
-🤫 Parece que encontraste algo que no estaba
-pensado para descubrirse tan rápido...
 </div>
 
 
-<p class="final">
-Cuando llegue el momento, vas a entender cada pista. ❤️
+<div class="tiempo">
+
+<div
+class="numero"
+id="s">
+00
+</div>
+
+<div class="nombre">
+SEGUNDOS
+</div>
+
+</div>
+
+</div>
+
+<p>
+🕕 Cuando el reloj marque las 18:00...
 </p>
 
-</div>
+<p class="pequeno">
+No cierres esta página ❤️
+</p>
 
 </section>
+
+
+
+<!-- FINAL -->
+
+<section id="fin" class="oculto final">
+
+<h1>
+🎁 LLEGÓ EL MOMENTO ❤️
+</h1>
+
+<p>
+Camila...
+</p>
+
+<p>
+La espera terminó.
+</p>
+
+<div class="tarjeta">
+
+✨ Ahora sí... ✨
+
+<br><br>
+
+Llegó el momento de descubrir
+tu sorpresa. ❤️
+
+</div>
+
+<p>
+Espero que te saque una sonrisa
+y que recuerdes este momento. 🥹❤️
+</p>
+
+<p>
+❤️ Disfrutá tu Entrega 1 ❤️
+</p>
+
+</section>
+
+
+</div>
+
 
 
 <script>
 
-/* ========================= */
-/* CREAR ESTRELLAS */
-/* ========================= */
 
-const estrellas = document.getElementById("estrellas");
+/* CAMBIAR DE NIVEL */
 
-for(let i=0;i<140;i++){
+function ocultarTodo(){
 
-    const estrella = document.createElement("div");
+for(let i=1;i<=10;i++){
 
-    estrella.className = "estrella";
+let elemento=document.getElementById("n"+i);
 
-    estrella.style.left = Math.random()*100 + "vw";
-    estrella.style.top = Math.random()*100 + "vh";
-
-    const tamaño = Math.random()*2+1;
-
-    estrella.style.width = tamaño+"px";
-    estrella.style.height = tamaño+"px";
-
-    estrella.style.animationDelay =
-        Math.random()*4+"s";
-
-    estrellas.appendChild(estrella);
+if(elemento){
+elemento.classList.add("oculto");
 }
 
+}
 
-/* ========================= */
-/* MOSTRAR SEGUNDA PANTALLA */
-/* ========================= */
+document
+.getElementById("contador")
+.classList.add("oculto");
 
-function mostrarSorpresa(){
-
-    document.getElementById("inicio").style.display="none";
-
-    document.getElementById("proximamente").style.display="flex";
-
-    window.scrollTo(0,0);
+document
+.getElementById("fin")
+.classList.add("oculto");
 
 }
 
 
-/* ========================= */
-/* CUENTA REGRESIVA */
-/* ========================= */
+function ir(numero){
+
+ocultarTodo();
+
+document
+.getElementById("n"+(numero+1))
+.classList.remove("oculto");
+
+}
+
+
+
+/* NIVEL 1 */
+
+let palabra="";
+const correcta="AMOR";
+
+function letra(x){
+
+palabra+=x;
+
+if(!correcta.startsWith(palabra)){
+
+palabra="";
+
+document
+.getElementById("r1")
+.innerHTML=
+"❌ No era por ahí... intentá otra vez ❤️";
+
+return;
+
+}
+
+if(palabra===correcta){
+
+document
+.getElementById("r1")
+.innerHTML=
+"❤️ ¡Correcto!";
+
+setTimeout(()=>{
+
+ir(2);
+
+},1000);
+
+}
+
+}
+
+
+
+/* NIVEL 2 */
+
+function nivel3(){
+
+let r=
+document
+.getElementById("resp3")
+.value
+.toLowerCase()
+.trim();
+
+if(r.includes("tigre")){
+
+ir(3);
+
+}else{
+
+document
+.getElementById("e3")
+.innerHTML=
+"🤭 Pista: pensá en ese lugar cerca del río...";
+
+}
+
+}
+
+
+
+/* NIVEL 3 */
+
+function nivel4(){
+
+let r=
+document
+.getElementById("resp4")
+.value
+.toLowerCase()
+.trim();
+
+if(
+r.includes("10 de octubre") ||
+r.includes("10/10") ||
+r.includes("10-10")
+){
+
+ir(4);
+
+}else{
+
+document
+.getElementById("e4")
+.innerHTML=
+"👀 Mirá nuevamente la pista...";
+
+}
+
+}
+
+
+
+/* NIVEL 4 */
+
+function nivel5(){
+
+ir(5);
+
+}
+
+
+
+/* NIVEL 5 */
+
+function nivel6(){
+
+let r=
+document
+.getElementById("resp6")
+.value
+.toLowerCase()
+.trim();
+
+if(
+r.includes("guarani") ||
+r.includes("guaraní")
+){
+
+ir(6);
+
+}else{
+
+document
+.getElementById("e6")
+.innerHTML=
+"😂 Pensalo... era el idioma que intentaba hablar.";
+
+}
+
+}
+
+
+
+/* NIVEL 6 */
+
+function respuesta7(r){
+
+if(r==="sorpresa"){
+
+document
+.getElementById("r7")
+.innerHTML=
+"🎁 Exactamente...";
+
+setTimeout(()=>{
+
+ir(7);
+
+},1000);
+
+}else{
+
+document
+.getElementById("r7")
+innerHTML=
+"👀 Vas cerca...";
+
+}
+
+}
+
+
+
+/* NIVEL 7 */
+
+function nivel8(){
+
+let r=
+document
+.getElementById("resp8")
+.value
+.toLowerCase()
+.trim();
 
 /*
-
-La cuenta llega automáticamente al:
-
-1 de septiembre de 2026
-
-No se muestra la fecha en pantalla.
-
+La contraseña es sencilla:
+"sonrisa"
 */
 
-const fechaObjetivo =
-    new Date("2026-09-01T00:00:00-03:00").getTime();
+if(
+r==="sonrisa" ||
+r==="sonrisas"
+){
 
+ir(8);
 
-function actualizarCuenta(){
+}else{
 
-    const ahora =
-        new Date().getTime();
+document
+.getElementById("e8")
+.innerHTML=
+"❤️ Pensá en algo que quiero provocar cuando recibas esto...";
 
-    const diferencia =
-        fechaObjetivo - ahora;
-
-
-    if(diferencia <= 0){
-
-        document.getElementById("dias").innerHTML="00";
-        document.getElementById("horas").innerHTML="00";
-        document.getElementById("minutos").innerHTML="00";
-        document.getElementById("segundos").innerHTML="00";
-
-        return;
-    }
-
-
-    const dias =
-        Math.floor(
-            diferencia /
-            (1000*60*60*24)
-        );
-
-
-    const horas =
-        Math.floor(
-            (diferencia %
-            (1000*60*60*24)) /
-            (1000*60*60)
-        );
-
-
-    const minutos =
-        Math.floor(
-            (diferencia %
-            (1000*60*60)) /
-            (1000*60)
-        );
-
-
-    const segundos =
-        Math.floor(
-            (diferencia %
-            (1000*60)) /
-            1000
-        );
-
-
-    document.getElementById("dias").innerHTML =
-        String(dias).padStart(2,"0");
-
-    document.getElementById("horas").innerHTML =
-        String(horas).padStart(2,"0");
-
-    document.getElementById("minutos").innerHTML =
-        String(minutos).padStart(2,"0");
-
-    document.getElementById("segundos").innerHTML =
-        String(segundos).padStart(2,"0");
+}
 
 }
 
 
-actualizarCuenta();
 
-setInterval(actualizarCuenta,1000);
+/* MOSTRAR CONTADOR */
 
+function mostrarContador(){
 
-/* ========================= */
-/* CORAZONES */
-/* ========================= */
+ocultarTodo();
 
-function crearCorazon(){
+document
+.getElementById("contador")
+.classList.remove("oculto");
 
-    const corazon =
-        document.createElement("div");
-
-    corazon.className="corazon";
-
-    corazon.innerHTML="❤️";
-
-    corazon.style.left =
-        Math.random()*100+"vw";
-
-    corazon.style.fontSize =
-        (12+Math.random()*15)+"px";
-
-    document.body.appendChild(corazon);
-
-
-    setTimeout(()=>{
-        corazon.remove();
-    },8000);
+actualizarContador();
 
 }
 
 
-setInterval(crearCorazon,900);
+
+/* CONTADOR HASTA LAS 18:00 */
+
+function actualizarContador(){
+
+const ahora=new Date();
+
+let objetivo=new Date();
+
+/*
+El contador siempre apunta a las 18:00
+sin mostrar ninguna fecha.
+*/
+
+objetivo.setHours(18,0,0,0);
+
+const diferencia=
+objetivo.getTime()-ahora.getTime();
 
 
-/* ========================= */
-/* MENSAJE SECRETO */
-/* ========================= */
+/*
+Si todavía no llegaron las 18:00
+*/
 
-let toques = 0;
+if(diferencia>0){
 
-document.getElementById("signo").addEventListener("click",()=>{
+const horas=Math.floor(
+diferencia/(1000*60*60)
+);
 
-    toques++;
+const minutos=Math.floor(
+(diferencia%(1000*60*60))/(1000*60)
+);
 
-    if(toques >= 5){
+const segundos=Math.floor(
+(diferencia%(1000*60))/1000
+);
 
-        document.getElementById("secreto").style.display="block";
+document
+.getElementById("h")
+.textContent=
+String(horas).padStart(2,"0");
 
-    }
+document
+.getElementById("m")
+.textContent=
+String(minutos).padStart(2,"0");
 
-});
+document
+.getElementById("s")
+.textContent=
+String(segundos).padStart(2,"0");
+
+}else{
+
+mostrarFinal();
+
+}
+
+}
+
+
+
+/* FINAL */
+
+function mostrarFinal(){
+
+document
+.getElementById("contador")
+.classList.add("oculto");
+
+document
+.getElementById("fin")
+.classList.remove("oculto");
+
+}
+
+
+
+/* ACTUALIZAR CADA SEGUNDO */
+
+setInterval(
+actualizarContador,
+1000
+);
+
+
+
+/* CORAZONES FLOTANDO */
+
+setInterval(()=>{
+
+const corazon=
+document.createElement("div");
+
+corazon.className="corazon";
+
+corazon.innerHTML="❤️";
+
+corazon.style.left=
+Math.random()*100+"vw";
+
+corazon.style.fontSize=
+(15+Math.random()*25)+"px";
+
+corazon.style.animationDuration=
+(4+Math.random()*4)+"s";
+
+document.body.appendChild(corazon);
+
+setTimeout(()=>{
+
+corazon.remove();
+
+},8000);
+
+},700);
+
 
 </script>
 
