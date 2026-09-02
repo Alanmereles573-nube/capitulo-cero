@@ -1,273 +1,698 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>El Archivo Secreto ❤️</title>
 
-  <title>Día 2 ❤️</title>
+<style>
+* {
+    box-sizing: border-box;
+}
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+body {
+    margin: 0;
+    background: #080808;
+    color: white;
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+}
 
-    body {
-      min-height: 100vh;
-      font-family: Georgia, 'Times New Roman', serif;
-      background: linear-gradient(135deg, #fff0f5, #ffe1eb, #fff7fa);
-      color: #4a2632;
-      padding: 25px 15px 50px;
-    }
+.screen {
+    min-height: 100vh;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+}
 
-    .contenedor {
-      max-width: 700px;
-      margin: auto;
-    }
+.screen.active {
+    display: flex;
+}
 
-    .titulo {
-      text-align: center;
-      margin-bottom: 35px;
-      animation: aparecer 1.5s ease;
-    }
+.box {
+    width: 100%;
+    max-width: 700px;
+    text-align: center;
+}
 
-    .titulo h1 {
-      font-size: 42px;
-      color: #c94f75;
-      margin-bottom: 10px;
-    }
+h1 {
+    font-size: 38px;
+    margin-bottom: 10px;
+}
 
-    .titulo p {
-      font-size: 18px;
-      color: #805060;
-    }
+h2 {
+    font-size: 28px;
+}
 
-    .corazon {
-      font-size: 30px;
-      margin-bottom: 10px;
-      animation: latido 1.5s infinite;
-    }
+p {
+    font-size: 20px;
+    line-height: 1.6;
+}
 
-    .mensaje {
-      background: rgba(255, 255, 255, 0.75);
-      border-radius: 25px;
-      padding: 30px 25px;
-      box-shadow: 0 10px 35px rgba(150, 70, 100, 0.15);
-      margin-bottom: 35px;
-      text-align: center;
-      line-height: 1.8;
-      font-size: 18px;
-    }
+button {
+    background: white;
+    color: black;
+    border: none;
+    padding: 15px 28px;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 10px;
+    cursor: pointer;
+}
 
-    .mensaje strong {
-      color: #c94f75;
-    }
+button:hover {
+    transform: scale(1.04);
+}
 
-    .foto-final {
-      background: white;
-      padding: 12px;
-      border-radius: 25px;
-      box-shadow: 0 15px 45px rgba(120, 50, 80, 0.25);
-      margin-bottom: 30px;
-      animation: aparecer 2s ease;
-    }
+.photo {
+    width: 100%;
+    max-width: 600px;
+    max-height: 500px;
+    object-fit: cover;
+    border-radius: 18px;
+    margin: 20px auto;
+    display: block;
+}
 
-    .foto-final img {
-      width: 100%;
-      display: block;
-      border-radius: 18px;
-    }
+.option {
+    display: block;
+    width: 90%;
+    max-width: 500px;
+    margin: 12px auto;
+}
 
-    .carta {
-      background: #fffaf5;
-      border-radius: 25px;
-      padding: 35px 28px;
-      box-shadow: 0 12px 35px rgba(100, 50, 50, 0.18);
-      position: relative;
-      line-height: 1.9;
-      animation: aparecer 2.5s ease;
-    }
+input {
+    padding: 14px;
+    border-radius: 10px;
+    border: none;
+    font-size: 18px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+}
 
-    .carta::before {
-      content: "❤️";
-      position: absolute;
-      top: -20px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #fffaf5;
-      padding: 5px 15px;
-      border-radius: 50%;
-      font-size: 25px;
-    }
+.error {
+    color: #ff6b6b;
+    margin-top: 15px;
+}
 
-    .carta h2 {
-      text-align: center;
-      color: #c94f75;
-      font-size: 30px;
-      margin-bottom: 25px;
-    }
+.hidden {
+    display: none;
+}
 
-    .carta p {
-      margin-bottom: 18px;
-      font-size: 17px;
-    }
+.final-photo {
+    width: 100%;
+    max-width: 650px;
+    border-radius: 20px;
+    margin: 20px auto;
+}
 
-    .firma {
-      text-align: right;
-      margin-top: 30px;
-      color: #c94f75;
-      font-size: 20px;
-      font-style: italic;
-    }
+.letter {
+    background: #fff;
+    color: #222;
+    padding: 35px;
+    border-radius: 20px;
+    text-align: left;
+    line-height: 1.8;
+    font-size: 18px;
+    box-shadow: 0 0 30px rgba(255,255,255,.15);
+}
 
-    .final {
-      text-align: center;
-      margin-top: 35px;
-      font-size: 16px;
-      color: #9a6878;
-    }
+.heart {
+    font-size: 45px;
+}
 
-    @keyframes aparecer {
-      from {
-        opacity: 0;
-        transform: translateY(25px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes latido {
-      0%, 100% {
-        transform: scale(1);
-      }
-      50% {
-        transform: scale(1.2);
-      }
-    }
-
-    @media (max-width: 500px) {
-      .titulo h1 {
-        font-size: 34px;
-      }
-
-      .mensaje {
-        font-size: 17px;
-        padding: 25px 20px;
-      }
-
-      .carta {
-        padding: 30px 22px;
-      }
-
-      .carta h2 {
-        font-size: 26px;
-      }
-    }
-  </style>
+.small {
+    opacity: .7;
+    font-size: 15px;
+}
+</style>
 </head>
 
 <body>
 
-  <div class="contenedor">
+<!-- INICIO -->
+<section class="screen active" id="inicio">
+<div class="box">
+    <div class="heart">🔐❤️</div>
 
-    <!-- TÍTULO -->
-    <div class="titulo">
-      <div class="corazon">❤️</div>
-      <h1>Día 2</h1>
-      <p>Una pequeña parte de todo lo que siento por vos</p>
-    </div>
+    <h1>EL ARCHIVO SECRETO</h1>
 
+    <p>
+        Hay algo escondido acá...
+    </p>
 
-    <!-- MENSAJE -->
-    <div class="mensaje">
+    <p>
+        Para descubrirlo vas a tener que superar
+        todas las pruebas.
+    </p>
 
-      <p>
-        Hoy no quería darte algo que pudieras guardar en tus manos.
-        <br>
-        Quería darte algo que pudieras guardar en tu corazón. ❤️
-      </p>
+    <p class="small">
+        No te apures. Mirá bien las fotos.
+    </p>
 
-      <br>
-
-      <p>
-        Elegí esta foto porque representa uno de esos momentos
-        que quiero guardar para siempre.
-      </p>
-
-      <br>
-
-      <p>
-        Y esto recién empieza...
-        <br>
-        <strong>Mañana hay una nueva sorpresa para vos. ❤️</strong>
-      </p>
-
-    </div>
+    <button onclick="ir(1)">COMENZAR</button>
+</div>
+</section>
 
 
-    <!-- FOTO PRINCIPAL - VA ÚLTIMA -->
-    <div class="foto-final">
-      <img src="foto-principal.jpg" alt="Un momento especial juntos">
-    </div>
+<!-- NIVEL 1 -->
+<section class="screen" id="nivel1">
+<div class="box">
+
+<h2>🧩 NIVEL 1</h2>
+
+<p>
+Hay una parte de una foto que falta.
+<br>
+¿De qué momento es?
+</p>
+
+<img src="foto1.jpg" class="photo">
+
+<button class="option" onclick="respuesta(1, true)">
+Un momento especial juntos ❤️
+</button>
+
+<button class="option" onclick="respuesta(1, false)">
+Una foto cualquiera
+</button>
+
+<button class="option" onclick="respuesta(1, false)">
+Una salida con amigos
+</button>
+
+<p id="error1" class="error"></p>
+
+</div>
+</section>
 
 
-    <!-- CARTA FINAL -->
-    <div class="carta">
+<!-- NIVEL 2 -->
+<section class="screen" id="nivel2">
+<div class="box">
 
-      <h2>Para vos ❤️</h2>
+<h2>🔎 NIVEL 2</h2>
 
-      <p>
-        Mi amor:
-      </p>
+<p>
+Hay algo escondido en esta foto.
+<br>
+Mirala con atención.
+</p>
 
-      <p>
-        Quería que este día tuviera algo especial, algo que no fuera
-        simplemente un regalo, sino un recuerdo de nosotros.
-      </p>
+<img src="foto2.jpg" class="photo">
 
-      <p>
-        Porque cuando pienso en todo lo que vivimos juntos,
-        me doy cuenta de lo feliz que me hace tenerte a mi lado.
-        Cada momento, cada abrazo, cada risa y hasta esas pequeñas
-        cosas que quizás parecen insignificantes para otros,
-        para mí significan muchísimo.
-      </p>
+<button onclick="mostrarPregunta(2)">
+Creo que lo encontré
+</button>
 
-      <p>
-        Esta foto es solamente una imagen, pero para mí guarda
-        un momento que quiero llevar siempre conmigo.
-        Y espero que cuando la mires también recuerdes
-        todo lo lindo que hemos vivido juntos.
-      </p>
+<div id="pregunta2" class="hidden">
 
-      <p>
-        Te amo muchísimo y quiero seguir creando recuerdos,
-        aventuras, risas y momentos junto a vos.
-      </p>
+<p>
+¿Cuál es el detalle escondido?
+</p>
 
-      <p>
-        Y si pensabas que esto era todo...
-        <br>
-        <strong>recién estamos empezando. ❤️</strong>
-      </p>
+<input id="respuesta2" placeholder="Escribí tu respuesta">
 
-      <div class="firma">
-        Con todo mi amor,<br>
-        tu chico ❤️
-      </div>
+<br>
 
-    </div>
+<button onclick="comprobarTexto(2)">
+COMPROBAR
+</button>
+
+<p id="error2" class="error"></p>
+
+</div>
+
+</div>
+</section>
 
 
-    <div class="final">
-      Día 2 completado ❤️<br>
-      Mañana continúa nuestra historia...
-    </div>
+<!-- NIVEL 3 -->
+<section class="screen" id="nivel3">
+<div class="box">
 
-  </div>
+<h2>🧠 NIVEL 3</h2>
+
+<p>
+Memoria.
+<br>
+Mirá estas fotos durante unos segundos...
+</p>
+
+<img src="foto3.jpg" class="photo">
+
+<button onclick="mostrarPregunta(3)">
+YA LA VI
+</button>
+
+<div id="pregunta3" class="hidden">
+
+<p>
+¿Cuál de estas fotos viste?
+</p>
+
+<button class="option" onclick="respuesta(3,true)">
+📸 La primera
+</button>
+
+<button class="option" onclick="respuesta(3,false)">
+📸 La segunda
+</button>
+
+<button class="option" onclick="respuesta(3,false)">
+📸 La tercera
+</button>
+
+<p id="error3" class="error"></p>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- NIVEL 4 -->
+<section class="screen" id="nivel4">
+<div class="box">
+
+<h2>🔐 NIVEL 4</h2>
+
+<p>
+Una de estas fotos tiene una pista.
+<br>
+Encontrá el código.
+</p>
+
+<img src="foto4.jpg" class="photo">
+
+<input id="codigo4" placeholder="Código">
+
+<br>
+
+<button onclick="comprobarCodigo()">
+DESBLOQUEAR
+</button>
+
+<p id="error4" class="error"></p>
+
+</div>
+</section>
+
+
+<!-- NIVEL 5 -->
+<section class="screen" id="nivel5">
+<div class="box">
+
+<h2>🕵️ NIVEL 5</h2>
+
+<p>
+Solo una de estas fotos continúa la historia.
+</p>
+
+<button class="option" onclick="respuesta(5,false)">
+📸 Foto A
+</button>
+
+<button class="option" onclick="respuesta(5,true)">
+📸 Foto B ❤️
+</button>
+
+<button class="option" onclick="respuesta(5,false)">
+📸 Foto C
+</button>
+
+<p id="error5" class="error"></p>
+
+</div>
+</section>
+
+
+<!-- NIVEL 6 -->
+<section class="screen" id="nivel6">
+<div class="box">
+
+<h2>❤️ NIVEL 6</h2>
+
+<img src="foto6.jpg" class="photo">
+
+<p>
+Hay momentos que parecen simples...
+pero nosotros sabemos lo que significan.
+</p>
+
+<p>
+¿Qué sentiste ese día?
+</p>
+
+<button class="option" onclick="respuesta(6,true)">
+Que estaba feliz de estar con vos ❤️
+</button>
+
+<button class="option" onclick="respuesta(6,false)">
+Nada especial
+</button>
+
+<p id="error6" class="error"></p>
+
+</div>
+</section>
+
+
+<!-- NIVEL 7 -->
+<section class="screen" id="nivel7">
+<div class="box">
+
+<h2>🧩 NIVEL 7</h2>
+
+<p>
+Ordená estos momentos desde el más antiguo
+hasta el más reciente.
+</p>
+
+<button class="option" onclick="respuesta(7,true)">
+1 → 2 → 3 → 4
+</button>
+
+<button class="option" onclick="respuesta(7,false)">
+4 → 2 → 1 → 3
+</button>
+
+<button class="option" onclick="respuesta(7,false)">
+2 → 4 → 3 → 1
+</button>
+
+<p id="error7" class="error"></p>
+
+</div>
+</section>
+
+
+<!-- NIVEL 8 -->
+<section class="screen" id="nivel8">
+<div class="box">
+
+<h2>🎯 NIVEL 8</h2>
+
+<p>
+Encontrá las diferencias.
+</p>
+
+<img src="foto8.jpg" class="photo">
+
+<p>
+¿Cuántas diferencias encontraste?
+</p>
+
+<button onclick="respuesta(8,true)">
+3 ❤️
+</button>
+
+<button onclick="respuesta(8,false)">
+1
+</button>
+
+<button onclick="respuesta(8,false)">
+7
+</button>
+
+<p id="error8" class="error"></p>
+
+</div>
+</section>
+
+
+<!-- NIVEL 9 -->
+<section class="screen" id="nivel9">
+<div class="box">
+
+<h2>🔒 NIVEL 9</h2>
+
+<p>
+Juntá las respuestas que conseguiste
+durante todo el juego.
+</p>
+
+<p>
+Necesitás una contraseña.
+</p>
+
+<input id="password" placeholder="Contraseña">
+
+<br>
+
+<button onclick="comprobarPassword()">
+ABRIR ARCHIVO
+</button>
+
+<p id="error9" class="error"></p>
+
+</div>
+</section>
+
+
+<!-- NIVEL 10 -->
+<section class="screen" id="nivel10">
+<div class="box">
+
+<h2>🚪 NIVEL 10</h2>
+
+<p>
+Última pantalla desbloqueada.
+</p>
+
+<p>
+¿Estás segura de que querés continuar?
+</p>
+
+<button onclick="finalJuego()">
+ABRIR
+</button>
+
+</div>
+</section>
+
+
+<!-- FINAL -->
+<section class="screen" id="final">
+
+<div class="box">
+
+<div class="heart">❤️</div>
+
+<h1>Terminaste el juego.</h1>
+
+<!-- FOTO PRINCIPAL QUE ME MANDASTE -->
+<img src="foto-final.jpg" class="final-photo">
+
+<div class="letter">
+
+<p>
+<strong>Pero en realidad, nunca se trató solamente de ganar.</strong>
+</p>
+
+<p>
+Quería que durante unos minutos volvieras a mirar
+algunos momentos que vivimos juntos.
+</p>
+
+<p>
+Cada foto, cada recuerdo y cada pequeña pista
+forman parte de nuestra historia.
+</p>
+
+<p>
+Y si llegaste hasta acá...
+ahora quiero mostrarte algo que no estaba
+escondido en ninguna de las pruebas.
+</p>
+
+<p>
+❤️
+</p>
+
+<p>
+Quiero que sepas que te amo muchísimo,
+y que cada momento que compartimos significa
+muchísimo para mí.
+</p>
+
+<p>
+Gracias por estar conmigo, por cada sonrisa,
+cada abrazo, cada salida y cada recuerdo.
+</p>
+
+<p>
+Esto recién es una pequeña parte
+de todo lo que todavía quiero vivir con vos.
+</p>
+
+<p>
+<strong>
+Feliz cumpleaños, mi amor. ❤️
+</strong>
+</p>
+
+<p>
+Con todo mi amor,
+<br>
+<strong>yo ❤️</strong>
+</p>
+
+</div>
+
+<br>
+
+<h1>❤️ ENTREGA 2 ❤️</h1>
+
+<p>
+Esto todavía no termina...
+</p>
+
+</div>
+
+</section>
+
+
+<script>
+
+let nivelActual = 0;
+
+function ir(nivel) {
+
+    document.querySelectorAll(".screen")
+    .forEach(s => s.classList.remove("active"));
+
+    document.getElementById("nivel" + nivel)
+    .classList.add("active");
+
+    nivelActual = nivel;
+
+    window.scrollTo(0,0);
+}
+
+
+function respuesta(nivel, correcta) {
+
+    if(correcta) {
+
+        setTimeout(() => {
+
+            if(nivel < 10) {
+                ir(nivel + 1);
+            }
+
+        }, 500);
+
+    } else {
+
+        document.getElementById("error" + nivel).innerText =
+        "Mmm... esa no es 😭 Mirá bien e intentá otra vez.";
+
+    }
+
+}
+
+
+function mostrarPregunta(nivel) {
+
+    document.getElementById("pregunta" + nivel)
+    .classList.remove("hidden");
+
+}
+
+
+function comprobarTexto(nivel) {
+
+    let respuesta =
+    document.getElementById("respuesta2").value
+    .toLowerCase()
+    .trim();
+
+    /*
+       CAMBIÁ "amor" POR LA RESPUESTA
+       QUE QUIERAS USAR EN ESTA PRUEBA.
+    */
+
+    if(respuesta === "amor") {
+
+        ir(3);
+
+    } else {
+
+        document.getElementById("error2").innerText =
+        "No es esa... fijate nuevamente en la foto ❤️";
+
+    }
+
+}
+
+
+function comprobarCodigo() {
+
+    /*
+       CAMBIÁ 2209 POR EL CÓDIGO QUE
+       QUIERAS ESCONDER EN LA FOTO.
+    */
+
+    let codigo =
+    document.getElementById("codigo4").value.trim();
+
+    if(codigo === "2209") {
+
+        ir(5);
+
+    } else {
+
+        document.getElementById("error4").innerText =
+        "Código incorrecto 🔐";
+
+    }
+
+}
+
+
+function comprobarPassword() {
+
+    /*
+       ESTA ES LA CONTRASEÑA FINAL.
+       PODÉS CAMBIARLA.
+    */
+
+    let password =
+    document.getElementById("password").value
+    .toLowerCase()
+    .trim();
+
+    if(password === "camila") {
+
+        ir(10);
+
+    } else {
+
+        document.getElementById("error9").innerText =
+        "Todavía no... juntá bien todas las pistas ❤️";
+
+    }
+
+}
+
+
+function finalJuego() {
+
+    document.querySelectorAll(".screen")
+    .forEach(s => s.classList.remove("active"));
+
+    document.getElementById("final")
+    .classList.add("active");
+
+    window.scrollTo(0,0);
+
+}
+
+</script>
 
 </body>
 </html>
