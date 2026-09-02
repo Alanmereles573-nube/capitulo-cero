@@ -1,698 +1,120 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Una sorpresa para vos ❤️</title>
+<!-- CIERRE DEL DÍA 2 -->
+<section class="dia-terminado">
+
+    <div class="corazon-grande">❤️</div>
+
+    <h1>Día 2 terminado</h1>
+
+    <p>
+        Si llegaste hasta acá...
+    </p>
+
+    <p>
+        quiero que sepas que todo lo que viste hoy,
+        cada palabra, cada foto y cada pequeño detalle,
+        fue preparado con muchísimo amor y pensando en vos.
+    </p>
+
+    <p>
+        Quizás algunas cosas parezcan simples,
+        pero detrás de cada una hay un pedacito de mí
+        y de todo lo que siento por vos. 🥹
+    </p>
+
+    <p class="especial">
+        Gracias por ser parte de mi historia.
+        ❤️
+    </p>
+
+    <div class="separador">✦</div>
+
+    <h2>Nos vemos mañana...</h2>
+
+    <p class="final-dia">
+        Esto recién empieza. 👀❤️
+    </p>
+
+    <div class="contador-final">
+        DÍA 2/22 ✓
+    </div>
+
+</section>
 
 <style>
-*{
-  box-sizing:border-box;
+
+.dia-terminado {
+    min-height: 100vh;
+    padding: 70px 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background:
+        radial-gradient(circle at center, #24101b 0%, #0d0a10 55%, #050507 100%);
+    color: white;
 }
 
-body{
-  margin:0;
-  min-height:100vh;
-  background:#050505;
-  color:white;
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+.corazon-grande {
+    font-size: 65px;
+    margin-bottom: 20px;
+    animation: latido 1.8s infinite;
 }
 
-.screen{
-  min-height:100vh;
-  display:none;
-  align-items:center;
-  justify-content:center;
-  padding:25px 18px;
-  text-align:center;
+.dia-terminado h1 {
+    font-size: clamp(35px, 8vw, 55px);
+    margin-bottom: 30px;
 }
 
-.screen.active{
-  display:flex;
+.dia-terminado p {
+    max-width: 650px;
+    font-size: 18px;
+    line-height: 1.8;
+    color: rgba(255,255,255,.85);
+    margin-bottom: 20px;
 }
 
-.card{
-  width:min(720px,100%);
-  padding:30px 22px;
-  border-radius:28px;
-  background:linear-gradient(145deg,#181818,#080808);
-  border:1px solid rgba(255,255,255,.12);
-  box-shadow:0 20px 80px rgba(255,40,90,.15);
+.dia-terminado .especial {
+    color: #ffb6c7;
+    font-size: 21px;
+    margin-top: 10px;
 }
 
-h1{
-  font-size:clamp(30px,8vw,58px);
-  margin:0 0 15px;
+.separador {
+    font-size: 28px;
+    margin: 20px 0;
+    color: #ff9db5;
 }
 
-h2{
-  font-size:clamp(25px,7vw,42px);
+.dia-terminado h2 {
+    font-size: 28px;
+    font-weight: 400;
+    margin-bottom: 10px;
 }
 
-p{
-  font-size:18px;
-  line-height:1.6;
-  color:#ddd;
+.final-dia {
+    font-style: italic;
 }
 
-.small{
-  font-size:14px;
-  color:#aaa;
+.contador-final {
+    margin-top: 30px;
+    padding: 12px 25px;
+    border: 1px solid rgba(255,255,255,.2);
+    border-radius: 50px;
+    background: rgba(255,255,255,.05);
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: rgba(255,255,255,.65);
 }
 
-button{
-  border:0;
-  border-radius:999px;
-  padding:15px 25px;
-  margin-top:16px;
-  background:white;
-  color:#111;
-  font-weight:800;
-  font-size:16px;
-  cursor:pointer;
+@keyframes latido {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
 }
 
-.answers{
-  display:grid;
-  gap:12px;
-  margin-top:20px;
-}
-
-.answers button{
-  margin:0;
-  background:#171717;
-  color:white;
-  border:1px solid #333;
-}
-
-.answers button:hover{
-  background:#292929;
-}
-
-.question{
-  font-size:25px;
-  font-weight:800;
-  margin:18px 0;
-}
-
-.level{
-  font-size:13px;
-  letter-spacing:2px;
-  text-transform:uppercase;
-  color:#ff6f91;
-}
-
-.photo-wrap{
-  margin:25px auto;
-  width:min(550px,100%);
-  border-radius:22px;
-  overflow:hidden;
-  box-shadow:0 18px 50px rgba(0,0,0,.6);
-}
-
-.photo-wrap img{
-  width:100%;
-  display:block;
-}
-
-.photo-grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:10px;
-  margin-top:20px;
-}
-
-.photo-grid img{
-  width:100%;
-  aspect-ratio:1/1;
-  object-fit:cover;
-  border-radius:16px;
-}
-
-.letter{
-  text-align:left;
-  background:white;
-  color:#171717;
-  border-radius:22px;
-  padding:25px;
-  margin-top:25px;
-  line-height:1.7;
-}
-
-.letter p{
-  color:#222;
-}
-
-.big{
-  font-size:clamp(35px,10vw,65px);
-  font-weight:900;
-}
-
-.heart{
-  font-size:60px;
-  animation:pulse 1.3s infinite;
-}
-
-@keyframes pulse{
-  50%{
-    transform:scale(1.15);
-  }
-}
-
-.fade{
-  animation:fade .6s ease;
-}
-
-@keyframes fade{
-  from{
-    opacity:0;
-    transform:translateY(10px);
-  }
-  to{
-    opacity:1;
-    transform:none;
-  }
-}
 </style>
-</head>
-
-<body>
-
-<!-- INICIO -->
-
-<section class="screen active" id="s0">
-<div class="card fade">
-
-<div class="heart">❤️</div>
-
-<h1>Tengo algo para vos...</h1>
-
-<p>
-Pero antes vas a tener que superar un pequeño juego 😏
-</p>
-
-<p class="small">
-Llegá hasta el final y descubrí lo que preparé.
-</p>
-
-<button onclick="go(1)">
-EMPEZAR ❤️
-</button>
-
-</div>
-</section>
-
-
-<!-- NIVEL 1 -->
-
-<section class="screen" id="s1">
-<div class="card">
-
-<div class="level">Nivel 1</div>
-
-<div class="question">
-¿Qué es lo que más me gusta de nosotros?
-</div>
-
-<div class="answers">
-
-<button onclick="correct(1)">
-Los momentos que vivimos juntos ❤️
-</button>
-
-<button onclick="wrong(this)">
-Ganar siempre
-</button>
-
-<button onclick="wrong(this)">
-Tener razón
-</button>
-
-</div>
-</div>
-</section>
-
-
-<!-- NIVEL 2 -->
-
-<section class="screen" id="s2">
-<div class="card">
-
-<div class="level">Nivel 2</div>
-
-<div class="question">
-Elegí la palabra que mejor nos representa.
-</div>
-
-<div class="answers">
-
-<button onclick="wrong(this)">
-Casualidad
-</button>
-
-<button onclick="correct(2)">
-Compañeros ❤️
-</button>
-
-<button onclick="wrong(this)">
-Competencia
-</button>
-
-</div>
-</div>
-</section>
-
-
-<!-- NIVEL 3 -->
-
-<section class="screen" id="s3">
-<div class="card">
-
-<div class="level">Nivel 3</div>
-
-<div class="question">
-Dos personas + muchísimos recuerdos =
-</div>
-
-<div class="answers">
-
-<button onclick="correct(3)">
-Una historia que todavía se está escribiendo ✨
-</button>
-
-<button onclick="wrong(this)">
-Fin del juego
-</button>
-
-</div>
-</div>
-</section>
-
-
-<!-- NIVEL 4 -->
-
-<section class="screen" id="s4">
-<div class="card">
-
-<div class="level">Nivel 4</div>
-
-<div class="question">
-¿Cuál de estas cosas vale más?
-</div>
-
-<div class="answers">
-
-<button onclick="wrong(this)">
-Un regalo caro
-</button>
-
-<button onclick="wrong(this)">
-Una foto perfecta
-</button>
-
-<button onclick="correct(4)">
-El momento que compartimos ❤️
-</button>
-
-</div>
-</div>
-</section>
-
-
-<!-- NIVEL 5 -->
-
-<section class="screen" id="s5">
-<div class="card">
-
-<div class="level">Nivel 5</div>
-
-<div class="question">
-🔓 Pista desbloqueada
-</div>
-
-<p>
-Hay recuerdos que no necesitan explicación.
-<br><br>
-Solo hace falta volver a mirarlos.
-</p>
-
-<button onclick="go(6)">
-SIGUIENTE
-</button>
-
-</div>
-</section>
-
-
-<!-- NIVEL 6 -->
-
-<section class="screen" id="s6">
-<div class="card">
-
-<div class="level">Nivel 6</div>
-
-<div class="question">
-Elegí el recuerdo correcto.
-</div>
-
-<div class="answers">
-
-<button onclick="correct(6)">
-Nosotros dos haciendo cualquier cosa y pasándola bien ❤️
-</button>
-
-<button onclick="wrong(this)">
-Un día cualquiera
-</button>
-
-</div>
-
-</div>
-</section>
-
-
-<!-- NIVEL 7 -->
-
-<section class="screen" id="s7">
-<div class="card">
-
-<div class="level">Nivel 7</div>
-
-<div class="question">
-Ordená los recuerdos en tu cabeza.
-</div>
-
-<p>
-Primero conocernos.
-<br>
-Después vivir cosas juntos.
-<br>
-Y después...
-<br>
-<b>seguir sumando momentos.</b> ❤️
-</p>
-
-<button onclick="go(8)">
-LO ENTENDÍ
-</button>
-
-</div>
-</section>
-
-
-<!-- NIVEL 8 -->
-
-<section class="screen" id="s8">
-<div class="card">
-
-<div class="level">Nivel 8</div>
-
-<div class="question">
-Encontrá la diferencia entre estas dos fotos.
-</div>
-
-<div class="photo-grid">
-
-<img src="IMG_5823(2).jpeg">
-
-<img src="IMG_7888(1).jpeg">
-
-</div>
-
-<p class="small">
-Hay muchas diferencias...
-pero las dos tienen algo en común:
-<br>
-<b>nosotros.</b> ❤️
-</p>
-
-<button onclick="go(9)">
-ENCONTRÉ LA RESPUESTA
-</button>
-
-</div>
-</section>
-
-
-<!-- NIVEL 9 -->
-
-<section class="screen" id="s9">
-<div class="card">
-
-<div class="level">Nivel 9</div>
-
-<div class="question">
-Juntá todas las respuestas anteriores.
-</div>
-
-<p>
-La contraseña es:
-</p>
-
-<div class="big">
-NOSOTROS
-</div>
-
-<button onclick="go(10)">
-DESBLOQUEAR 🔓
-</button>
-
-</div>
-</section>
-
-
-<!-- NIVEL 10 -->
-
-<section class="screen" id="s10">
-<div class="card">
-
-<div class="level">Nivel 10</div>
-
-<div class="question">
-🔓 Última pantalla
-</div>
-
-<p>
-Llegaste hasta el final...
-</p>
-
-<p>
-Y ahora viene
-<b>EL GIRO.</b>
-</p>
-
-<button onclick="reveal()">
-ABRIR ❤️
-</button>
-
-</div>
-</section>
-
-
-<!-- FINAL -->
-
-<section class="screen" id="final">
-
-<div class="card fade">
-
-<div class="level">
-EL GIRO
-</div>
-
-<h2>
-Terminaste el juego ❤️
-</h2>
-
-<p>
-Pero en realidad, nunca se trató solamente de ganar.
-</p>
-
-<!-- FOTO PRINCIPAL -->
-
-<div class="photo-wrap">
-
-<img src="IMG_5932(2).jpeg">
-
-</div>
-
-
-<!-- CARTA -->
-
-<div class="letter">
-
-<p>
-<b>“Terminaste el juego.”</b>
-</p>
-
-<p>
-<b>
-“Pero en realidad, nunca se trató solamente de ganar.”
-</b>
-</p>
-
-<p>
-“Quería que durante unos minutos volvieras a mirar algunos momentos que vivimos juntos.”
-</p>
-
-<p>
-“Porque cada foto guarda un pedacito de nuestra historia.”
-</p>
-
-<p>
-“Y si llegaste hasta acá, ahora quiero mostrarte algo...”
-</p>
-
-</div>
-
-
-<!-- ENTREGA 2 -->
-
-<h2>
-❤️ ENTREGA 2 ❤️
-</h2>
-
-<p>
-Esto es para vos.
-</p>
-
-
-<!-- TODAS LAS FOTOS -->
-
-<div class="photo-grid">
-
-<img src="IMG_7526(1).jpeg">
-
-<img src="IMG_5932(2).jpeg">
-
-<img src="IMG_8146(1).jpeg">
-
-<img src="IMG_5823(2).jpeg">
-
-<img src="IMG_7635.jpeg">
-
-<img src="IMG_8356(1).jpeg">
-
-<img src="IMG_7605.jpeg">
-
-<img src="IMG_5895(2).jpeg">
-
-</div>
-
-
-<!-- CARTA FINAL -->
-
-<div class="letter">
-
-<p>
-<b>Mi amor ❤️</b>
-</p>
-
-<p>
-Si llegaste hasta acá, quiero que sepas que cada una de estas fotos tiene un pedacito de nuestra historia.
-</p>
-
-<p>
-Algunas son lindas, otras son graciosas y otras simplemente somos nosotros siendo nosotros.
-</p>
-
-<p>
-No quería darte solamente una foto.
-Quería hacerte vivir unos minutos de recuerdos, volver a esos momentos y recordarte todo lo lindo que vivimos juntos.
-</p>
-
-<p>
-Gracias por cada risa, cada abrazo, cada salida, cada locura y cada momento que compartimos.
-</p>
-
-<p>
-Y ojalá esto sea solamente una pequeña parte de todos los recuerdos que todavía nos quedan por crear.
-</p>
-
-<p>
-Porque si hay algo que tengo claro es que quiero seguir viviendo muchísimos momentos más con vos.
-</p>
-
-<p style="text-align:center;font-size:25px;">
-<b>
-Te amo muchísimo ❤️
-</b>
-</p>
-
-<p style="text-align:center;">
-Y esto recién empieza...
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-
-<script>
-
-function hideAll(){
-
-document.querySelectorAll(".screen").forEach(function(screen){
-
-screen.classList.remove("active");
-
-});
-
-}
-
-
-function go(n){
-
-hideAll();
-
-document.getElementById("s"+n).classList.add("active");
-
-window.scrollTo({
-top:0,
-behavior:"smooth"
-});
-
-}
-
-
-function correct(n){
-
-hideAll();
-
-document.getElementById("s"+(n+1)).classList.add("active");
-
-window.scrollTo({
-top:0,
-behavior:"smooth"
-});
-
-}
-
-
-function wrong(button){
-
-button.style.opacity="0.5";
-
-button.innerHTML="Casi... 😏 Probá otra vez";
-
-}
-
-
-function reveal(){
-
-hideAll();
-
-document.getElementById("final").classList.add("active");
-
-window.scrollTo({
-top:0,
-behavior:"smooth"
-});
-
-}
-
-</script>
-
-</body>
-</html>
