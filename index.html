@@ -1,1103 +1,273 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Para Camila ❤️</title>
+  <title>Día 2 ❤️</title>
 
-<style>
-
-*{
-    box-sizing:border-box;
-}
-
-body{
-    margin:0;
-    min-height:100vh;
-    font-family:Arial,sans-serif;
-    color:white;
-    background:
-    radial-gradient(circle at top,#ffb6c9,#ff6f91 45%,#8e3150);
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    overflow:hidden;
-}
-
-body:before{
-    content:"";
-    position:fixed;
-    inset:0;
-    background-image:
-    radial-gradient(circle,rgba(255,255,255,.25) 2px,transparent 2px);
-    background-size:35px 35px;
-    opacity:.35;
-    pointer-events:none;
-}
-
-.caja{
-    width:92%;
-    max-width:650px;
-    max-height:92vh;
-    overflow:auto;
-    padding:35px 25px;
-    text-align:center;
-    border-radius:30px;
-    background:rgba(255,255,255,.14);
-    backdrop-filter:blur(18px);
-    box-shadow:0 20px 60px rgba(0,0,0,.3);
-    position:relative;
-}
-
-h1{
-    font-size:36px;
-    margin:5px 0 15px;
-}
-
-p{
-    font-size:18px;
-    line-height:1.6;
-}
-
-button{
-    border:0;
-    border-radius:30px;
-    padding:15px 28px;
-    margin-top:18px;
-    font-size:17px;
-    font-weight:bold;
-    color:#d83e68;
-    background:white;
-    cursor:pointer;
-    transition:.25s;
-}
-
-button:hover{
-    transform:scale(1.06);
-}
-
-input{
-    width:85%;
-    max-width:330px;
-    padding:14px;
-    border:0;
-    border-radius:25px;
-    text-align:center;
-    font-size:17px;
-    outline:none;
-    margin-top:10px;
-}
-
-.oculto{
-    display:none;
-}
-
-.pista{
-    padding:20px;
-    margin:20px 0;
-    border-radius:20px;
-    background:rgba(255,255,255,.13);
-}
-
-.error{
-    font-weight:bold;
-    min-height:25px;
-}
-
-.letras{
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    gap:12px;
-    margin:25px 0;
-}
-
-.letra{
-    width:55px;
-    height:55px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    border-radius:50%;
-    background:white;
-    color:#e44c76;
-    font-size:23px;
-    font-weight:bold;
-    cursor:pointer;
-    transition:.25s;
-}
-
-.letra:hover{
-    transform:scale(1.15);
-}
-
-.contador{
-    display:flex;
-    justify-content:center;
-    gap:12px;
-    flex-wrap:wrap;
-    margin:25px 0;
-}
-
-.tiempo{
-    min-width:90px;
-    padding:18px 10px;
-    border-radius:20px;
-    background:rgba(255,255,255,.18);
-}
-
-.numero{
-    font-size:42px;
-    font-weight:bold;
-}
-
-.nombre{
-    font-size:12px;
-    margin-top:5px;
-}
-
-.tarjeta{
-    background:rgba(255,255,255,.12);
-    border-radius:20px;
-    padding:20px;
-    margin:18px 0;
-}
-
-.final{
-    animation:aparecer 1.5s ease;
-}
-
-@keyframes aparecer{
-
-    from{
-        opacity:0;
-        transform:scale(.6);
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
-    to{
-        opacity:1;
-        transform:scale(1);
+    body {
+      min-height: 100vh;
+      font-family: Georgia, 'Times New Roman', serif;
+      background: linear-gradient(135deg, #fff0f5, #ffe1eb, #fff7fa);
+      color: #4a2632;
+      padding: 25px 15px 50px;
     }
 
-}
-
-.corazon{
-    position:fixed;
-    bottom:-30px;
-    pointer-events:none;
-    animation:subir linear forwards;
-    opacity:.8;
-}
-
-@keyframes subir{
-
-    to{
-        transform:translateY(-110vh) rotate(360deg);
-        opacity:0;
+    .contenedor {
+      max-width: 700px;
+      margin: auto;
     }
 
-}
+    .titulo {
+      text-align: center;
+      margin-bottom: 35px;
+      animation: aparecer 1.5s ease;
+    }
 
-.pequeno{
-    font-size:14px;
-    opacity:.8;
-}
+    .titulo h1 {
+      font-size: 42px;
+      color: #c94f75;
+      margin-bottom: 10px;
+    }
 
-</style>
+    .titulo p {
+      font-size: 18px;
+      color: #805060;
+    }
+
+    .corazon {
+      font-size: 30px;
+      margin-bottom: 10px;
+      animation: latido 1.5s infinite;
+    }
+
+    .mensaje {
+      background: rgba(255, 255, 255, 0.75);
+      border-radius: 25px;
+      padding: 30px 25px;
+      box-shadow: 0 10px 35px rgba(150, 70, 100, 0.15);
+      margin-bottom: 35px;
+      text-align: center;
+      line-height: 1.8;
+      font-size: 18px;
+    }
+
+    .mensaje strong {
+      color: #c94f75;
+    }
+
+    .foto-final {
+      background: white;
+      padding: 12px;
+      border-radius: 25px;
+      box-shadow: 0 15px 45px rgba(120, 50, 80, 0.25);
+      margin-bottom: 30px;
+      animation: aparecer 2s ease;
+    }
+
+    .foto-final img {
+      width: 100%;
+      display: block;
+      border-radius: 18px;
+    }
+
+    .carta {
+      background: #fffaf5;
+      border-radius: 25px;
+      padding: 35px 28px;
+      box-shadow: 0 12px 35px rgba(100, 50, 50, 0.18);
+      position: relative;
+      line-height: 1.9;
+      animation: aparecer 2.5s ease;
+    }
+
+    .carta::before {
+      content: "❤️";
+      position: absolute;
+      top: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #fffaf5;
+      padding: 5px 15px;
+      border-radius: 50%;
+      font-size: 25px;
+    }
+
+    .carta h2 {
+      text-align: center;
+      color: #c94f75;
+      font-size: 30px;
+      margin-bottom: 25px;
+    }
+
+    .carta p {
+      margin-bottom: 18px;
+      font-size: 17px;
+    }
+
+    .firma {
+      text-align: right;
+      margin-top: 30px;
+      color: #c94f75;
+      font-size: 20px;
+      font-style: italic;
+    }
+
+    .final {
+      text-align: center;
+      margin-top: 35px;
+      font-size: 16px;
+      color: #9a6878;
+    }
+
+    @keyframes aparecer {
+      from {
+        opacity: 0;
+        transform: translateY(25px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes latido {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.2);
+      }
+    }
+
+    @media (max-width: 500px) {
+      .titulo h1 {
+        font-size: 34px;
+      }
+
+      .mensaje {
+        font-size: 17px;
+        padding: 25px 20px;
+      }
+
+      .carta {
+        padding: 30px 22px;
+      }
+
+      .carta h2 {
+        font-size: 26px;
+      }
+    }
+  </style>
 </head>
-
 
 <body>
 
+  <div class="contenedor">
 
-<div class="caja">
+    <!-- TÍTULO -->
+    <div class="titulo">
+      <div class="corazon">❤️</div>
+      <h1>Día 2</h1>
+      <p>Una pequeña parte de todo lo que siento por vos</p>
+    </div>
 
 
-<!-- INICIO -->
+    <!-- MENSAJE -->
+    <div class="mensaje">
 
-<section id="n1">
+      <p>
+        Hoy no quería darte algo que pudieras guardar en tus manos.
+        <br>
+        Quería darte algo que pudieras guardar en tu corazón. ❤️
+      </p>
 
-<h1>💌 Hola, Camila</h1>
+      <br>
 
-<p>
-Si llegaste hasta acá...
-es porque hay algo preparado especialmente para vos.
-</p>
+      <p>
+        Elegí esta foto porque representa uno de esos momentos
+        que quiero guardar para siempre.
+      </p>
 
-<p>
-Pero no voy a dejar que lo descubras
-tan fácilmente. 😏❤️
-</p>
+      <br>
 
-<p>
-Vas a tener que superar algunas pruebas.
-</p>
+      <p>
+        Y esto recién empieza...
+        <br>
+        <strong>Mañana hay una nueva sorpresa para vos. ❤️</strong>
+      </p>
 
-<button onclick="ir(1)">
-COMENZAR 🔐
-</button>
+    </div>
 
-</section>
 
+    <!-- FOTO PRINCIPAL - VA ÚLTIMA -->
+    <div class="foto-final">
+      <img src="foto-principal.jpg" alt="Un momento especial juntos">
+    </div>
 
 
-<!-- NIVEL 1 -->
+    <!-- CARTA FINAL -->
+    <div class="carta">
 
-<section id="n2" class="oculto">
+      <h2>Para vos ❤️</h2>
 
-<h1>🔎 NIVEL 1</h1>
+      <p>
+        Mi amor:
+      </p>
 
-<p>
-Hay una palabra escondida.
-</p>
+      <p>
+        Quería que este día tuviera algo especial, algo que no fuera
+        simplemente un regalo, sino un recuerdo de nosotros.
+      </p>
 
-<p>
-Tocá las letras en el orden correcto.
-</p>
+      <p>
+        Porque cuando pienso en todo lo que vivimos juntos,
+        me doy cuenta de lo feliz que me hace tenerte a mi lado.
+        Cada momento, cada abrazo, cada risa y hasta esas pequeñas
+        cosas que quizás parecen insignificantes para otros,
+        para mí significan muchísimo.
+      </p>
 
-<div class="letras">
+      <p>
+        Esta foto es solamente una imagen, pero para mí guarda
+        un momento que quiero llevar siempre conmigo.
+        Y espero que cuando la mires también recuerdes
+        todo lo lindo que hemos vivido juntos.
+      </p>
 
-<span class="letra" onclick="letra('A')">A</span>
+      <p>
+        Te amo muchísimo y quiero seguir creando recuerdos,
+        aventuras, risas y momentos junto a vos.
+      </p>
 
-<span class="letra" onclick="letra('M')">M</span>
+      <p>
+        Y si pensabas que esto era todo...
+        <br>
+        <strong>recién estamos empezando. ❤️</strong>
+      </p>
 
-<span class="letra" onclick="letra('O')">O</span>
+      <div class="firma">
+        Con todo mi amor,<br>
+        tu chico ❤️
+      </div>
 
-<span class="letra" onclick="letra('R')">R</span>
+    </div>
 
-<span class="letra" onclick="letra('T')">T</span>
 
-<span class="letra" onclick="letra('X')">X</span>
+    <div class="final">
+      Día 2 completado ❤️<br>
+      Mañana continúa nuestra historia...
+    </div>
 
-</div>
-
-<p id="r1"></p>
-
-</section>
-
-
-
-<!-- NIVEL 2 -->
-
-<section id="n3" class="oculto">
-
-<h1>🌊 NIVEL 2</h1>
-
-<p>
-Primera pista importante.
-</p>
-
-<div class="pista">
-
-🌊 Cerca del río.<br><br>
-
-🌳 Un lugar para caminar.<br><br>
-
-❤️ Un lugar que guarda recuerdos.
-
-</div>
-
-<p>
-¿Dónde te lleva esta pista?
-</p>
-
-<input
-id="resp3"
-placeholder="Escribí el lugar"
->
-
-<br>
-
-<button onclick="nivel3()">
-CONTINUAR
-</button>
-
-<p id="e3" class="error"></p>
-
-</section>
-
-
-
-<!-- NIVEL 3 -->
-
-<section id="n4" class="oculto">
-
-<h1>📅 NIVEL 3</h1>
-
-<p>
-Hay una fecha que tiene
-un significado especial.
-</p>
-
-<div class="tarjeta">
-
-❤️ 10 / 10 ❤️
-
-</div>
-
-<p>
-Escribí la fecha completa.
-</p>
-
-<input
-id="resp4"
-placeholder="Ej: 10 de octubre"
->
-
-<br>
-
-<button onclick="nivel4()">
-DESBLOQUEAR 🔐
-</button>
-
-<p id="e4" class="error"></p>
-
-</section>
-
-
-
-<!-- NIVEL 4 -->
-
-<section id="n5" class="oculto">
-
-<h1>🎵 NIVEL 4</h1>
-
-<p>
-Hay dos canciones escondidas
-en esta historia.
-</p>
-
-<div class="tarjeta">
-
-🎵 BOKeTE
-
-</div>
-
-<div class="tarjeta">
-
-🎵 BABYSITA
-
-</div>
-
-<p>
-No necesitás escribir los nombres.
-</p>
-
-<p>
-Pensá en lo que significan
-para nosotros. ❤️
-</p>
-
-<button onclick="nivel5()">
-YA LO PENSÉ ❤️
-</button>
-
-</section>
-
-
-
-<!-- NIVEL 5 -->
-
-<section id="n6" class="oculto">
-
-<h1>😂 NIVEL 5</h1>
-
-<p>
-Ahora viene una prueba
-que seguramente te va a sacar una sonrisa.
-</p>
-
-<div class="pista">
-
-Alguien intentaba hablar
-un idioma...
-
-<br><br>
-
-Y cuando conseguía decir algo,
-se emocionaba muchísimo. 😂❤️
-
-</div>
-
-<p>
-¿Qué idioma era?
-</p>
-
-<input
-id="resp6"
-placeholder="Escribilo"
->
-
-<br>
-
-<button onclick="nivel6()">
-CONTINUAR 😂
-</button>
-
-<p id="e6" class="error"></p>
-
-</section>
-
-
-
-<!-- NIVEL 6 -->
-
-<section id="n7" class="oculto">
-
-<h1>🧠 NIVEL 6</h1>
-
-<p>
-De todas estas palabras...
-</p>
-
-<p>
-¿Cuál describe mejor
-lo que está pasando?
-</p>
-
-<div>
-
-<button onclick="respuesta7('espera')">
-ESPERA
-</button>
-
-<button onclick="respuesta7('sorpresa')">
-SORPRESA
-</button>
-
-<button onclick="respuesta7('regalo')">
-REGALO
-</button>
-
-</div>
-
-<p id="r7"></p>
-
-</section>
-
-
-
-<!-- NIVEL 7 -->
-
-<section id="n8" class="oculto">
-
-<h1>🔐 NIVEL 7</h1>
-
-<p>
-La siguiente contraseña
-está relacionada con algo
-que seguramente te gusta.
-</p>
-
-<p>
-No es una fecha.
-</p>
-
-<p>
-No es un lugar.
-</p>
-
-<p>
-No es una canción.
-</p>
-
-<input
-id="resp8"
-placeholder="Escribí la contraseña"
->
-
-<br>
-
-<button onclick="nivel8()">
-ABRIR 🔓
-</button>
-
-<p id="e8" class="error"></p>
-
-</section>
-
-
-
-<!-- NIVEL 8 -->
-
-<section id="n9" class="oculto">
-
-<h1>❤️ NIVEL 8</h1>
-
-<p>
-Llegaste bastante lejos...
-</p>
-
-<div class="tarjeta">
-
-No todo lo importante
-tiene que ser enorme.
-
-<br><br>
-
-A veces algo pequeño,
-preparado con cariño,
-puede significar muchísimo.
-
-❤️
-
-</div>
-
-<button onclick="ir(9)">
-CONTINUAR 🥹
-</button>
-
-</section>
-
-
-
-<!-- NIVEL 9 -->
-
-<section id="n10" class="oculto">
-
-<h1>🎁 NIVEL FINAL</h1>
-
-<p>
-Camila...
-</p>
-
-<p>
-Ya descubriste lugares,
-fechas, canciones
-y recuerdos.
-</p>
-
-<p>
-Pero todavía no descubriste
-qué te espera.
-</p>
-
-<div class="tarjeta">
-
-✨ Hay una sorpresa esperándote. ✨
-
-<br><br>
-
-Y esta vez...
-no voy a darte ninguna pista.
-
-😏❤️
-
-</div>
-
-<p>
-Solo una última cosa.
-</p>
-
-<button onclick="mostrarContador()">
-VER LA ÚLTIMA PISTA ⏰
-</button>
-
-</section>
-
-
-
-<!-- CONTADOR -->
-
-<section id="contador" class="oculto">
-
-<h1>⏰ CASI...</h1>
-
-<p>
-Llegaste hasta acá.
-</p>
-
-<p>
-Ahora solamente queda esperar.
-</p>
-
-<div class="contador">
-
-<div class="tiempo">
-
-<div
-class="numero"
-id="h">
-00
-</div>
-
-<div class="nombre">
-HORAS
-</div>
-
-</div>
-
-
-<div class="tiempo">
-
-<div
-class="numero"
-id="m">
-00
-</div>
-
-<div class="nombre">
-MINUTOS
-</div>
-
-</div>
-
-
-<div class="tiempo">
-
-<div
-class="numero"
-id="s">
-00
-</div>
-
-<div class="nombre">
-SEGUNDOS
-</div>
-
-</div>
-
-</div>
-
-<p>
-🕕 Cuando el reloj marque las 18:00...
-</p>
-
-<p class="pequeno">
-No cierres esta página ❤️
-</p>
-
-</section>
-
-
-
-<!-- FINAL -->
-
-<section id="fin" class="oculto final">
-
-<h1>
-🎁 LLEGÓ EL MOMENTO ❤️
-</h1>
-
-<p>
-Camila...
-</p>
-
-<p>
-La espera terminó.
-</p>
-
-<div class="tarjeta">
-
-✨ Ahora sí... ✨
-
-<br><br>
-
-Llegó el momento de descubrir
-tu sorpresa. ❤️
-
-</div>
-
-<p>
-Espero que te saque una sonrisa
-y que recuerdes este momento. 🥹❤️
-</p>
-
-<p>
-❤️ Disfrutá tu Entrega 1 / ** ❤️
-</p>
-
-</section>
-
-
-</div>
-
-
-
-<script>
-
-
-/* CAMBIAR DE NIVEL */
-
-function ocultarTodo(){
-
-for(let i=1;i<=10;i++){
-
-let elemento=document.getElementById("n"+i);
-
-if(elemento){
-elemento.classList.add("oculto");
-}
-
-}
-
-document
-.getElementById("contador")
-.classList.add("oculto");
-
-document
-.getElementById("fin")
-.classList.add("oculto");
-
-}
-
-
-function ir(numero){
-
-ocultarTodo();
-
-document
-.getElementById("n"+(numero+1))
-.classList.remove("oculto");
-
-}
-
-
-
-/* NIVEL 1 */
-
-let palabra="";
-const correcta="AMOR";
-
-function letra(x){
-
-palabra+=x;
-
-if(!correcta.startsWith(palabra)){
-
-palabra="";
-
-document
-.getElementById("r1")
-.innerHTML=
-"❌ No era por ahí... intentá otra vez ❤️";
-
-return;
-
-}
-
-if(palabra===correcta){
-
-document
-.getElementById("r1")
-.innerHTML=
-"❤️ ¡Correcto!";
-
-setTimeout(()=>{
-
-ir(2);
-
-},1000);
-
-}
-
-}
-
-
-
-/* NIVEL 2 */
-
-function nivel3(){
-
-let r=
-document
-.getElementById("resp3")
-.value
-.toLowerCase()
-.trim();
-
-if(r.includes("tigre")){
-
-ir(3);
-
-}else{
-
-document
-.getElementById("e3")
-.innerHTML=
-"🤭 Pista: pensá en ese lugar cerca del río...";
-
-}
-
-}
-
-
-
-/* NIVEL 3 */
-
-function nivel4(){
-
-let r=
-document
-.getElementById("resp4")
-.value
-.toLowerCase()
-.trim();
-
-if(
-r.includes("10 de octubre") ||
-r.includes("10/10") ||
-r.includes("10-10")
-){
-
-ir(4);
-
-}else{
-
-document
-.getElementById("e4")
-.innerHTML=
-"👀 Mirá nuevamente la pista...";
-
-}
-
-}
-
-
-
-/* NIVEL 4 */
-
-function nivel5(){
-
-ir(5);
-
-}
-
-
-
-/* NIVEL 5 */
-
-function nivel6(){
-
-let r=
-document
-.getElementById("resp6")
-.value
-.toLowerCase()
-.trim();
-
-if(
-r.includes("guarani") ||
-r.includes("guaraní")
-){
-
-ir(6);
-
-}else{
-
-document
-.getElementById("e6")
-.innerHTML=
-"😂 Pensalo... era el idioma que intentaba hablar.";
-
-}
-
-}
-
-
-
-/* NIVEL 6 */
-
-function respuesta7(r){
-
-if(r==="sorpresa"){
-
-document
-.getElementById("r7")
-.innerHTML=
-"🎁 Exactamente...";
-
-setTimeout(()=>{
-
-ir(7);
-
-},1000);
-
-}else{
-
-document
-.getElementById("r7")
-innerHTML=
-"👀 Vas cerca...";
-
-}
-
-}
-
-
-
-/* NIVEL 7 */
-
-function nivel8(){
-
-let r=
-document
-.getElementById("resp8")
-.value
-.toLowerCase()
-.trim();
-
-/*
-La contraseña es sencilla:
-"sonrisa"
-*/
-
-if(
-r==="sonrisa" ||
-r==="sonrisas"
-){
-
-ir(8);
-
-}else{
-
-document
-.getElementById("e8")
-.innerHTML=
-"❤️ Pensá en algo que quiero provocar cuando recibas esto...";
-
-}
-
-}
-
-
-
-/* MOSTRAR CONTADOR */
-
-function mostrarContador(){
-
-ocultarTodo();
-
-document
-.getElementById("contador")
-.classList.remove("oculto");
-
-actualizarContador();
-
-}
-
-
-
-/* CONTADOR HASTA LAS 18:00 */
-
-function actualizarContador(){
-
-const ahora=new Date();
-
-let objetivo=new Date();
-
-/*
-El contador siempre apunta a las 18:00
-sin mostrar ninguna fecha.
-*/
-
-objetivo.setHours(18,0,0,0);
-
-const diferencia=
-objetivo.getTime()-ahora.getTime();
-
-
-/*
-Si todavía no llegaron las 18:00
-*/
-
-if(diferencia>0){
-
-const horas=Math.floor(
-diferencia/(1000*60*60)
-);
-
-const minutos=Math.floor(
-(diferencia%(1000*60*60))/(1000*60)
-);
-
-const segundos=Math.floor(
-(diferencia%(1000*60))/1000
-);
-
-document
-.getElementById("h")
-.textContent=
-String(horas).padStart(2,"0");
-
-document
-.getElementById("m")
-.textContent=
-String(minutos).padStart(2,"0");
-
-document
-.getElementById("s")
-.textContent=
-String(segundos).padStart(2,"0");
-
-}else{
-
-mostrarFinal();
-
-}
-
-}
-
-
-
-/* FINAL */
-
-function mostrarFinal(){
-
-document
-.getElementById("contador")
-.classList.add("oculto");
-
-document
-.getElementById("fin")
-.classList.remove("oculto");
-
-}
-
-
-
-/* ACTUALIZAR CADA SEGUNDO */
-
-setInterval(
-actualizarContador,
-1000
-);
-
-
-
-/* CORAZONES FLOTANDO */
-
-setInterval(()=>{
-
-const corazon=
-document.createElement("div");
-
-corazon.className="corazon";
-
-corazon.innerHTML="❤️";
-
-corazon.style.left=
-Math.random()*100+"vw";
-
-corazon.style.fontSize=
-(15+Math.random()*25)+"px";
-
-corazon.style.animationDuration=
-(4+Math.random()*4)+"s";
-
-document.body.appendChild(corazon);
-
-setTimeout(()=>{
-
-corazon.remove();
-
-},8000);
-
-},700);
-
-
-</script>
+  </div>
 
 </body>
 </html>
