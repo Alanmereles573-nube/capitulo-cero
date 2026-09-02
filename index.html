@@ -3,130 +3,175 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>El Archivo Secreto ❤️</title>
+<title>Una sorpresa para vos ❤️</title>
 
 <style>
-* {
-    box-sizing: border-box;
+*{
+  box-sizing:border-box;
 }
 
-body {
-    margin: 0;
-    background: #080808;
-    color: white;
-    font-family: Arial, sans-serif;
-    min-height: 100vh;
+body{
+  margin:0;
+  min-height:100vh;
+  background:#050505;
+  color:white;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
 }
 
-.screen {
-    min-height: 100vh;
-    display: none;
-    justify-content: center;
-    align-items: center;
-    padding: 25px;
+.screen{
+  min-height:100vh;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:25px 18px;
+  text-align:center;
 }
 
-.screen.active {
-    display: flex;
+.screen.active{
+  display:flex;
 }
 
-.box {
-    width: 100%;
-    max-width: 700px;
-    text-align: center;
+.card{
+  width:min(720px,100%);
+  padding:30px 22px;
+  border-radius:28px;
+  background:linear-gradient(145deg,#181818,#080808);
+  border:1px solid rgba(255,255,255,.12);
+  box-shadow:0 20px 80px rgba(255,40,90,.15);
 }
 
-h1 {
-    font-size: 38px;
-    margin-bottom: 10px;
+h1{
+  font-size:clamp(30px,8vw,58px);
+  margin:0 0 15px;
 }
 
-h2 {
-    font-size: 28px;
+h2{
+  font-size:clamp(25px,7vw,42px);
 }
 
-p {
-    font-size: 20px;
-    line-height: 1.6;
+p{
+  font-size:18px;
+  line-height:1.6;
+  color:#ddd;
 }
 
-button {
-    background: white;
-    color: black;
-    border: none;
-    padding: 15px 28px;
-    border-radius: 12px;
-    font-size: 18px;
-    font-weight: bold;
-    margin: 10px;
-    cursor: pointer;
+.small{
+  font-size:14px;
+  color:#aaa;
 }
 
-button:hover {
-    transform: scale(1.04);
+button{
+  border:0;
+  border-radius:999px;
+  padding:15px 25px;
+  margin-top:16px;
+  background:white;
+  color:#111;
+  font-weight:800;
+  font-size:16px;
+  cursor:pointer;
 }
 
-.photo {
-    width: 100%;
-    max-width: 600px;
-    max-height: 500px;
-    object-fit: cover;
-    border-radius: 18px;
-    margin: 20px auto;
-    display: block;
+.answers{
+  display:grid;
+  gap:12px;
+  margin-top:20px;
 }
 
-.option {
-    display: block;
-    width: 90%;
-    max-width: 500px;
-    margin: 12px auto;
+.answers button{
+  margin:0;
+  background:#171717;
+  color:white;
+  border:1px solid #333;
 }
 
-input {
-    padding: 14px;
-    border-radius: 10px;
-    border: none;
-    font-size: 18px;
-    width: 90%;
-    max-width: 400px;
-    text-align: center;
+.answers button:hover{
+  background:#292929;
 }
 
-.error {
-    color: #ff6b6b;
-    margin-top: 15px;
+.question{
+  font-size:25px;
+  font-weight:800;
+  margin:18px 0;
 }
 
-.hidden {
-    display: none;
+.level{
+  font-size:13px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:#ff6f91;
 }
 
-.final-photo {
-    width: 100%;
-    max-width: 650px;
-    border-radius: 20px;
-    margin: 20px auto;
+.photo-wrap{
+  margin:25px auto;
+  width:min(550px,100%);
+  border-radius:22px;
+  overflow:hidden;
+  box-shadow:0 18px 50px rgba(0,0,0,.6);
 }
 
-.letter {
-    background: #fff;
-    color: #222;
-    padding: 35px;
-    border-radius: 20px;
-    text-align: left;
-    line-height: 1.8;
-    font-size: 18px;
-    box-shadow: 0 0 30px rgba(255,255,255,.15);
+.photo-wrap img{
+  width:100%;
+  display:block;
 }
 
-.heart {
-    font-size: 45px;
+.photo-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:10px;
+  margin-top:20px;
 }
 
-.small {
-    opacity: .7;
-    font-size: 15px;
+.photo-grid img{
+  width:100%;
+  aspect-ratio:1/1;
+  object-fit:cover;
+  border-radius:16px;
+}
+
+.letter{
+  text-align:left;
+  background:white;
+  color:#171717;
+  border-radius:22px;
+  padding:25px;
+  margin-top:25px;
+  line-height:1.7;
+}
+
+.letter p{
+  color:#222;
+}
+
+.big{
+  font-size:clamp(35px,10vw,65px);
+  font-weight:900;
+}
+
+.heart{
+  font-size:60px;
+  animation:pulse 1.3s infinite;
+}
+
+@keyframes pulse{
+  50%{
+    transform:scale(1.15);
+  }
+}
+
+.fade{
+  animation:fade .6s ease;
+}
+
+@keyframes fade{
+  from{
+    opacity:0;
+    transform:translateY(10px);
+  }
+  to{
+    opacity:1;
+    transform:none;
+  }
 }
 </style>
 </head>
@@ -134,341 +179,310 @@ input {
 <body>
 
 <!-- INICIO -->
-<section class="screen active" id="inicio">
-<div class="box">
-    <div class="heart">🔐❤️</div>
 
-    <h1>EL ARCHIVO SECRETO</h1>
+<section class="screen active" id="s0">
+<div class="card fade">
 
-    <p>
-        Hay algo escondido acá...
-    </p>
+<div class="heart">❤️</div>
 
-    <p>
-        Para descubrirlo vas a tener que superar
-        todas las pruebas.
-    </p>
+<h1>Tengo algo para vos...</h1>
 
-    <p class="small">
-        No te apures. Mirá bien las fotos.
-    </p>
+<p>
+Pero antes vas a tener que superar un pequeño juego 😏
+</p>
 
-    <button onclick="ir(1)">COMENZAR</button>
+<p class="small">
+Llegá hasta el final y descubrí lo que preparé.
+</p>
+
+<button onclick="go(1)">
+EMPEZAR ❤️
+</button>
+
 </div>
 </section>
 
 
 <!-- NIVEL 1 -->
-<section class="screen" id="nivel1">
-<div class="box">
 
-<h2>🧩 NIVEL 1</h2>
+<section class="screen" id="s1">
+<div class="card">
 
-<p>
-Hay una parte de una foto que falta.
-<br>
-¿De qué momento es?
-</p>
+<div class="level">Nivel 1</div>
 
-<img src="foto1.jpg" class="photo">
+<div class="question">
+¿Qué es lo que más me gusta de nosotros?
+</div>
 
-<button class="option" onclick="respuesta(1, true)">
-Un momento especial juntos ❤️
+<div class="answers">
+
+<button onclick="correct(1)">
+Los momentos que vivimos juntos ❤️
 </button>
 
-<button class="option" onclick="respuesta(1, false)">
-Una foto cualquiera
+<button onclick="wrong(this)">
+Ganar siempre
 </button>
 
-<button class="option" onclick="respuesta(1, false)">
-Una salida con amigos
+<button onclick="wrong(this)">
+Tener razón
 </button>
 
-<p id="error1" class="error"></p>
-
+</div>
 </div>
 </section>
 
 
 <!-- NIVEL 2 -->
-<section class="screen" id="nivel2">
-<div class="box">
 
-<h2>🔎 NIVEL 2</h2>
+<section class="screen" id="s2">
+<div class="card">
 
-<p>
-Hay algo escondido en esta foto.
-<br>
-Mirala con atención.
-</p>
+<div class="level">Nivel 2</div>
 
-<img src="foto2.jpg" class="photo">
-
-<button onclick="mostrarPregunta(2)">
-Creo que lo encontré
-</button>
-
-<div id="pregunta2" class="hidden">
-
-<p>
-¿Cuál es el detalle escondido?
-</p>
-
-<input id="respuesta2" placeholder="Escribí tu respuesta">
-
-<br>
-
-<button onclick="comprobarTexto(2)">
-COMPROBAR
-</button>
-
-<p id="error2" class="error"></p>
-
+<div class="question">
+Elegí la palabra que mejor nos representa.
 </div>
 
+<div class="answers">
+
+<button onclick="wrong(this)">
+Casualidad
+</button>
+
+<button onclick="correct(2)">
+Compañeros ❤️
+</button>
+
+<button onclick="wrong(this)">
+Competencia
+</button>
+
+</div>
 </div>
 </section>
 
 
 <!-- NIVEL 3 -->
-<section class="screen" id="nivel3">
-<div class="box">
 
-<h2>🧠 NIVEL 3</h2>
+<section class="screen" id="s3">
+<div class="card">
 
-<p>
-Memoria.
-<br>
-Mirá estas fotos durante unos segundos...
-</p>
+<div class="level">Nivel 3</div>
 
-<img src="foto3.jpg" class="photo">
-
-<button onclick="mostrarPregunta(3)">
-YA LA VI
-</button>
-
-<div id="pregunta3" class="hidden">
-
-<p>
-¿Cuál de estas fotos viste?
-</p>
-
-<button class="option" onclick="respuesta(3,true)">
-📸 La primera
-</button>
-
-<button class="option" onclick="respuesta(3,false)">
-📸 La segunda
-</button>
-
-<button class="option" onclick="respuesta(3,false)">
-📸 La tercera
-</button>
-
-<p id="error3" class="error"></p>
-
+<div class="question">
+Dos personas + muchísimos recuerdos =
 </div>
 
+<div class="answers">
+
+<button onclick="correct(3)">
+Una historia que todavía se está escribiendo ✨
+</button>
+
+<button onclick="wrong(this)">
+Fin del juego
+</button>
+
+</div>
 </div>
 </section>
 
 
 <!-- NIVEL 4 -->
-<section class="screen" id="nivel4">
-<div class="box">
 
-<h2>🔐 NIVEL 4</h2>
+<section class="screen" id="s4">
+<div class="card">
 
-<p>
-Una de estas fotos tiene una pista.
-<br>
-Encontrá el código.
-</p>
+<div class="level">Nivel 4</div>
 
-<img src="foto4.jpg" class="photo">
+<div class="question">
+¿Cuál de estas cosas vale más?
+</div>
 
-<input id="codigo4" placeholder="Código">
+<div class="answers">
 
-<br>
-
-<button onclick="comprobarCodigo()">
-DESBLOQUEAR
+<button onclick="wrong(this)">
+Un regalo caro
 </button>
 
-<p id="error4" class="error"></p>
+<button onclick="wrong(this)">
+Una foto perfecta
+</button>
 
+<button onclick="correct(4)">
+El momento que compartimos ❤️
+</button>
+
+</div>
 </div>
 </section>
 
 
 <!-- NIVEL 5 -->
-<section class="screen" id="nivel5">
-<div class="box">
 
-<h2>🕵️ NIVEL 5</h2>
+<section class="screen" id="s5">
+<div class="card">
+
+<div class="level">Nivel 5</div>
+
+<div class="question">
+🔓 Pista desbloqueada
+</div>
 
 <p>
-Solo una de estas fotos continúa la historia.
+Hay recuerdos que no necesitan explicación.
+<br><br>
+Solo hace falta volver a mirarlos.
 </p>
 
-<button class="option" onclick="respuesta(5,false)">
-📸 Foto A
+<button onclick="go(6)">
+SIGUIENTE
 </button>
-
-<button class="option" onclick="respuesta(5,true)">
-📸 Foto B ❤️
-</button>
-
-<button class="option" onclick="respuesta(5,false)">
-📸 Foto C
-</button>
-
-<p id="error5" class="error"></p>
 
 </div>
 </section>
 
 
 <!-- NIVEL 6 -->
-<section class="screen" id="nivel6">
-<div class="box">
 
-<h2>❤️ NIVEL 6</h2>
+<section class="screen" id="s6">
+<div class="card">
 
-<img src="foto6.jpg" class="photo">
+<div class="level">Nivel 6</div>
 
-<p>
-Hay momentos que parecen simples...
-pero nosotros sabemos lo que significan.
-</p>
+<div class="question">
+Elegí el recuerdo correcto.
+</div>
 
-<p>
-¿Qué sentiste ese día?
-</p>
+<div class="answers">
 
-<button class="option" onclick="respuesta(6,true)">
-Que estaba feliz de estar con vos ❤️
+<button onclick="correct(6)">
+Nosotros dos haciendo cualquier cosa y pasándola bien ❤️
 </button>
 
-<button class="option" onclick="respuesta(6,false)">
-Nada especial
+<button onclick="wrong(this)">
+Un día cualquiera
 </button>
 
-<p id="error6" class="error"></p>
+</div>
 
 </div>
 </section>
 
 
 <!-- NIVEL 7 -->
-<section class="screen" id="nivel7">
-<div class="box">
 
-<h2>🧩 NIVEL 7</h2>
+<section class="screen" id="s7">
+<div class="card">
+
+<div class="level">Nivel 7</div>
+
+<div class="question">
+Ordená los recuerdos en tu cabeza.
+</div>
 
 <p>
-Ordená estos momentos desde el más antiguo
-hasta el más reciente.
+Primero conocernos.
+<br>
+Después vivir cosas juntos.
+<br>
+Y después...
+<br>
+<b>seguir sumando momentos.</b> ❤️
 </p>
 
-<button class="option" onclick="respuesta(7,true)">
-1 → 2 → 3 → 4
+<button onclick="go(8)">
+LO ENTENDÍ
 </button>
-
-<button class="option" onclick="respuesta(7,false)">
-4 → 2 → 1 → 3
-</button>
-
-<button class="option" onclick="respuesta(7,false)">
-2 → 4 → 3 → 1
-</button>
-
-<p id="error7" class="error"></p>
 
 </div>
 </section>
 
 
 <!-- NIVEL 8 -->
-<section class="screen" id="nivel8">
-<div class="box">
 
-<h2>🎯 NIVEL 8</h2>
+<section class="screen" id="s8">
+<div class="card">
 
-<p>
-Encontrá las diferencias.
+<div class="level">Nivel 8</div>
+
+<div class="question">
+Encontrá la diferencia entre estas dos fotos.
+</div>
+
+<div class="photo-grid">
+
+<img src="IMG_5823(2).jpeg">
+
+<img src="IMG_7888(1).jpeg">
+
+</div>
+
+<p class="small">
+Hay muchas diferencias...
+pero las dos tienen algo en común:
+<br>
+<b>nosotros.</b> ❤️
 </p>
 
-<img src="foto8.jpg" class="photo">
-
-<p>
-¿Cuántas diferencias encontraste?
-</p>
-
-<button onclick="respuesta(8,true)">
-3 ❤️
+<button onclick="go(9)">
+ENCONTRÉ LA RESPUESTA
 </button>
-
-<button onclick="respuesta(8,false)">
-1
-</button>
-
-<button onclick="respuesta(8,false)">
-7
-</button>
-
-<p id="error8" class="error"></p>
 
 </div>
 </section>
 
 
 <!-- NIVEL 9 -->
-<section class="screen" id="nivel9">
-<div class="box">
 
-<h2>🔒 NIVEL 9</h2>
+<section class="screen" id="s9">
+<div class="card">
+
+<div class="level">Nivel 9</div>
+
+<div class="question">
+Juntá todas las respuestas anteriores.
+</div>
 
 <p>
-Juntá las respuestas que conseguiste
-durante todo el juego.
+La contraseña es:
 </p>
 
-<p>
-Necesitás una contraseña.
-</p>
+<div class="big">
+NOSOTROS
+</div>
 
-<input id="password" placeholder="Contraseña">
-
-<br>
-
-<button onclick="comprobarPassword()">
-ABRIR ARCHIVO
+<button onclick="go(10)">
+DESBLOQUEAR 🔓
 </button>
-
-<p id="error9" class="error"></p>
 
 </div>
 </section>
 
 
 <!-- NIVEL 10 -->
-<section class="screen" id="nivel10">
-<div class="box">
 
-<h2>🚪 NIVEL 10</h2>
+<section class="screen" id="s10">
+<div class="card">
+
+<div class="level">Nivel 10</div>
+
+<div class="question">
+🔓 Última pantalla
+</div>
 
 <p>
-Última pantalla desbloqueada.
+Llegaste hasta el final...
 </p>
 
 <p>
-¿Estás segura de que querés continuar?
+Y ahora viene
+<b>EL GIRO.</b>
 </p>
 
-<button onclick="finalJuego()">
-ABRIR
+<button onclick="reveal()">
+ABRIR ❤️
 </button>
 
 </div>
@@ -476,80 +490,139 @@ ABRIR
 
 
 <!-- FINAL -->
+
 <section class="screen" id="final">
 
-<div class="box">
+<div class="card fade">
 
-<div class="heart">❤️</div>
+<div class="level">
+EL GIRO
+</div>
 
-<h1>Terminaste el juego.</h1>
+<h2>
+Terminaste el juego ❤️
+</h2>
 
-<!-- FOTO PRINCIPAL QUE ME MANDASTE -->
-<img src="foto-final.jpg" class="final-photo">
+<p>
+Pero en realidad, nunca se trató solamente de ganar.
+</p>
+
+<!-- FOTO PRINCIPAL -->
+
+<div class="photo-wrap">
+
+<img src="IMG_5932(2).jpeg">
+
+</div>
+
+
+<!-- CARTA -->
 
 <div class="letter">
 
 <p>
-<strong>Pero en realidad, nunca se trató solamente de ganar.</strong>
+<b>“Terminaste el juego.”</b>
 </p>
 
 <p>
-Quería que durante unos minutos volvieras a mirar
-algunos momentos que vivimos juntos.
+<b>
+“Pero en realidad, nunca se trató solamente de ganar.”
+</b>
 </p>
 
 <p>
-Cada foto, cada recuerdo y cada pequeña pista
-forman parte de nuestra historia.
+“Quería que durante unos minutos volvieras a mirar algunos momentos que vivimos juntos.”
 </p>
 
 <p>
-Y si llegaste hasta acá...
-ahora quiero mostrarte algo que no estaba
-escondido en ninguna de las pruebas.
+“Porque cada foto guarda un pedacito de nuestra historia.”
 </p>
 
 <p>
-❤️
-</p>
-
-<p>
-Quiero que sepas que te amo muchísimo,
-y que cada momento que compartimos significa
-muchísimo para mí.
-</p>
-
-<p>
-Gracias por estar conmigo, por cada sonrisa,
-cada abrazo, cada salida y cada recuerdo.
-</p>
-
-<p>
-Esto recién es una pequeña parte
-de todo lo que todavía quiero vivir con vos.
-</p>
-
-<p>
-<strong>
-Feliz cumpleaños, mi amor. ❤️
-</strong>
-</p>
-
-<p>
-Con todo mi amor,
-<br>
-<strong>yo ❤️</strong>
+“Y si llegaste hasta acá, ahora quiero mostrarte algo...”
 </p>
 
 </div>
 
-<br>
 
-<h1>❤️ ENTREGA 2 ❤️</h1>
+<!-- ENTREGA 2 -->
+
+<h2>
+❤️ ENTREGA 2 ❤️
+</h2>
 
 <p>
-Esto todavía no termina...
+Esto es para vos.
 </p>
+
+
+<!-- TODAS LAS FOTOS -->
+
+<div class="photo-grid">
+
+<img src="IMG_7526(1).jpeg">
+
+<img src="IMG_5932(2).jpeg">
+
+<img src="IMG_8146(1).jpeg">
+
+<img src="IMG_5823(2).jpeg">
+
+<img src="IMG_7635.jpeg">
+
+<img src="IMG_8356(1).jpeg">
+
+<img src="IMG_7605.jpeg">
+
+<img src="IMG_5895(2).jpeg">
+
+</div>
+
+
+<!-- CARTA FINAL -->
+
+<div class="letter">
+
+<p>
+<b>Mi amor ❤️</b>
+</p>
+
+<p>
+Si llegaste hasta acá, quiero que sepas que cada una de estas fotos tiene un pedacito de nuestra historia.
+</p>
+
+<p>
+Algunas son lindas, otras son graciosas y otras simplemente somos nosotros siendo nosotros.
+</p>
+
+<p>
+No quería darte solamente una foto.
+Quería hacerte vivir unos minutos de recuerdos, volver a esos momentos y recordarte todo lo lindo que vivimos juntos.
+</p>
+
+<p>
+Gracias por cada risa, cada abrazo, cada salida, cada locura y cada momento que compartimos.
+</p>
+
+<p>
+Y ojalá esto sea solamente una pequeña parte de todos los recuerdos que todavía nos quedan por crear.
+</p>
+
+<p>
+Porque si hay algo que tengo claro es que quiero seguir viviendo muchísimos momentos más con vos.
+</p>
+
+<p style="text-align:center;font-size:25px;">
+<b>
+Te amo muchísimo ❤️
+</b>
+</p>
+
+<p style="text-align:center;">
+Y esto recién empieza...
+</p>
+
+</div>
 
 </div>
 
@@ -558,137 +631,64 @@ Esto todavía no termina...
 
 <script>
 
-let nivelActual = 0;
+function hideAll(){
 
-function ir(nivel) {
+document.querySelectorAll(".screen").forEach(function(screen){
 
-    document.querySelectorAll(".screen")
-    .forEach(s => s.classList.remove("active"));
+screen.classList.remove("active");
 
-    document.getElementById("nivel" + nivel)
-    .classList.add("active");
-
-    nivelActual = nivel;
-
-    window.scrollTo(0,0);
-}
-
-
-function respuesta(nivel, correcta) {
-
-    if(correcta) {
-
-        setTimeout(() => {
-
-            if(nivel < 10) {
-                ir(nivel + 1);
-            }
-
-        }, 500);
-
-    } else {
-
-        document.getElementById("error" + nivel).innerText =
-        "Mmm... esa no es 😭 Mirá bien e intentá otra vez.";
-
-    }
+});
 
 }
 
 
-function mostrarPregunta(nivel) {
+function go(n){
 
-    document.getElementById("pregunta" + nivel)
-    .classList.remove("hidden");
+hideAll();
 
-}
+document.getElementById("s"+n).classList.add("active");
 
-
-function comprobarTexto(nivel) {
-
-    let respuesta =
-    document.getElementById("respuesta2").value
-    .toLowerCase()
-    .trim();
-
-    /*
-       CAMBIÁ "amor" POR LA RESPUESTA
-       QUE QUIERAS USAR EN ESTA PRUEBA.
-    */
-
-    if(respuesta === "amor") {
-
-        ir(3);
-
-    } else {
-
-        document.getElementById("error2").innerText =
-        "No es esa... fijate nuevamente en la foto ❤️";
-
-    }
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
 
 }
 
 
-function comprobarCodigo() {
+function correct(n){
 
-    /*
-       CAMBIÁ 2209 POR EL CÓDIGO QUE
-       QUIERAS ESCONDER EN LA FOTO.
-    */
+hideAll();
 
-    let codigo =
-    document.getElementById("codigo4").value.trim();
+document.getElementById("s"+(n+1)).classList.add("active");
 
-    if(codigo === "2209") {
-
-        ir(5);
-
-    } else {
-
-        document.getElementById("error4").innerText =
-        "Código incorrecto 🔐";
-
-    }
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
 
 }
 
 
-function comprobarPassword() {
+function wrong(button){
 
-    /*
-       ESTA ES LA CONTRASEÑA FINAL.
-       PODÉS CAMBIARLA.
-    */
+button.style.opacity="0.5";
 
-    let password =
-    document.getElementById("password").value
-    .toLowerCase()
-    .trim();
-
-    if(password === "camila") {
-
-        ir(10);
-
-    } else {
-
-        document.getElementById("error9").innerText =
-        "Todavía no... juntá bien todas las pistas ❤️";
-
-    }
+button.innerHTML="Casi... 😏 Probá otra vez";
 
 }
 
 
-function finalJuego() {
+function reveal(){
 
-    document.querySelectorAll(".screen")
-    .forEach(s => s.classList.remove("active"));
+hideAll();
 
-    document.getElementById("final")
-    .classList.add("active");
+document.getElementById("final").classList.add("active");
 
-    window.scrollTo(0,0);
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
 
 }
 
