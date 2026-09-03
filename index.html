@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#08070b">
 
 <title>Día 3 ❤️</title>
 
@@ -13,78 +14,179 @@
     padding:0;
 }
 
+html{
+    scroll-behavior:smooth;
+}
+
 body{
     min-height:100vh;
     background:
-    radial-gradient(circle at top,#351522,#100a0e 55%,#050507);
-    color:white;
+        radial-gradient(circle at 50% 15%,#351522 0%,#120a10 38%,#050507 100%);
+    color:#fff;
     font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
     overflow-x:hidden;
 }
 
-.container{
+/* ESTRELLAS */
+
+#estrellas{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:0;
+}
+
+.estrella{
+    position:absolute;
+    width:2px;
+    height:2px;
+    background:white;
+    border-radius:50%;
+    opacity:.5;
+    animation:brillo 3s infinite alternate;
+}
+
+@keyframes brillo{
+    from{opacity:.15;transform:scale(.7)}
+    to{opacity:.9;transform:scale(1.4)}
+}
+
+/* CORAZONES */
+
+.corazon-flotante{
+    position:fixed;
+    bottom:-30px;
+    z-index:1;
+    pointer-events:none;
+    animation:subir 8s linear forwards;
+}
+
+@keyframes subir{
+    0%{
+        transform:translateY(0);
+        opacity:0;
+    }
+    15%{
+        opacity:.8;
+    }
+    100%{
+        transform:translateY(-110vh) rotate(25deg);
+        opacity:0;
+    }
+}
+
+/* CONTENEDOR */
+
+.contenedor{
+    position:relative;
+    z-index:2;
     width:100%;
     max-width:700px;
     margin:auto;
-    padding:35px 20px 70px;
+    padding:30px 18px 80px;
     text-align:center;
 }
 
-.corazon{
-    font-size:65px;
-    animation:latido 1.7s infinite;
-    margin-bottom:15px;
+/* PORTADA */
+
+.portada{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
 }
 
-@keyframes latido{
-    0%,100%{transform:scale(1);}
-    50%{transform:scale(1.15);}
+.mini{
+    font-size:12px;
+    letter-spacing:4px;
+    color:#ff9eb7;
+    margin-bottom:20px;
 }
 
-h1{
-    font-size:clamp(35px,9vw,55px);
+.numero{
+    font-size:100px;
+    font-weight:200;
+    line-height:1;
+    text-shadow:0 0 40px rgba(255,130,160,.35);
+}
+
+.portada h1{
+    font-size:clamp(35px,9vw,58px);
+    font-weight:500;
+    margin:15px 0;
+}
+
+.portada p{
+    max-width:550px;
+    font-size:18px;
+    line-height:1.8;
+    color:rgba(255,255,255,.72);
+}
+
+.boton{
+    margin-top:30px;
+    padding:15px 30px;
+    border-radius:50px;
+    border:1px solid rgba(255,255,255,.25);
+    background:rgba(255,255,255,.07);
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.boton:hover{
+    background:rgba(255,255,255,.15);
+    transform:translateY(-2px);
+}
+
+.boton:active{
+    transform:scale(.96);
+}
+
+/* JUEGOS */
+
+.pantalla{
+    display:none;
+    min-height:100vh;
+    padding-top:60px;
+}
+
+.pantalla.activa{
+    display:block;
+}
+
+.indicador{
+    font-size:12px;
+    letter-spacing:3px;
+    color:#ff9eb7;
     margin-bottom:15px;
 }
 
 h2{
-    font-size:27px;
+    font-size:30px;
     font-weight:500;
     margin-bottom:18px;
 }
 
-.intro{
-    font-size:18px;
+.descripcion{
+    font-size:17px;
     line-height:1.8;
-    color:rgba(255,255,255,.82);
-    margin-bottom:35px;
+    color:rgba(255,255,255,.75);
+    margin-bottom:30px;
 }
 
-.juego{
-    display:none;
+.tarjeta{
     padding:28px 20px;
-    border-radius:25px;
-    background:rgba(255,255,255,.06);
+    border-radius:28px;
+    background:rgba(255,255,255,.055);
     border:1px solid rgba(255,255,255,.12);
-    margin-bottom:25px;
+    backdrop-filter:blur(15px);
+    box-shadow:0 20px 70px rgba(0,0,0,.3);
 }
 
-.juego.activo{
-    display:block;
-}
-
-.numero-juego{
-    color:#ff9db5;
-    font-size:13px;
-    letter-spacing:2px;
-    margin-bottom:12px;
-    text-transform:uppercase;
-}
-
-.pregunta{
-    font-size:20px;
-    line-height:1.6;
-    margin-bottom:25px;
-}
+/* OPCIONES */
 
 .opciones{
     display:flex;
@@ -93,215 +195,272 @@ h2{
 }
 
 .opcion{
-    padding:15px;
-    border-radius:15px;
-    border:1px solid rgba(255,255,255,.18);
-    background:rgba(255,255,255,.07);
+    padding:17px;
+    border-radius:16px;
+    border:1px solid rgba(255,255,255,.15);
+    background:rgba(255,255,255,.06);
     color:white;
     font-size:16px;
     cursor:pointer;
-    transition:.25s;
 }
 
 .opcion:active{
     transform:scale(.97);
 }
 
-.opcion:hover{
-    background:rgba(255,255,255,.15);
+.correcta{
+    background:rgba(80,200,120,.15)!important;
+    border-color:#8ff0b0!important;
 }
 
-.correcto{
-    border-color:#8ff0b0 !important;
-    background:rgba(80,200,120,.15) !important;
-}
-
-.incorrecto{
-    border-color:#ff7d91 !important;
-    background:rgba(255,70,90,.12) !important;
+.incorrecta{
+    background:rgba(255,70,90,.12)!important;
+    border-color:#ff7d91!important;
 }
 
 .mensaje{
-    margin-top:18px;
     min-height:25px;
-    font-size:15px;
-    color:#ffb6c7;
+    margin-top:18px;
+    color:#ffb5c8;
 }
 
-.boton{
-    margin-top:22px;
-    padding:14px 27px;
-    border-radius:50px;
-    border:1px solid rgba(255,255,255,.25);
-    background:rgba(255,255,255,.08);
-    color:white;
-    font-size:16px;
-    cursor:pointer;
-}
+/* CODIGO */
 
-.boton:disabled{
-    opacity:.4;
-}
-
-.corazones{
-    position:relative;
-    height:210px;
-    margin-top:20px;
-    overflow:hidden;
-    border-radius:20px;
-    background:rgba(0,0,0,.15);
-}
-
-.corazon-escondido{
-    position:absolute;
-    font-size:28px;
-    cursor:pointer;
-    transition:.2s;
-}
-
-.corazon-escondido:hover{
-    transform:scale(1.3);
-}
-
-.frase{
+.codigo{
     display:flex;
-    flex-wrap:wrap;
     justify-content:center;
+    gap:10px;
+    margin:25px 0;
+}
+
+.casilla{
+    width:55px;
+    height:65px;
+    border-radius:15px;
+    border:1px solid rgba(255,255,255,.2);
+    background:rgba(0,0,0,.2);
+    color:white;
+    font-size:28px;
+    text-align:center;
+}
+
+.teclado{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
     gap:8px;
-    margin-top:20px;
+    max-width:280px;
+    margin:auto;
 }
 
-.palabra{
-    padding:11px 15px;
+.tecla{
+    padding:15px;
     border-radius:12px;
-    background:rgba(255,255,255,.1);
-    border:1px solid rgba(255,255,255,.15);
-    cursor:pointer;
+    border:1px solid rgba(255,255,255,.12);
+    background:rgba(255,255,255,.07);
+    color:white;
+    font-size:18px;
 }
 
-.palabra.seleccionada{
-    background:rgba(255,155,180,.25);
-    border-color:#ff9db5;
-}
+/* FOTOS */
 
-.lista{
-    text-align:left;
+.galeria{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
     margin-top:25px;
 }
 
-.razon{
-    padding:15px;
-    margin:10px 0;
-    border-radius:15px;
-    background:rgba(255,255,255,.05);
-    border:1px solid rgba(255,255,255,.1);
-    opacity:0;
-    transform:translateY(10px);
-    transition:.5s;
+.foto{
+    height:180px;
+    border-radius:18px;
+    overflow:hidden;
+    position:relative;
+    background:
+        linear-gradient(135deg,#27131d,#100a0e);
+    border:1px solid rgba(255,255,255,.12);
 }
 
-.razon.mostrar{
+.foto img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.bloqueada{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:35px;
+    color:#ffb0c3;
+}
+
+/* RAZONES */
+
+.razon{
+    text-align:left;
+    padding:17px;
+    margin:10px 0;
+    border-radius:15px;
+    background:rgba(255,255,255,.045);
+    border:1px solid rgba(255,255,255,.1);
+    opacity:0;
+    transform:translateY(12px);
+    transition:.6s;
+}
+
+.razon.visible{
     opacity:1;
     transform:translateY(0);
 }
 
+/* FINAL */
+
 .final{
     display:none;
-    padding:35px 20px;
-    margin-top:30px;
-    border-radius:25px;
-    background:rgba(255,255,255,.06);
-    border:1px solid rgba(255,255,255,.12);
+    min-height:100vh;
+    padding-top:80px;
 }
 
-.final h2{
-    color:#ffb6c7;
+.final.activa{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.corazon-grande{
+    font-size:70px;
+    animation:latido 1.7s infinite;
+}
+
+@keyframes latido{
+    0%,100%{transform:scale(1)}
+    50%{transform:scale(1.15)}
+}
+
+.final h1{
+    font-size:clamp(35px,9vw,55px);
+    margin:20px 0;
 }
 
 .final p{
     font-size:18px;
-    line-height:1.8;
-    margin:15px 0;
+    line-height:1.9;
+    color:rgba(255,255,255,.82);
+    margin:14px auto;
+    max-width:600px;
 }
 
 .firma{
-    color:#ffb6c7;
-    font-size:21px !important;
-    margin-top:25px !important;
+    color:#ffb2c5!important;
+    font-size:22px!important;
+    margin-top:30px!important;
 }
 
-.dia{
-    margin-top:30px;
+.check{
+    margin-top:35px;
     font-size:13px;
-    letter-spacing:2px;
-    color:rgba(255,255,255,.5);
+    letter-spacing:3px;
+    color:rgba(255,255,255,.45);
 }
+
+/* RESPONSIVE */
 
 @media(max-width:500px){
 
-    .container{
-        padding:30px 15px 60px;
+    .numero{
+        font-size:85px;
     }
 
-    .juego{
-        padding:25px 16px;
+    .tarjeta{
+        padding:24px 15px;
     }
 
+    .foto{
+        height:150px;
+    }
+
+    .casilla{
+        width:48px;
+        height:58px;
+    }
 }
 </style>
 </head>
 
 <body>
 
-<div class="container">
-
-<div class="corazon">❤️</div>
-
-<h1>Día 3</h1>
-
-<p class="intro">
-
-Hoy decidí hacer algo diferente.
-
-No hay un regalo para abrir.
-
-Hoy vas a tener que jugar un poquito para descubrir
-lo que preparé para vos. 👀❤️
-
-¿Estás lista?
-
-</p>
+<div id="estrellas"></div>
 
 
-<!-- JUEGO 1 -->
+<div class="contenedor">
 
-<div class="juego activo" id="juego1">
+<!-- ========================= -->
+<!-- PORTADA -->
+<!-- ========================= -->
 
-<div class="numero-juego">
-Juego 1
+<section class="portada" id="portada">
+
+<div class="mini">
+UNA NUEVA PARTE DE LA HISTORIA
 </div>
 
-<h2>Una pregunta fácil...</h2>
+<div class="numero">
+03
+</div>
 
-<p class="pregunta">
-¿Qué fue lo primero que quería regalarte hoy?
+<h1>Día 3 ❤️</h1>
+
+<p>
+Hoy no hay un regalo para abrir.
+Hoy vas a tener que descubrirlo.
+<br><br>
+Preparé algo especialmente para vos.
+Y solamente vos podés desbloquearlo.
+</p>
+
+<button class="boton" onclick="mostrar('juego1')">
+Comenzar aventura
+</button>
+
+</section>
+
+
+<!-- ========================= -->
+<!-- JUEGO 1 -->
+<!-- ========================= -->
+
+<section class="pantalla" id="juego1">
+
+<div class="indicador">DESAFÍO 01</div>
+
+<h2>Empecemos fácil...</h2>
+
+<p class="descripcion">
+Antes de continuar necesito saber una cosa.
+</p>
+
+<div class="tarjeta">
+
+<p class="descripcion">
+¿Qué es lo que más quiero que tengas
+cuando estés conmigo?
 </p>
 
 <div class="opciones">
 
 <button class="opcion"
-onclick="respuesta(this,false)">
-Un viaje ✈️
+onclick="respuesta1(this,false)">
+Dinero 💰
 </button>
 
 <button class="opcion"
-onclick="respuesta(this,true)">
-Un recuerdo ❤️
+onclick="respuesta1(this,true)">
+Felicidad ❤️
 </button>
 
 <button class="opcion"
-onclick="respuesta(this,false)">
-Una computadora 💻
+onclick="respuesta1(this,false)">
+Sueño 😴
 </button>
 
 </div>
@@ -309,153 +468,212 @@ Una computadora 💻
 <div class="mensaje" id="mensaje1"></div>
 
 <button class="boton"
-id="continuar1"
-onclick="siguiente(2)"
+id="b1"
+onclick="mostrar('juego2')"
 disabled>
-Continuar ❤️
+Desbloquear siguiente 🔓
 </button>
 
 </div>
 
+</section>
 
+
+<!-- ========================= -->
 <!-- JUEGO 2 -->
+<!-- ========================= -->
 
-<div class="juego" id="juego2">
+<section class="pantalla" id="juego2">
 
-<div class="numero-juego">
-Juego 2
-</div>
+<div class="indicador">DESAFÍO 02</div>
 
-<h2>Encontrá el corazón ❤️</h2>
+<h2>Una pequeña clave 🔐</h2>
 
-<p class="pregunta">
-Hay un corazón escondido.
+<p class="descripcion">
+Cada respuesta tiene un número.
 <br>
-¿Podés encontrarlo?
+La combinación correcta te abrirá el recuerdo.
 </p>
 
-<div class="corazones">
+<div class="tarjeta">
 
-<span class="corazon-escondido"
-id="corazonOculto">
-❤️
-</span>
+<p class="descripcion">
+¿Cuántos meses cumplimos recientemente?
+</p>
+
+<div class="opciones">
+
+<button class="opcion"
+onclick="numeroCorrecto(this,9)">
+6 meses
+</button>
+
+<button class="opcion"
+onclick="numeroCorrecto(this,9)">
+9 meses
+</button>
+
+<button class="opcion"
+onclick="numeroCorrecto(this,9)">
+12 meses
+</button>
 
 </div>
 
 <div class="mensaje" id="mensaje2"></div>
 
-<button class="boton"
-id="continuar2"
-onclick="siguiente(3)"
-disabled>
-Encontrado ❤️
-</button>
+</div>
+
+<div class="codigo">
+
+<input class="casilla" id="c1" maxlength="1" readonly>
+<input class="casilla" id="c2" maxlength="1" readonly>
+<input class="casilla" id="c3" maxlength="1" readonly>
 
 </div>
 
-
-<!-- JUEGO 3 -->
-
-<div class="juego" id="juego3">
-
-<div class="numero-juego">
-Juego 3
-</div>
-
-<h2>Ordená la frase ❤️</h2>
-
-<p class="pregunta">
-Tocá las palabras en el orden correcto.
-</p>
-
-<div class="frase">
-
-<div class="palabra" onclick="ordenar(this,'Te')">
-Te
-</div>
-
-<div class="palabra" onclick="ordenar(this,'amo')">
-amo
-</div>
-
-<div class="palabra" onclick="ordenar(this,'muchísimo')">
-muchísimo
-</div>
-
-<div class="palabra" onclick="ordenar(this,'❤️')">
-❤️
-</div>
-
-</div>
-
-<div class="mensaje" id="mensaje3"></div>
-
-<button class="boton"
-id="continuar3"
-onclick="siguiente(4)"
-disabled>
-Continuar ❤️
-</button>
-
-</div>
-
-
-<!-- JUEGO 4 -->
-
-<div class="juego" id="juego4">
-
-<div class="numero-juego">
-Juego final
-</div>
-
-<h2>Ahora sí...</h2>
-
-<p class="pregunta">
-Descubrí las 10 cosas que amo de vos.
+<p class="descripcion">
+La clave es de 3 números.
 <br>
-Tocá cada una para desbloquearla.
+El primer número ya lo descubriste. ❤️
 </p>
 
-<div class="lista">
+<div class="teclado">
 
-<div class="razon">1. Tu sonrisa ❤️</div>
-
-<div class="razon">2. Tus abrazos 🥰</div>
-
-<div class="razon">3. Tu forma de ser ✨</div>
-
-<div class="razon">4. La manera en que me hacés reír 😂</div>
-
-<div class="razon">5. Nuestras conversaciones 💬</div>
-
-<div class="razon">6. La confianza que tenemos 🤝</div>
-
-<div class="razon">7. Cada recuerdo que construimos 📸</div>
-
-<div class="razon">8. La forma en que me hacés sentir ❤️</div>
-
-<div class="razon">9. Todo lo que vivimos juntos 🥹</div>
-
-<div class="razon">10. Simplemente vos. ❤️</div>
+<button class="tecla" onclick="tecla(1)">1</button>
+<button class="tecla" onclick="tecla(2)">2</button>
+<button class="tecla" onclick="tecla(3)">3</button>
+<button class="tecla" onclick="tecla(4)">4</button>
+<button class="tecla" onclick="tecla(5)">5</button>
+<button class="tecla" onclick="tecla(6)">6</button>
+<button class="tecla" onclick="tecla(7)">7</button>
+<button class="tecla" onclick="tecla(8)">8</button>
+<button class="tecla" onclick="tecla(9)">9</button>
 
 </div>
+
+<button class="boton"
+onclick="comprobarCodigo()">
+Desbloquear 🔐
+</button>
+
+<div class="mensaje" id="mensajeCodigo"></div>
+
+</section>
+
+
+<!-- ========================= -->
+<!-- JUEGO 3 -->
+<!-- ========================= -->
+
+<section class="pantalla" id="juego3">
+
+<div class="indicador">DESAFÍO 03</div>
+
+<h2>Un recuerdo ❤️</h2>
+
+<p class="descripcion">
+Ahora llegó el momento de mirar atrás.
+<br>
+Hay un recuerdo escondido acá.
+</p>
+
+<div class="tarjeta">
+
+<div class="galeria">
+
+<div class="foto">
+<img src="foto1.jpg" alt="Nuestro recuerdo">
+</div>
+
+<div class="foto bloqueada">
+🔒
+</div>
+
+<div class="foto bloqueada">
+🔒
+</div>
+
+<div class="foto bloqueada">
+🔒
+</div>
+
+</div>
+
+<p class="descripcion" style="margin-top:25px">
+Para desbloquear las otras fotos,
+tocá primero la foto que está disponible.
+</p>
+
+<button class="boton"
+onclick="desbloquearFotos()">
+Desbloquear recuerdos ❤️
+</button>
+
+</div>
+
+</section>
+
+
+<!-- ========================= -->
+<!-- JUEGO 4 -->
+<!-- ========================= -->
+
+<section class="pantalla" id="juego4">
+
+<div class="indicador">ÚLTIMO DESAFÍO</div>
+
+<h2>Ahora viene lo importante...</h2>
+
+<p class="descripcion">
+Hay algunas cosas que quiero que recuerdes.
+<br>
+Tocá el botón y dejá que aparezcan una por una.
+</p>
+
+<div class="tarjeta">
+
+<div class="razon">❤️ Tu sonrisa.</div>
+
+<div class="razon">🥰 Tus abrazos.</div>
+
+<div class="razon">✨ Tu forma de ser.</div>
+
+<div class="razon">😂 La manera en que me hacés reír.</div>
+
+<div class="razon">💬 Nuestras conversaciones.</div>
+
+<div class="razon">🤍 La confianza que tenemos.</div>
+
+<div class="razon">📸 Cada recuerdo que construimos.</div>
+
+<div class="razon">🥹 La forma en que me hacés sentir.</div>
+
+<div class="razon">❤️ Todo lo que vivimos juntos.</div>
+
+<div class="razon">∞ Y simplemente... vos.</div>
 
 <button class="boton"
 onclick="mostrarRazones()">
-Desbloquear ❤️
+Descubrirlas ❤️
 </button>
 
 </div>
 
+</section>
 
+
+<!-- ========================= -->
 <!-- FINAL -->
+<!-- ========================= -->
 
-<div class="final" id="final">
+<section class="final" id="final">
 
-<div class="corazon">❤️</div>
+<div class="corazon-grande">
+❤️
+</div>
 
-<h2>Día 3 terminado</h2>
+<h1>Día 3 terminado</h1>
 
 <p>
 Llegaste hasta el final.
@@ -463,20 +681,19 @@ Llegaste hasta el final.
 
 <p>
 Hoy no hubo un regalo físico.
-Hubo palabras, recuerdos y un pequeño juego
-que preparé especialmente para vos.
+Quería regalarte algo diferente:
+un pequeño momento hecho exclusivamente para vos.
 </p>
 
 <p>
-Espero que te haya gustado esta pequeña aventura
-y que también te esté gustando la miniserie
-que estoy preparando para vos.
+Cada palabra, cada foto, cada recuerdo
+y cada parte de esta página fue preparada
+con muchísimo amor.
 </p>
 
 <p>
-Porque cada día que pasa,
-cada foto, cada palabra y cada detalle
-están hechos con muchísimo amor.
+Espero que te esté gustando esta pequeña miniserie
+que estoy haciendo para vos.
 </p>
 
 <p class="firma">
@@ -484,169 +701,267 @@ Te amo muchísimo. ❤️
 </p>
 
 <p>
-Nos vemos mañana... 👀
+Y acordate...
+<br>
+<strong>esto recién empieza.</strong> 👀
 </p>
 
-<div class="dia">
+<div class="check">
 DÍA 3/22 ✓
 </div>
 
-</div>
+</section>
 
 </div>
 
 
 <script>
 
-/* JUEGO 1 */
+/* ESTRELLAS */
 
-function respuesta(elemento, correcto){
+const estrellas=document.getElementById("estrellas");
 
-    const mensaje =
-        document.getElementById("mensaje1");
+for(let i=0;i<130;i++){
 
-    const boton =
-        document.getElementById("continuar1");
+    const e=document.createElement("div");
 
-    if(correcto){
+    e.className="estrella";
 
-        elemento.classList.add("correcto");
+    e.style.left=Math.random()*100+"vw";
+    e.style.top=Math.random()*100+"vh";
 
-        mensaje.innerHTML =
-        "¡Correcto! ❤️ Sabía que lo ibas a descubrir.";
+    e.style.animationDelay=Math.random()*4+"s";
 
-        boton.disabled=false;
-
-    }else{
-
-        elemento.classList.add("incorrecto");
-
-        mensaje.innerHTML =
-        "Mmm... no es esa 😏 Intentá otra vez.";
-
-    }
-
+    estrellas.appendChild(e);
 }
 
 
-/* CAMBIAR DE JUEGO */
+/* CAMBIAR PANTALLA */
 
-function siguiente(numero){
+function mostrar(id){
 
-    document.querySelectorAll(".juego")
-    .forEach(j => j.classList.remove("activo"));
+    document.querySelectorAll(".pantalla")
+    .forEach(x=>x.classList.remove("activa"));
 
-    document.getElementById("juego"+numero)
-    .classList.add("activo");
+    document.getElementById("portada")
+    .style.display="none";
+
+    document.getElementById(id)
+    .classList.add("activa");
 
     window.scrollTo({
         top:0,
         behavior:"smooth"
     });
+}
 
+
+/* JUEGO 1 */
+
+function respuesta1(elemento,correcto){
+
+    if(correcto){
+
+        elemento.classList.add("correcta");
+
+        document.getElementById("mensaje1")
+        .innerHTML=
+        "Correcto ❤️ Sabía que ibas a elegir esa.";
+
+        document.getElementById("b1")
+        .disabled=false;
+
+    }else{
+
+        elemento.classList.add("incorrecta");
+
+        document.getElementById("mensaje1")
+        .innerHTML=
+        "Mmm... pensalo otra vez 😏";
+
+    }
 }
 
 
 /* JUEGO 2 */
 
-const corazon =
-    document.getElementById("corazonOculto");
+function numeroCorrecto(elemento){
 
-corazon.style.left =
-    Math.random()*85+"%";
+    const botones=
+    document.querySelectorAll("#juego2 .opcion");
 
-corazon.style.top =
-    Math.random()*75+"%";
+    botones.forEach(b=>{
+        b.classList.remove("correcta","incorrecta");
+    });
 
-corazon.addEventListener("click",()=>{
+    if(elemento.innerText.includes("9")){
 
-    document.getElementById("mensaje2")
-    .innerHTML =
-    "¡Lo encontraste! ❤️";
+        elemento.classList.add("correcta");
 
-    document.getElementById("continuar2")
-    .disabled=false;
+        document.getElementById("mensaje2")
+        .innerHTML=
+        "Exactamente... 9 meses ❤️";
 
-});
-
-
-/* JUEGO 3 */
-
-let palabrasCorrectas = [
-    "Te",
-    "amo",
-    "muchísimo",
-    "❤️"
-];
-
-let seleccionadas = [];
-
-function ordenar(elemento,palabra){
-
-    if(elemento.classList.contains("seleccionada"))
-        return;
-
-    const posicion =
-        seleccionadas.length;
-
-    if(palabra === palabrasCorrectas[posicion]){
-
-        elemento.classList.add("seleccionada");
-
-        seleccionadas.push(palabra);
-
-        if(seleccionadas.length === 4){
-
-            document.getElementById("mensaje3")
-            .innerHTML =
-            "¡Perfecto! ❤️";
-
-            document.getElementById("continuar3")
-            .disabled=false;
-
-        }
+        document.getElementById("c1").value="9";
 
     }else{
 
-        document.getElementById("mensaje3")
-        .innerHTML =
-        "Casi... pensalo un poquito más 👀";
+        elemento.classList.add("incorrecta");
+
+        document.getElementById("mensaje2")
+        .innerHTML=
+        "Nooo... mirá bien la pregunta 👀";
+
+    }
+}
+
+
+/* TECLADO */
+
+let posicion=1;
+
+function tecla(numero){
+
+    if(posicion>2)return;
+
+    document.getElementById("c"+(posicion+1))
+    .value=numero;
+
+    posicion++;
+}
+
+
+/* CODIGO */
+
+function comprobarCodigo(){
+
+    const a=document.getElementById("c1").value;
+    const b=document.getElementById("c2").value;
+    const c=document.getElementById("c3").value;
+
+    /*
+       Código secreto:
+       9 - 2 - 2
+    */
+
+    if(a==="9" && b==="2" && c==="2"){
+
+        document.getElementById("mensajeCodigo")
+        .innerHTML=
+        "🔓 Código correcto. Recuerdo desbloqueado.";
+
+        setTimeout(()=>{
+            mostrar("juego3");
+        },1200);
+
+    }else{
+
+        document.getElementById("mensajeCodigo")
+        .innerHTML=
+        "🔒 Código incorrecto... todavía falta descubrir algo.";
 
     }
 
 }
 
 
-/* JUEGO FINAL */
+/* FOTOS */
+
+function desbloquearFotos(){
+
+    const fotos=
+    document.querySelectorAll("#juego3 .bloqueada");
+
+    fotos.forEach((foto,index)=>{
+
+        setTimeout(()=>{
+
+            foto.classList.remove("bloqueada");
+
+            foto.innerHTML=
+            '<img src="foto'+(index+2)+'.jpg" alt="Recuerdo">';
+
+        },index*700);
+
+    });
+
+    setTimeout(()=>{
+
+        const boton=document.createElement("button");
+
+        boton.className="boton";
+
+        boton.innerHTML=
+        "Continuar ❤️";
+
+        boton.onclick=()=>{
+            mostrar("juego4");
+        };
+
+        document.querySelector("#juego3 .tarjeta")
+        .appendChild(boton);
+
+    },2500);
+
+}
+
+
+/* RAZONES */
 
 function mostrarRazones(){
 
-    const razones =
-        document.querySelectorAll(".razon");
+    const razones=
+    document.querySelectorAll(".razon");
 
     razones.forEach((razon,index)=>{
 
         setTimeout(()=>{
 
-            razon.classList.add("mostrar");
+            razon.classList.add("visible");
 
-        },index*500);
+        },index*550);
 
     });
 
     setTimeout(()=>{
 
         document.getElementById("final")
-        .style.display="block";
+        .classList.add("activa");
 
         document.getElementById("final")
         .scrollIntoView({
             behavior:"smooth"
         });
 
-    },5500);
+    },6200);
 
 }
+
+
+/* CORAZONES */
+
+function crearCorazon(){
+
+    const c=document.createElement("div");
+
+    c.className="corazon-flotante";
+
+    c.innerHTML="❤️";
+
+    c.style.left=Math.random()*100+"vw";
+
+    c.style.fontSize=
+    (12+Math.random()*16)+"px";
+
+    document.body.appendChild(c);
+
+    setTimeout(()=>{
+        c.remove();
+    },8000);
+
+}
+
+setInterval(crearCorazon,1000);
 
 </script>
 
