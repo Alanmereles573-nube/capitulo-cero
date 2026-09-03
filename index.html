@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>⚠️ CASTIGO ⚠️</title>
+<title>El desafío 😈</title>
 
 <style>
 
@@ -15,143 +15,173 @@
 body{
     margin:0;
     min-height:100vh;
+
     display:flex;
     justify-content:center;
     align-items:center;
+
     padding:20px;
 
-    font-family:Arial, sans-serif;
+    font-family:Arial,sans-serif;
 
     background:
-    radial-gradient(circle at top,#4b0012,#120006 60%,#000);
+    radial-gradient(circle at top,#3d1b00,#120900 60%,#030303);
 
     color:white;
-    overflow:hidden;
 }
 
 .container{
     width:100%;
     max-width:650px;
+
+    padding:30px 22px;
+
     text-align:center;
 
-    padding:35px 22px;
+    background:rgba(15,15,15,.95);
 
-    border-radius:30px;
+    border-radius:28px;
 
-    background:rgba(20,20,20,.9);
-
-    border:2px solid #ff1744;
+    border:2px solid #f5b400;
 
     box-shadow:
-    0 0 30px rgba(255,23,68,.4),
-    0 0 100px rgba(255,23,68,.15);
-
-    animation:entrada 1s ease;
+    0 0 25px rgba(245,180,0,.35),
+    0 0 80px rgba(245,180,0,.12);
 }
 
-.alerta{
-    font-size:55px;
-    animation:temblar .7s infinite;
+.emoji{
+    font-size:60px;
 }
 
 h1{
-    font-size:clamp(38px,10vw,75px);
+    font-size:clamp(35px,9vw,60px);
+
     margin:10px 0;
 
-    color:#ff1744;
-
-    text-transform:uppercase;
+    color:#ffd54a;
 
     text-shadow:
-    0 0 10px #ff1744,
-    0 0 30px #ff1744;
+    0 0 10px #ffb300,
+    0 0 25px #ff8f00;
 }
 
 h2{
-    font-size:clamp(22px,6vw,38px);
-    margin:20px 0;
+    font-size:28px;
 }
 
 p{
-    font-size:20px;
+    font-size:19px;
     line-height:1.5;
+
     color:#ddd;
 }
 
-.castigo{
+.objetivo{
+
+    margin:25px 0;
+
+    padding:25px;
+
+    border-radius:22px;
+
+    background:#211600;
+
+    border:2px solid #f5b400;
+}
+
+.copas{
+
+    font-size:clamp(50px,13vw,85px);
+
+    font-weight:900;
+
+    color:#ffd54a;
+
+    margin:10px 0;
+}
+
+.condicion{
+
+    font-size:22px;
+
+    font-weight:bold;
+
+    color:white;
+}
+
+.aviso{
+
     margin-top:25px;
 
-    padding:20px;
+    padding:18px;
 
-    border-radius:20px;
+    border-radius:18px;
 
-    background:#25000a;
+    background:#260006;
 
     border:1px solid #ff1744;
 }
 
+.castigo{
+
+    color:#ff6b6b;
+
+    font-weight:bold;
+}
+
+.sorpresa{
+
+    color:#7cff9e;
+
+    font-weight:bold;
+}
+
 button{
+
     margin-top:25px;
 
-    padding:16px 30px;
+    padding:16px 28px;
 
     border:none;
+
     border-radius:50px;
 
-    background:#ff1744;
-    color:white;
+    background:#ffd54a;
+
+    color:#171000;
 
     font-size:18px;
+
     font-weight:bold;
 
     cursor:pointer;
-
-    box-shadow:0 0 20px rgba(255,23,68,.5);
 }
 
 button:hover{
+
     transform:scale(1.05);
+
 }
 
-#mensaje{
+#extra{
+
     display:none;
+
     margin-top:25px;
 
-    animation:entrada .6s ease;
+    animation:aparecer .6s ease;
 }
 
-.grande{
-    font-size:32px;
-    font-weight:bold;
-    color:#ffb3c1;
-}
-
-@keyframes entrada{
+@keyframes aparecer{
 
     from{
         opacity:0;
-        transform:scale(.8);
+        transform:translateY(15px);
     }
 
     to{
         opacity:1;
-        transform:scale(1);
-    }
-
-}
-
-@keyframes temblar{
-
-    0%,100%{
-        transform:rotate(0deg);
-    }
-
-    25%{
-        transform:rotate(-8deg);
-    }
-
-    75%{
-        transform:rotate(8deg);
+        transform:translateY(0);
     }
 
 }
@@ -164,72 +194,108 @@ button:hover{
 
 <div class="container">
 
-    <div class="alerta">
-        🚨
+    <div class="emoji">
+        🏆⚔️
     </div>
 
     <h1>
-        ¡SOS CHISMOSA!
+        EL DESAFÍO
     </h1>
 
     <h2>
-        Y METICHE 😂
+        ¿Querés ver tu sorpresa? 👀
     </h2>
 
-    <div class="castigo">
+    <p>
+        Entonces vas a tener que demostrar
+        que realmente la merecés. 😈
+    </p>
+
+
+    <div class="objetivo">
 
         <p>
-            Debido a tus investigaciones ilegales,
-            preguntas sospechosas y exceso de curiosidad... 👀
+            TU OBJETIVO ES LLEGAR A
         </p>
 
-        <p class="grande">
-            TENÉS UN CASTIGO. 😈
+        <div class="copas">
+            3600
+        </div>
+
+        <p class="condicion">
+            🏆 COPAS 🏆
         </p>
 
         <p>
-            Por metiche y chismosa...
-        </p>
-
-        <p class="grande">
-            LA SORPRESA DE HOY NO LA VAS A VER HOY. 😂
+            En Clash Royale ⚔️
         </p>
 
     </div>
 
-    <button onclick="mostrar()">
-        😭 ACEPTAR MI CASTIGO
+
+    <p>
+        Si conseguís llegar a <b>3600 copas</b>...
+    </p>
+
+    <p class="sorpresa">
+        🎁 PODÉS VER LA SORPRESA 🎁
+    </p>
+
+
+    <div class="aviso">
+
+        <p>
+            Pero si NO llegás...
+        </p>
+
+        <p class="castigo">
+            😈 EL CASTIGO CONTINÚA
+        </p>
+
+        <p>
+            hasta <b>mañana a la tarde</b>.
+        </p>
+
+    </div>
+
+
+    <button onclick="mostrarMensaje()">
+        🔥 ACEPTAR EL DESAFÍO
     </button>
 
-    <div id="mensaje">
 
-        <p class="grande">
-            JAJAJAJA 😂❤️
+    <div id="extra">
+
+        <p>
+            Bueno...
         </p>
 
         <p>
-            Querías saber todo antes de tiempo...
+            <b>Ahora no hay excusas. 😂</b>
         </p>
 
         <p>
-            Ahora vas a tener que esperar. 😌
+            3600 copas.
         </p>
 
         <p>
-            <b>
-                Mañana vemos si te portaste mejor. 👀
-            </b>
+            La sorpresa está en tus manos. 👀❤️
+        </p>
+
+        <p style="font-size:30px;">
+            ⚔️🏆⚔️
         </p>
 
     </div>
 
 </div>
 
+
 <script>
 
-function mostrar(){
+function mostrarMensaje(){
 
-    document.getElementById("mensaje").style.display="block";
+    document.getElementById("extra").style.display="block";
 
 }
 
