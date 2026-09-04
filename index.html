@@ -4,242 +4,358 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Día 4 ❤️</title>
+<title>Día 4 💙</title>
 
 <style>
-*{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-body{
-    min-height:100vh;
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-    color:white;
+body {
+    min-height: 100vh;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     background:
-        radial-gradient(circle at 50% 20%,#3b1725,#120a10 48%,#050507 100%);
-    overflow:hidden;
+        radial-gradient(circle at top, #1976d2, #0d47a1 45%, #03152f);
+    color: white;
+    overflow-x: hidden;
 }
 
-.estrellas{
-    position:fixed;
-    inset:0;
-    pointer-events:none;
+/* CORAZONES */
+
+.corazones {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
 }
 
-.estrella{
-    position:absolute;
-    width:2px;
-    height:2px;
-    background:white;
-    border-radius:50%;
-    opacity:.4;
-    animation:brillo 3s infinite alternate;
+.corazon {
+    position: absolute;
+    bottom: -50px;
+    color: #64b5f6;
+    font-size: 20px;
+    animation: subir 8s linear infinite;
+    opacity: .7;
 }
 
-@keyframes brillo{
-    from{opacity:.15}
-    to{opacity:.9}
+@keyframes subir {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+
+    15% {
+        opacity: .8;
+    }
+
+    100% {
+        transform: translateY(-110vh) rotate(25deg);
+        opacity: 0;
+    }
 }
 
-.contenedor{
-    min-height:100vh;
-    max-width:700px;
-    margin:auto;
-    padding:30px 20px;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
+/* CONTENIDO */
+
+.contenedor {
+    position: relative;
+    z-index: 2;
+    min-height: 100vh;
+    max-width: 700px;
+    margin: auto;
+    padding: 40px 20px 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
-.corazon{
-    font-size:65px;
-    margin-bottom:20px;
-    animation:latido 1.8s infinite;
+/* CORAZÓN PRINCIPAL */
+
+.corazon-grande {
+    font-size: 70px;
+    animation: latido 1.7s infinite;
+    margin-bottom: 20px;
 }
 
-@keyframes latido{
-    0%,100%{transform:scale(1)}
-    50%{transform:scale(1.13)}
+@keyframes latido {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
 }
 
-.dia{
-    font-size:12px;
-    letter-spacing:5px;
-    color:#ff9fb8;
-    margin-bottom:18px;
+.dia {
+    font-size: 13px;
+    letter-spacing: 5px;
+    color: #bbdefb;
+    margin-bottom: 20px;
 }
 
-h1{
-    font-size:clamp(40px,10vw,65px);
-    font-weight:400;
-    margin-bottom:25px;
+h1 {
+    font-size: clamp(42px, 10vw, 65px);
+    font-weight: 500;
+    margin-bottom: 25px;
 }
 
-.intro{
-    font-size:18px;
-    line-height:1.9;
-    color:rgba(255,255,255,.78);
-    max-width:570px;
+.subtitulo {
+    font-size: 21px;
+    color: #e3f2fd;
+    margin-bottom: 25px;
 }
 
-.tarjeta{
-    width:100%;
-    margin-top:35px;
-    padding:30px 22px;
-    border-radius:28px;
-    background:rgba(255,255,255,.055);
-    border:1px solid rgba(255,255,255,.13);
-    backdrop-filter:blur(15px);
-    box-shadow:0 20px 70px rgba(0,0,0,.35);
+.tarjeta {
+    width: 100%;
+    padding: 32px 22px;
+    border-radius: 30px;
+    background: rgba(255,255,255,.10);
+    border: 1px solid rgba(255,255,255,.20);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 20px 70px rgba(0,0,0,.3);
 }
 
-.pregunta{
-    font-size:25px;
-    line-height:1.5;
-    color:#ffb5c7;
-    margin-bottom:20px;
+.tarjeta p {
+    font-size: 18px;
+    line-height: 1.9;
+    color: #eaf6ff;
+    margin-bottom: 20px;
 }
 
-.texto{
-    font-size:17px;
-    line-height:1.8;
-    color:rgba(255,255,255,.75);
+.regalo {
+    margin: 30px 0;
+    padding: 25px;
+    border-radius: 25px;
+    background: rgba(0,0,0,.15);
+    border: 1px solid rgba(255,255,255,.15);
 }
 
-.boton{
-    margin-top:28px;
-    padding:15px 30px;
-    border-radius:50px;
-    border:1px solid rgba(255,255,255,.2);
-    background:rgba(255,255,255,.07);
-    color:white;
-    font-size:16px;
+.regalo .emoji {
+    font-size: 70px;
+    margin-bottom: 15px;
 }
 
-.pista{
-    display:none;
-    margin-top:25px;
-    font-size:17px;
-    line-height:1.8;
-    color:#ffb5c7;
+.regalo h2 {
+    font-size: 28px;
+    color: #fff;
+    margin-bottom: 10px;
 }
 
-.final{
-    margin-top:35px;
-    font-size:13px;
-    letter-spacing:3px;
-    color:rgba(255,255,255,.4);
+.regalo p {
+    margin: 0;
+    font-size: 17px;
+}
+
+.frase {
+    font-size: 22px;
+    line-height: 1.7;
+    color: #bbdefb;
+    font-style: italic;
+    margin: 30px 0;
+}
+
+.manana {
+    padding: 20px;
+    border-radius: 20px;
+    background: rgba(255,255,255,.08);
+    border: 1px solid rgba(255,255,255,.12);
+}
+
+.manana strong {
+    display: block;
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+.manana span {
+    color: #bbdefb;
+}
+
+.final {
+    margin-top: 35px;
+    font-size: 13px;
+    letter-spacing: 3px;
+    color: rgba(255,255,255,.55);
+}
+
+.firma {
+    font-size: 24px !important;
+    color: #fff !important;
+}
+
+/* MÓVIL */
+
+@media(max-width:500px) {
+
+    .contenedor {
+        padding: 30px 15px 60px;
+    }
+
+    .tarjeta {
+        padding: 27px 17px;
+    }
+
+    .tarjeta p {
+        font-size: 17px;
+    }
 }
 </style>
 </head>
 
 <body>
 
-<div class="estrellas" id="estrellas"></div>
+<!-- CORAZONES AZULES -->
+
+<div class="corazones">
+
+    <span class="corazon" style="left:5%;animation-delay:0s;">💙</span>
+    <span class="corazon" style="left:15%;animation-delay:2s;">💙</span>
+    <span class="corazon" style="left:27%;animation-delay:4s;">💙</span>
+    <span class="corazon" style="left:40%;animation-delay:1s;">💙</span>
+    <span class="corazon" style="left:52%;animation-delay:5s;">💙</span>
+    <span class="corazon" style="left:65%;animation-delay:3s;">💙</span>
+    <span class="corazon" style="left:78%;animation-delay:6s;">💙</span>
+    <span class="corazon" style="left:90%;animation-delay:1.5s;">💙</span>
+
+</div>
+
 
 <div class="contenedor">
 
-    <div class="corazon">❤️</div>
+    <div class="corazon-grande">
+        💙
+    </div>
 
     <div class="dia">
         DÍA 4 / 22
     </div>
 
     <h1>
-        ¿Qué será hoy?
+        Para vos ❤️
     </h1>
 
-    <p class="intro">
-        Llegaste al cuarto día...
-        y esta vez decidí no darte ninguna pista.
-        👀
-        <br><br>
-        Hay algo preparado para vos,
-        pero vas a tener que esperar para descubrirlo.
+    <p class="subtitulo">
+        Espero que te haya gustado tu sorpresa...
     </p>
+
 
     <div class="tarjeta">
 
-        <div class="pregunta">
-            🤫 Hay un secreto escondido...
-        </div>
-
-        <p class="texto">
-            No intentes adivinarlo.
-            No preguntes qué es.
-            Y sobre todo...
-            <br>
-            <strong>no mires antes de tiempo. ❤️</strong>
+        <p>
+            Quería dejarte este pequeño mensaje
+            porque hoy fue un día especial. 💙
         </p>
 
-        <button class="boton" onclick="mostrarPista()">
-            Intentar descubrirlo 👀
-        </button>
+        <p>
+            Espero de todo corazón que te haya gustado
+            el peluche que te regalé.
+        </p>
 
-        <div class="pista" id="pista">
 
-            Mmm... todavía no. 😏
+        <div class="regalo">
 
-            <br><br>
+            <div class="emoji">
+                🧸
+            </div>
 
-            Solo puedo decirte que
-            hoy hay algo preparado
-            con muchísimo amor.
+            <h2>
+                Tu Stitch 💙
+            </h2>
 
-            <br><br>
-
-            **¿Qué será?** ❤️
+            <p>
+                Lo elegí pensando en vos
+                y con muchísimo cariño.
+            </p>
 
         </div>
+
+
+        <p>
+            Puede parecer un detalle pequeño,
+            pero para mí lo importante es que
+            cada regalo tenga un poquito de todo
+            el amor que siento por vos.
+        </p>
+
+        <p>
+            Quiero que sepas que te amo muchísimo
+            y que te merecés esto y muchísimo más.
+        </p>
+
+
+        <div class="frase">
+
+            "Ojalá cada vez que mires este regalito
+            te acuerdes de mí y de todo el amor
+            con el que te lo di." 💙
+
+        </div>
+
+
+        <div class="manana">
+
+            <strong>
+                Y esto todavía no termina... 👀
+            </strong>
+
+            <span>
+                Mañana nos vemos con otra cosita.
+                ❤️
+            </span>
+
+        </div>
+
+
+        <p class="firma">
+            Te amo muchísimo. 💙❤️
+        </p>
 
     </div>
 
+
     <div class="final">
-        DÍA 4 — CONTINUARÁ... 🌙
+        DÍA 4 COMPLETADO ✓
     </div>
 
 </div>
 
+
 <script>
 
-/* ESTRELLAS */
+/* CREAR CORAZONES NUEVOS */
 
-for(let i=0;i<120;i++){
+function crearCorazon(){
 
-    const estrella=document.createElement("div");
+    const corazon = document.createElement("span");
 
-    estrella.className="estrella";
+    corazon.className = "corazon";
 
-    estrella.style.left=Math.random()*100+"vw";
-    estrella.style.top=Math.random()*100+"vh";
+    corazon.innerHTML = "💙";
 
-    estrella.style.animationDelay=
-        Math.random()*4+"s";
+    corazon.style.left =
+        Math.random() * 100 + "%";
 
-    document.getElementById("estrellas")
-        .appendChild(estrella);
+    corazon.style.fontSize =
+        (15 + Math.random() * 25) + "px";
+
+    corazon.style.animationDuration =
+        (6 + Math.random() * 5) + "s";
+
+    document
+        .querySelector(".corazones")
+        .appendChild(corazon);
+
+    setTimeout(() => {
+        corazon.remove();
+    },10000);
 }
 
-
-/* PISTA */
-
-function mostrarPista(){
-
-    const pista=
-        document.getElementById("pista");
-
-    pista.style.display="block";
-
-    window.scrollTo({
-        top:document.body.scrollHeight,
-        behavior:"smooth"
-    });
-
-}
+setInterval(crearCorazon,900);
 
 </script>
 
