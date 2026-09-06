@@ -18,11 +18,9 @@ body{
     font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
     color:white;
     background:
-        radial-gradient(circle at 50% 10%,#174a83,#081b35 50%,#020711);
+        radial-gradient(circle at top,#1565c0,#08264b 50%,#020914);
     overflow-x:hidden;
 }
-
-/* FONDO */
 
 .fondo{
     position:fixed;
@@ -34,101 +32,80 @@ body{
 
 .corazon{
     position:absolute;
-    bottom:-40px;
-    font-size:20px;
-    opacity:.55;
-    animation:flotar 9s linear infinite;
+    bottom:-50px;
+    animation:subir linear infinite;
+    opacity:.6;
 }
 
-@keyframes flotar{
+@keyframes subir{
     0%{
         transform:translateY(0) rotate(0deg);
         opacity:0;
     }
-    15%{
-        opacity:.7;
-    }
+    15%{opacity:.7;}
     100%{
         transform:translateY(-110vh) rotate(25deg);
         opacity:0;
     }
 }
 
-/* CONTENEDOR */
-
 .contenedor{
     position:relative;
     z-index:2;
+    width:100%;
     max-width:700px;
     margin:auto;
-    min-height:100vh;
-    padding:35px 18px 70px;
+    padding:30px 17px 70px;
     text-align:center;
 }
 
-/* PORTADA */
-
 .portada{
-    min-height:95vh;
+    min-height:100vh;
     display:flex;
     flex-direction:column;
     justify-content:center;
     align-items:center;
 }
 
-.dia{
-    font-size:12px;
-    letter-spacing:5px;
-    color:#90caf9;
-    margin-bottom:18px;
-}
-
-.corazon-grande{
+.corazonGrande{
     font-size:70px;
-    animation:latido 1.8s infinite;
+    animation:latido 1.7s infinite;
     margin-bottom:20px;
 }
 
 @keyframes latido{
-    0%,100%{transform:scale(1)}
-    50%{transform:scale(1.12)}
+    0%,100%{transform:scale(1);}
+    50%{transform:scale(1.13);}
+}
+
+.dia{
+    font-size:12px;
+    letter-spacing:5px;
+    color:#90caf9;
+    margin-bottom:20px;
 }
 
 h1{
     font-size:clamp(40px,10vw,62px);
     font-weight:400;
-    margin-bottom:18px;
+    margin-bottom:20px;
 }
 
 .intro{
     font-size:18px;
     line-height:1.8;
     color:rgba(255,255,255,.78);
-    max-width:580px;
 }
-
-/* BOTÓN */
 
 .boton{
     margin-top:30px;
-    padding:15px 30px;
-    border:none;
+    padding:16px 32px;
     border-radius:50px;
-    background:rgba(144,202,249,.13);
-    border:1px solid rgba(144,202,249,.4);
+    border:1px solid rgba(144,202,249,.5);
+    background:rgba(144,202,249,.12);
     color:white;
     font-size:16px;
     cursor:pointer;
-    transition:.3s;
-}
-
-.boton:hover{
-    transform:translateY(-2px);
-    background:rgba(144,202,249,.2);
-}
-
-.boton:active{
-    transform:scale(.96);
 }
 
 /* JUEGO */
@@ -136,79 +113,89 @@ h1{
 .juego{
     display:none;
     min-height:100vh;
-    padding-top:60px;
+    padding-top:50px;
 }
 
-.juego.activo{
-    display:block;
+.progresoTexto{
+    color:#90caf9;
+    font-size:14px;
+    margin-bottom:12px;
 }
 
-.progreso{
-    width:100%;
+.barra{
     height:6px;
     background:rgba(255,255,255,.1);
     border-radius:20px;
-    margin:25px 0 35px;
     overflow:hidden;
+    margin-bottom:30px;
 }
 
-.progreso-barra{
+.barraInterna{
     width:0%;
     height:100%;
     background:#64b5f6;
-    transition:.5s;
+    transition:.4s;
 }
 
-.pregunta{
-    padding:28px 18px;
-    border-radius:28px;
-    background:rgba(255,255,255,.06);
-    border:1px solid rgba(255,255,255,.12);
+.tarjeta{
+    padding:30px 20px;
+    border-radius:30px;
+    background:rgba(255,255,255,.07);
+    border:1px solid rgba(255,255,255,.14);
     backdrop-filter:blur(15px);
+    box-shadow:0 20px 70px rgba(0,0,0,.35);
 }
 
-.pregunta h2{
+.tarjeta h2{
     font-size:25px;
     font-weight:400;
     line-height:1.5;
     margin-bottom:25px;
 }
 
-.opciones{
-    display:flex;
-    flex-direction:column;
-    gap:12px;
+.pista{
+    font-size:13px;
+    color:#90caf9;
+    margin-bottom:18px;
 }
 
-.opcion{
+input{
+    width:100%;
     padding:17px;
-    border-radius:16px;
-    border:1px solid rgba(255,255,255,.14);
-    background:rgba(255,255,255,.055);
+    border-radius:15px;
+    border:1px solid rgba(255,255,255,.2);
+    background:rgba(0,0,0,.18);
+    color:white;
+    outline:none;
+    text-align:center;
+    font-size:17px;
+}
+
+input:focus{
+    border-color:#90caf9;
+}
+
+.comprobar{
+    margin-top:18px;
+    padding:14px 28px;
+    border-radius:50px;
+    border:1px solid rgba(144,202,249,.5);
+    background:rgba(144,202,249,.12);
     color:white;
     font-size:16px;
-    cursor:pointer;
-}
-
-.opcion:active{
-    transform:scale(.98);
-}
-
-.correcta{
-    border-color:#81d4fa!important;
-    background:rgba(129,212,250,.16)!important;
-}
-
-.incorrecta{
-    border-color:#ef9a9a!important;
-    background:rgba(239,154,154,.1)!important;
 }
 
 .mensaje{
-    min-height:28px;
-    margin-top:18px;
-    color:#90caf9;
+    min-height:30px;
+    margin-top:20px;
     line-height:1.5;
+    color:#90caf9;
+}
+
+.intentos{
+    margin-top:10px;
+    font-size:12px;
+    color:rgba(255,255,255,.4);
 }
 
 /* CARTA */
@@ -216,7 +203,7 @@ h1{
 .carta{
     display:none;
     min-height:100vh;
-    padding-top:70px;
+    padding-top:60px;
 }
 
 .carta.activa{
@@ -226,14 +213,8 @@ h1{
 .sobre{
     padding:35px 22px;
     border-radius:30px;
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,.10),
-            rgba(255,255,255,.035)
-        );
-    border:1px solid rgba(255,255,255,.15);
-    box-shadow:0 25px 80px rgba(0,0,0,.35);
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.16);
     backdrop-filter:blur(15px);
     animation:aparecer 1.2s ease;
 }
@@ -241,7 +222,7 @@ h1{
 @keyframes aparecer{
     from{
         opacity:0;
-        transform:translateY(25px);
+        transform:translateY(30px);
     }
     to{
         opacity:1;
@@ -250,7 +231,7 @@ h1{
 }
 
 .sobre h2{
-    font-size:32px;
+    font-size:34px;
     font-weight:400;
     margin-bottom:25px;
 }
@@ -258,69 +239,33 @@ h1{
 .sobre p{
     font-size:18px;
     line-height:2;
-    color:rgba(255,255,255,.82);
+    color:rgba(255,255,255,.83);
     margin-bottom:20px;
 }
 
 .separador{
     margin:25px 0;
-    color:#90caf9;
+    color:#64b5f6;
     letter-spacing:8px;
 }
 
 .firma{
-    font-size:24px!important;
+    font-size:25px!important;
     color:#90caf9!important;
-    margin-top:30px;
 }
 
 .final{
     margin-top:35px;
-    color:rgba(255,255,255,.45);
     font-size:12px;
     letter-spacing:3px;
-}
-
-/* MÓVIL */
-
-@media(max-width:500px){
-
-    .contenedor{
-        padding-left:15px;
-        padding-right:15px;
-    }
-
-    .pregunta{
-        padding:25px 15px;
-    }
-
-    .sobre{
-        padding:30px 18px;
-    }
-
-    .sobre p{
-        font-size:17px;
-    }
+    color:rgba(255,255,255,.4);
 }
 </style>
 </head>
 
 <body>
 
-<!-- FONDO -->
-
-<div class="fondo">
-
-    <span class="corazon" style="left:5%;animation-delay:0s;">💙</span>
-    <span class="corazon" style="left:18%;animation-delay:3s;">💙</span>
-    <span class="corazon" style="left:31%;animation-delay:6s;">💙</span>
-    <span class="corazon" style="left:47%;animation-delay:1s;">💙</span>
-    <span class="corazon" style="left:62%;animation-delay:4s;">💙</span>
-    <span class="corazon" style="left:76%;animation-delay:2s;">💙</span>
-    <span class="corazon" style="left:91%;animation-delay:5s;">💙</span>
-
-</div>
-
+<div class="fondo" id="fondo"></div>
 
 <div class="contenedor">
 
@@ -330,31 +275,31 @@ h1{
 
 <section class="portada" id="portada">
 
-    <div class="corazon-grande">
-        💙
-    </div>
+    <div class="corazonGrande">💙</div>
 
     <div class="dia">
         DÍA 6 / 22
     </div>
 
     <h1>
-        Una pequeña prueba...
+        El desafío
     </h1>
 
     <p class="intro">
-        Hoy quiero hacer algo diferente.
+        Hoy no hay un regalo que abrir...
         <br><br>
-        Preparé un pequeño juego para vos.
-        No importa si acertás todo...
-        aunque espero que sí. 😏
+        Hoy hay algo que tenés que desbloquear.
+        🔐
         <br><br>
-        Porque después de jugar,
-        hay algo que quiero decirte.
+        Son <strong>22 preguntas</strong>
+        sobre nuestra historia.
+        <br><br>
+        Algunas son fáciles.
+        Otras... no tanto. 😈
     </p>
 
     <button class="boton" onclick="comenzar()">
-        Comenzar 💙
+        Aceptar el desafío 💙
     </button>
 
 </section>
@@ -367,24 +312,37 @@ h1{
 <section class="juego" id="juego">
 
     <div class="dia">
-        ¿CUÁNTO ME CONOCÉS?
+        DESAFÍO 22
     </div>
 
-    <h1 style="font-size:35px;">
-        Solo vos sabés ❤️
-    </h1>
-
-    <div class="progreso">
-        <div class="progreso-barra" id="barra"></div>
+    <div class="progresoTexto" id="progresoTexto">
+        Pregunta 1 de 22
     </div>
 
-    <div class="pregunta">
+    <div class="barra">
+        <div class="barraInterna" id="barra"></div>
+    </div>
 
-        <h2 id="textoPregunta"></h2>
+    <div class="tarjeta">
 
-        <div class="opciones" id="opciones"></div>
+        <h2 id="pregunta"></h2>
+
+        <div class="pista" id="pista"></div>
+
+        <input
+            type="text"
+            id="respuesta"
+            autocomplete="off"
+            placeholder="Escribí tu respuesta..."
+        >
+
+        <button class="comprobar" onclick="comprobar()">
+            Comprobar 💙
+        </button>
 
         <div class="mensaje" id="mensaje"></div>
+
+        <div class="intentos" id="intentos"></div>
 
     </div>
 
@@ -398,97 +356,94 @@ h1{
 <section class="carta" id="carta">
 
     <div class="dia">
-        DESBLOQUEASTE LA CARTA ❤️
+        DESBLOQUEADO 🔐
     </div>
 
     <div class="sobre">
 
         <h2>
-            Para vos...
+            Para mi Paraguayito... 💙
         </h2>
-
-        <div class="separador">
-            💙 💙 💙
-        </div>
-
-        <p>
-            Si llegaste hasta acá,
-            primero quiero decirte algo:
-            gracias por jugar.
-        </p>
-
-        <p>
-            Pero la verdad es que este juego
-            era solamente una excusa.
-        </p>
-
-        <p>
-            Una excusa para poder dejarte
-            unas palabras que quizás
-            no siempre sé cómo decirte
-            en persona.
-        </p>
-
-        <p>
-            Te amo muchísimo.
-            Y cada día que pasa me doy cuenta
-            de lo importante que sos para mí.
-        </p>
-
-        <p>
-            Me encanta compartir momentos con vos,
-            reírnos, hablar de cualquier cosa,
-            hacer planes y simplemente
-            saber que estás ahí.
-        </p>
-
-        <p>
-            Quiero que sepas que cada detalle
-            que estoy preparando durante estos días
-            lo hago pensando en vos.
-        </p>
-
-        <p>
-            No quiero que solamente recibas regalos.
-            Quiero que cada uno de ellos
-            te haga sentir querida,
-            especial y recordada.
-        </p>
 
         <div class="separador">
             💙 ✨ 💙
         </div>
 
         <p>
-            Porque te merecés muchísimo.
-            Te merecés amor,
-            momentos lindos,
-            sonrisas
-            y todas esas pequeñas cosas
-            que hacen feliz al corazón.
+            Si llegaste hasta acá, quiero que sepas
+            que estoy muy orgulloso de vos.
         </p>
 
         <p>
-            Y si pudiera,
-            te regalaría el mundo entero.
-            Pero mientras tanto,
-            voy a seguir regalándote
-            pequeños pedacitos de mi corazón.
+            No solamente porque lograste completar
+            las 22 preguntas, sino porque cada una
+            de ellas representa un pedacito de
+            nuestra historia.
         </p>
 
         <p>
-            Este fue solamente el Día 6...
-            todavía queda muchísimo por descubrir. 👀
+            Nuestra historia quizás no sea perfecta,
+            pero es nuestra.
+            Y eso es lo que la hace tan especial
+            para mí.
+        </p>
+
+        <p>
+            Me acuerdo de aquel domingo en el que
+            nos conocimos, de nuestras charlas,
+            de los mates, de nuestras risas
+            y de todos esos momentos que fuimos
+            construyendo juntos.
+        </p>
+
+        <p>
+            Me encantan tus ojos y tu sonrisa.
+            Me encanta cómo sos y cada una de esas
+            pequeñas cosas que te hacen ser vos.
+        </p>
+
+        <p>
+            Quiero seguir creando recuerdos,
+            seguir compartiendo momentos,
+            seguir riéndonos de nuestras locuras
+            y seguir escribiendo nuestra historia.
+        </p>
+
+        <div class="separador">
+            💙 💙 💙
+        </div>
+
+        <p>
+            Todo lo que estoy preparando para vos
+            durante estos días lo hago con muchísimo
+            amor.
+        </p>
+
+        <p>
+            Porque te merecés sentirte querida,
+            importante y especial.
+        </p>
+
+        <p>
+            Y aunque todavía quedan muchos días,
+            quería que hoy recuerdes algo:
         </p>
 
         <p class="firma">
-            Te amo con todo mi corazón. 💙
+            Te amo muchísimo. 💙
         </p>
 
-        <div class="final">
-            DÍA 6 COMPLETADO ✓
-        </div>
+        <p>
+            Feliz desafío superado.
+            <br>
+            Y preparate...
+            porque esto todavía continúa. 👀❤️
+        </p>
 
+    </div>
+
+    <div class="final">
+        DÍA 6 COMPLETADO ✓
     </div>
 
 </section>
@@ -505,58 +460,228 @@ h1{
 const preguntas = [
 
 {
-    pregunta:"¿Qué es lo que más me gusta hacer cuando estoy con vos?",
-    opciones:[
-        "Mirarte y molestarte 😏",
-        "Dormir todo el día 😴",
-        "Jugar solo 🎮"
-    ],
-    correcta:0
+    pregunta:"¿Qué día de la semana nos conocimos?",
+    pista:"Escribí el nombre del día.",
+    respuestas:["domingo"]
 },
 
 {
-    pregunta:"¿Qué prefiero: un momento especial con vos o algo material?",
-    opciones:[
-        "Algo material 🎁",
-        "Un momento con vos ❤️",
-        "No sé 🤔"
-    ],
-    correcta:1
+    pregunta:"¿En qué fecha comenzó oficialmente nuestra relación?",
+    pista:"Escribí la fecha completa.",
+    respuestas:[
+        "10 de octubre de 2025",
+        "10/10/2025",
+        "10-10-2025",
+        "10 octubre 2025"
+    ]
 },
 
 {
-    pregunta:"¿Qué palabra describe mejor todo lo que siento por vos?",
-    opciones:[
-        "Cariño",
-        "Amor ❤️",
-        "Amistad"
-    ],
-    correcta:1
+    pregunta:"¿En qué lugar de Tigre fue nuestra primera salida?",
+    pista:"Lugar + comida rápida.",
+    respuestas:[
+        "mcdonalds",
+        "mc donalds",
+        "mc donald",
+        "mcdonald"
+    ]
 },
 
 {
-    pregunta:"¿Qué quiero seguir haciendo con vos?",
-    opciones:[
-        "Crear recuerdos juntos 📸",
-        "No hacer nada 😂",
-        "Desaparecer 👻"
-    ],
-    correcta:0
+    pregunta:"¿Qué te regalé entre las primeras cosas que tuvieron un significado especial?",
+    pista:"Eran flores.",
+    respuestas:[
+        "tulipanes",
+        "tulipan",
+        "flores de tulipan"
+    ]
 },
 
 {
-    pregunta:"Y la más importante... ¿sabés cuánto te amo?",
-    opciones:[
-        "Muchísimo ❤️",
-        "Poquito 😏",
-        "No sé..."
-    ],
-    correcta:0
+    pregunta:"¿Cuál es el apodo con el que te llamo?",
+    pista:"Una palabra.",
+    respuestas:[
+        "enana"
+    ]
+},
+
+{
+    pregunta:"¿Qué palabra/frase usamos entre nosotros?",
+    pista:"Son dos palabras.",
+    respuestas:[
+        "tu kp",
+        "tukp"
+    ]
+},
+
+{
+    pregunta:"¿Cuál es esa comida que prácticamente siempre comés?",
+    pista:"Dos cosas.",
+    respuestas:[
+        "arroz con queso"
+    ]
+},
+
+{
+    pregunta:"¿Cómo se llama la canción que es especial para nosotros?",
+    pista:"Una sola palabra.",
+    respuestas:[
+        "babysita",
+        "babysita"
+    ]
+},
+
+{
+    pregunta:"¿Dónde estábamos cuando tuvimos aquella foto especial hablando y tomando mate?",
+    pista:"Un lugar al aire libre.",
+    respuestas:[
+        "plaza",
+        "la plaza"
+    ]
+},
+
+{
+    pregunta:"¿Cuál es el apodo que más me gusta decirte?",
+    pista:"Tiene relación con Paraguay. 🇵🇾",
+    respuestas:[
+        "mi paraguayito",
+        "paraguayito"
+    ]
+},
+
+{
+    pregunta:"¿Cuál es el personaje/animal que tenemos relacionado con nuestros peluches?",
+    pista:"Empieza con S.",
+    respuestas:[
+        "stitch",
+        "stich"
+    ]
+},
+
+{
+    pregunta:"¿Qué posición jugás cuando practicás fútbol?",
+    pista:"Una posición de ataque.",
+    respuestas:[
+        "delantera",
+        "delantero"
+    ]
+},
+
+{
+    pregunta:"¿Cómo fue que nos conocimos originalmente?",
+    pista:"No fue por una aplicación.",
+    respuestas:[
+        "en persona",
+        "personalmente"
+    ]
+},
+
+{
+    pregunta:"¿Por dónde seguimos hablando después de conocernos?",
+    pista:"Una aplicación de mensajería.",
+    respuestas:[
+        "whatsapp"
+    ]
+},
+
+{
+    pregunta:"¿Qué fue lo primero que me llamó la atención de vos?",
+    pista:"Son dos cosas que tenés en la cara.",
+    respuestas:[
+        "tus ojos y sonrisa",
+        "tus ojos y tu sonrisa",
+        "ojos y sonrisa",
+        "tus ojos sonrisa"
+    ]
+},
+
+{
+    pregunta:"¿A qué país queremos viajar juntos?",
+    pista:"Es un país vecino. 🇵🇾",
+    respuestas:[
+        "paraguay"
+    ]
+},
+
+{
+    pregunta:"¿Qué momento vergonzoso terminó convirtiéndose en una anécdota nuestra?",
+    pista:"Pasó algo relacionado con ir al baño. 😂",
+    respuestas:[
+        "cuando se hizo pis",
+        "se hizo pis",
+        "cuando ella se hizo pis",
+        "cuando te hiciste pis",
+        "te hiciste pis"
+    ]
+},
+
+{
+    pregunta:"¿Qué día cumple años?",
+    pista:"Solo escribí el número.",
+    respuestas:[
+        "22"
+    ]
+},
+
+{
+    pregunta:"¿En qué mes cumple años?",
+    pista:"Es el mes 9 del año. Escribí el nombre.",
+    respuestas:[
+        "septiembre",
+        "setiembre"
+    ]
+},
+
+{
+    pregunta:"¿Cuántos meses llevamos aproximadamente juntos según lo que estamos celebrando ahora?",
+    pista:"Escribí solamente el número.",
+    respuestas:[
+        "11",
+        "once"
+    ]
+},
+
+{
+    pregunta:"¿Cuándo te escribí mi primera carta especial?",
+    pista:"Fue en una fecha muy importante para vos.",
+    respuestas:[
+        "tu cumpleaños",
+        "su cumpleaños",
+        "tu cumple",
+        "su cumple",
+        "cumpleaños",
+        "cumple"
+    ]
+},
+
+{
+    pregunta:"¿Qué regalo fue uno de los que más ilusión te hizo?",
+    pista:"Son dos cosas. 🧸🍫",
+    respuestas:[
+        "peluche con chocolate",
+        "un peluche con chocolate",
+        "peluche y chocolate",
+        "peluche chocolate"
+    ]
+},
+
+{
+    pregunta:"¿Qué cosa pensás que te queda especialmente linda y que hace que yo me quede mirándote?",
+    pista:"No es una parte de tu ropa. ❤️",
+    respuestas:[
+        "tus ojos",
+        "ojos",
+        "tu sonrisa",
+        "sonrisa",
+        "tus ojos y sonrisa",
+        "tus ojos y tu sonrisa"
+    ]
 }
 
 ];
 
 let actual=0;
+let intentos=0;
 
 
 /* ========================= */
@@ -565,11 +690,9 @@ let actual=0;
 
 function comenzar(){
 
-    document.getElementById("portada")
-        .style.display="none";
+    document.getElementById("portada").style.display="none";
 
-    document.getElementById("juego")
-        .classList.add("activo");
+    document.getElementById("juego").style.display="block";
 
     cargarPregunta();
 
@@ -577,111 +700,147 @@ function comenzar(){
 
 
 /* ========================= */
-/* CARGAR PREGUNTA */
+/* NORMALIZAR RESPUESTAS */
+/* ========================= */
+
+function normalizar(texto){
+
+    return texto
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g,"")
+        .replace(/[.,!?¿¡]/g,"")
+        .replace(/\s+/g," ")
+        .trim();
+
+}
+
+
+/* ========================= */
+/* CARGAR */
 /* ========================= */
 
 function cargarPregunta(){
 
     const p=preguntas[actual];
 
-    document.getElementById("textoPregunta")
+    document.getElementById("pregunta")
         .textContent=p.pregunta;
 
-    const opciones=
-        document.getElementById("opciones");
+    document.getElementById("pista")
+        .textContent="💡 "+p.pista;
 
-    opciones.innerHTML="";
+    document.getElementById("respuesta")
+        .value="";
 
     document.getElementById("mensaje")
         .textContent="";
 
-    p.opciones.forEach((texto,index)=>{
+    intentos=0;
 
-        const boton=document.createElement("button");
+    document.getElementById("intentos")
+        .textContent="";
 
-        boton.className="opcion";
-
-        boton.textContent=texto;
-
-        boton.onclick=()=>{
-            responder(boton,index);
-        };
-
-        opciones.appendChild(boton);
-
-    });
+    document.getElementById("progresoTexto")
+        .textContent=
+        "Pregunta "+(actual+1)+" de 22";
 
     document.getElementById("barra")
         .style.width=
-        ((actual)/preguntas.length*100)+"%";
+        ((actual)/22*100)+"%";
+
+    document.getElementById("respuesta")
+        .focus();
+
 }
 
 
 /* ========================= */
-/* RESPONDER */
+/* COMPROBAR */
 /* ========================= */
 
-function responder(boton,index){
+function comprobar(){
 
-    const p=preguntas[actual];
+    const entrada=
+        normalizar(
+            document.getElementById("respuesta").value
+        );
 
-    const botones=
-        document.querySelectorAll(".opcion");
-
-    botones.forEach(b=>{
-        b.disabled=true;
-    });
-
-    if(index===p.correcta){
-
-        boton.classList.add("correcta");
+    if(!entrada){
 
         document.getElementById("mensaje")
             .textContent=
-            "¡Correcto! Sabía que me conocías. 💙";
+            "Escribí una respuesta primero 😏";
+
+        return;
+    }
+
+    const correctas=
+        preguntas[actual].respuestas.map(normalizar);
+
+    intentos++;
+
+    if(correctas.includes(entrada)){
+
+        document.getElementById("mensaje")
+            .textContent=
+            "¡Correcto! ❤️";
+
+        document.getElementById("barra")
+            .style.width=
+            ((actual+1)/22*100)+"%";
+
+        setTimeout(()=>{
+
+            actual++;
+
+            if(actual<22){
+
+                cargarPregunta();
+
+            }else{
+
+                terminar();
+
+            }
+
+        },1100);
 
     }else{
 
-        boton.classList.add("incorrecta");
-
-        botones[p.correcta]
-            .classList.add("correcta");
-
         document.getElementById("mensaje")
             .textContent=
-            "Casi... pero te perdono porque te amo. 😂❤️";
+            "Mmm... esa no es 😈 Pensalo un poquito más.";
+
+        document.getElementById("intentos")
+            .textContent=
+            "Intento "+intentos+" — No te rindas 💙";
+
     }
-
-    setTimeout(()=>{
-
-        actual++;
-
-        if(actual<preguntas.length){
-
-            cargarPregunta();
-
-        }else{
-
-            terminarJuego();
-
-        }
-
-    },1400);
 
 }
 
 
+/* ENTER PARA RESPONDER */
+
+document.getElementById("respuesta")
+    .addEventListener("keydown",function(e){
+
+        if(e.key==="Enter"){
+            comprobar();
+        }
+
+    });
+
+
 /* ========================= */
-/* TERMINAR */
+/* FINAL */
 /* ========================= */
 
-function terminarJuego(){
-
-    document.getElementById("barra")
-        .style.width="100%";
+function terminar(){
 
     document.getElementById("juego")
-        .classList.remove("activo");
+        .style.display="none";
 
     document.getElementById("carta")
         .classList.add("activa");
@@ -695,7 +854,7 @@ function terminarJuego(){
 
 
 /* ========================= */
-/* CORAZONES NUEVOS */
+/* CORAZONES */
 /* ========================= */
 
 function crearCorazon(){
@@ -710,20 +869,21 @@ function crearCorazon(){
         Math.random()*100+"%";
 
     c.style.fontSize=
-        (15+Math.random()*20)+"px";
+        (15+Math.random()*25)+"px";
 
     c.style.animationDuration=
         (6+Math.random()*5)+"s";
 
-    document.querySelector(".fondo")
+    document.getElementById("fondo")
         .appendChild(c);
 
     setTimeout(()=>{
         c.remove();
     },11000);
+
 }
 
-setInterval(crearCorazon,900);
+setInterval(crearCorazon,800);
 
 </script>
 
