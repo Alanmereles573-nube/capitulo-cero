@@ -25,8 +25,8 @@ body{
 .fondo{
     position:fixed;
     inset:0;
-    pointer-events:none;
     overflow:hidden;
+    pointer-events:none;
     z-index:0;
 }
 
@@ -68,7 +68,7 @@ body{
 }
 
 .corazonGrande{
-    font-size:70px;
+    font-size:72px;
     animation:latido 1.7s infinite;
     margin-bottom:20px;
 }
@@ -94,7 +94,7 @@ h1{
 .intro{
     font-size:18px;
     line-height:1.8;
-    color:rgba(255,255,255,.78);
+    color:rgba(255,255,255,.8);
 }
 
 .boton{
@@ -150,13 +150,7 @@ h1{
     font-size:25px;
     font-weight:400;
     line-height:1.5;
-    margin-bottom:25px;
-}
-
-.pista{
-    font-size:13px;
-    color:#90caf9;
-    margin-bottom:18px;
+    margin-bottom:28px;
 }
 
 input{
@@ -183,6 +177,7 @@ input:focus{
     background:rgba(144,202,249,.12);
     color:white;
     font-size:16px;
+    cursor:pointer;
 }
 
 .mensaje{
@@ -269,9 +264,7 @@ input:focus{
 
 <div class="contenedor">
 
-<!-- ========================= -->
 <!-- PORTADA -->
-<!-- ========================= -->
 
 <section class="portada" id="portada">
 
@@ -286,28 +279,24 @@ input:focus{
     </h1>
 
     <p class="intro">
-        Hoy no hay un regalo que abrir...
+        Hoy hay algo diferente preparado para vos.
         <br><br>
-        Hoy hay algo que tenés que desbloquear.
-        🔐
+        Vas a tener que demostrar cuánto
+        recordás de nuestra historia.
         <br><br>
-        Son <strong>22 preguntas</strong>
-        sobre nuestra historia.
-        <br><br>
-        Algunas son fáciles.
-        Otras... no tanto. 😈
+        <strong>22 preguntas.</strong>
+        <br>
+        Una sola historia: la nuestra. ❤️
     </p>
 
     <button class="boton" onclick="comenzar()">
-        Aceptar el desafío 💙
+        Comenzar 💙
     </button>
 
 </section>
 
 
-<!-- ========================= -->
 <!-- JUEGO -->
-<!-- ========================= -->
 
 <section class="juego" id="juego">
 
@@ -326,8 +315,6 @@ input:focus{
     <div class="tarjeta">
 
         <h2 id="pregunta"></h2>
-
-        <div class="pista" id="pista"></div>
 
         <input
             type="text"
@@ -349,20 +336,18 @@ input:focus{
 </section>
 
 
-<!-- ========================= -->
 <!-- CARTA FINAL -->
-<!-- ========================= -->
 
 <section class="carta" id="carta">
 
     <div class="dia">
-        DESBLOQUEADO 🔐
+        DESAFÍO COMPLETADO 🔐
     </div>
 
     <div class="sobre">
 
         <h2>
-            Para mi Paraguayito... 💙
+            Para vos... 💙
         </h2>
 
         <div class="separador">
@@ -370,43 +355,33 @@ input:focus{
         </div>
 
         <p>
-            Si llegaste hasta acá, quiero que sepas
-            que estoy muy orgulloso de vos.
+            Si llegaste hasta acá, significa que
+            lograste completar las 22 preguntas.
         </p>
 
         <p>
-            No solamente porque lograste completar
-            las 22 preguntas, sino porque cada una
-            de ellas representa un pedacito de
-            nuestra historia.
+            Pero más que acertar respuestas,
+            acabás de recorrer algunos de los
+            recuerdos que forman nuestra historia.
         </p>
 
         <p>
-            Nuestra historia quizás no sea perfecta,
-            pero es nuestra.
-            Y eso es lo que la hace tan especial
-            para mí.
+            Desde aquel domingo en que nos conocimos,
+            hasta cada charla, cada mate, cada risa
+            y cada momento que compartimos.
         </p>
 
         <p>
-            Me acuerdo de aquel domingo en el que
-            nos conocimos, de nuestras charlas,
-            de los mates, de nuestras risas
-            y de todos esos momentos que fuimos
-            construyendo juntos.
+            Me encantan tus ojos, tu sonrisa
+            y todas esas pequeñas cosas que te hacen
+            ser vos.
         </p>
 
         <p>
-            Me encantan tus ojos y tu sonrisa.
-            Me encanta cómo sos y cada una de esas
-            pequeñas cosas que te hacen ser vos.
-        </p>
-
-        <p>
-            Quiero seguir creando recuerdos,
-            seguir compartiendo momentos,
-            seguir riéndonos de nuestras locuras
-            y seguir escribiendo nuestra historia.
+            Quiero seguir creando recuerdos juntos,
+            seguir conociéndote cada día más
+            y seguir viviendo momentos que algún día
+            podamos mirar atrás y recordar con una sonrisa.
         </p>
 
         <div class="separador">
@@ -414,36 +389,29 @@ input:focus{
         </div>
 
         <p>
-            Todo lo que estoy preparando para vos
-            durante estos días lo hago con muchísimo
-            amor.
+            Todo esto que estoy preparando durante
+            estos días lo hago con muchísimo amor.
         </p>
 
         <p>
-            Porque te merecés sentirte querida,
-            importante y especial.
+            Porque te merecés esto y muchísimo más.
+            Y quiero que cada pequeño detalle
+            te recuerde cuánto te amo.
         </p>
 
         <p>
-            Y aunque todavía quedan muchos días,
-            quería que hoy recuerdes algo:
+            Este fue solamente el Día 6...
+            todavía quedan muchas cosas por descubrir. 👀
         </p>
 
         <p class="firma">
             Te amo muchísimo. 💙
         </p>
 
-        <p>
-            Feliz desafío superado.
-            <br>
-            Y preparate...
-            porque esto todavía continúa. 👀❤️
-        </p>
+        <div class="final">
+            DÍA 6 COMPLETADO ✓
+        </div>
 
-    </div>
-
-    <div class="final">
-        DÍA 6 COMPLETADO ✓
     </div>
 
 </section>
@@ -454,20 +422,18 @@ input:focus{
 <script>
 
 /* ========================= */
-/* PREGUNTAS */
+/* LAS 22 PREGUNTAS */
 /* ========================= */
 
 const preguntas = [
 
 {
     pregunta:"¿Qué día de la semana nos conocimos?",
-    pista:"Escribí el nombre del día.",
     respuestas:["domingo"]
 },
 
 {
-    pregunta:"¿En qué fecha comenzó oficialmente nuestra relación?",
-    pista:"Escribí la fecha completa.",
+    pregunta:"¿En qué fecha comenzamos oficialmente nuestra relación?",
     respuestas:[
         "10 de octubre de 2025",
         "10/10/2025",
@@ -477,8 +443,7 @@ const preguntas = [
 },
 
 {
-    pregunta:"¿En qué lugar de Tigre fue nuestra primera salida?",
-    pista:"Lugar + comida rápida.",
+    pregunta:"¿Dónde fue nuestra primera salida en Tigre?",
     respuestas:[
         "mcdonalds",
         "mc donalds",
@@ -488,8 +453,7 @@ const preguntas = [
 },
 
 {
-    pregunta:"¿Qué te regalé entre las primeras cosas que tuvieron un significado especial?",
-    pista:"Eran flores.",
+    pregunta:"¿Cuál fue uno de los primeros regalos que te hice?",
     respuestas:[
         "tulipanes",
         "tulipan",
@@ -498,16 +462,14 @@ const preguntas = [
 },
 
 {
-    pregunta:"¿Cuál es el apodo con el que te llamo?",
-    pista:"Una palabra.",
+    pregunta:"¿Cuál es el apodo con el que te digo?",
     respuestas:[
         "enana"
     ]
 },
 
 {
-    pregunta:"¿Qué palabra/frase usamos entre nosotros?",
-    pista:"Son dos palabras.",
+    pregunta:"¿Qué frase usamos entre nosotros?",
     respuestas:[
         "tu kp",
         "tukp"
@@ -515,34 +477,30 @@ const preguntas = [
 },
 
 {
-    pregunta:"¿Cuál es esa comida que prácticamente siempre comés?",
-    pista:"Dos cosas.",
+    pregunta:"¿Cuál es esa comida que siempre comés?",
     respuestas:[
         "arroz con queso"
     ]
 },
 
 {
-    pregunta:"¿Cómo se llama la canción que es especial para nosotros?",
-    pista:"Una sola palabra.",
+    pregunta:"¿Cuál es la canción especial para nosotros?",
     respuestas:[
-        "babysita",
         "babysita"
     ]
 },
 
 {
-    pregunta:"¿Dónde estábamos cuando tuvimos aquella foto especial hablando y tomando mate?",
-    pista:"Un lugar al aire libre.",
+    pregunta:"¿Qué estábamos haciendo en aquella foto especial?",
     respuestas:[
-        "plaza",
-        "la plaza"
+        "hablando y tomando mate",
+        "tomando mate y hablando",
+        "hablando tomando mate"
     ]
 },
 
 {
-    pregunta:"¿Cuál es el apodo que más me gusta decirte?",
-    pista:"Tiene relación con Paraguay. 🇵🇾",
+    pregunta:"¿Cómo te gusta decirme?",
     respuestas:[
         "mi paraguayito",
         "paraguayito"
@@ -550,8 +508,7 @@ const preguntas = [
 },
 
 {
-    pregunta:"¿Cuál es el personaje/animal que tenemos relacionado con nuestros peluches?",
-    pista:"Empieza con S.",
+    pregunta:"¿Qué personaje es especial cuando hablamos de nuestros peluches?",
     respuestas:[
         "stitch",
         "stich"
@@ -559,8 +516,7 @@ const preguntas = [
 },
 
 {
-    pregunta:"¿Qué posición jugás cuando practicás fútbol?",
-    pista:"Una posición de ataque.",
+    pregunta:"¿Qué posición jugás en fútbol?",
     respuestas:[
         "delantera",
         "delantero"
@@ -568,8 +524,7 @@ const preguntas = [
 },
 
 {
-    pregunta:"¿Cómo fue que nos conocimos originalmente?",
-    pista:"No fue por una aplicación.",
+    pregunta:"¿Cómo nos conocimos?",
     respuestas:[
         "en persona",
         "personalmente"
@@ -578,63 +533,53 @@ const preguntas = [
 
 {
     pregunta:"¿Por dónde seguimos hablando después de conocernos?",
-    pista:"Una aplicación de mensajería.",
     respuestas:[
         "whatsapp"
     ]
 },
 
 {
-    pregunta:"¿Qué fue lo primero que me llamó la atención de vos?",
-    pista:"Son dos cosas que tenés en la cara.",
+    pregunta:"¿Qué fue lo primero que me gustó de vos?",
     respuestas:[
-        "tus ojos y sonrisa",
         "tus ojos y tu sonrisa",
-        "ojos y sonrisa",
-        "tus ojos sonrisa"
+        "tus ojos y sonrisa",
+        "ojos y sonrisa"
     ]
 },
 
 {
     pregunta:"¿A qué país queremos viajar juntos?",
-    pista:"Es un país vecino. 🇵🇾",
     respuestas:[
         "paraguay"
     ]
 },
 
 {
-    pregunta:"¿Qué momento vergonzoso terminó convirtiéndose en una anécdota nuestra?",
-    pista:"Pasó algo relacionado con ir al baño. 😂",
+    pregunta:"¿Qué anécdota vergonzosa todavía recordamos?",
     respuestas:[
         "cuando se hizo pis",
         "se hizo pis",
-        "cuando ella se hizo pis",
         "cuando te hiciste pis",
         "te hiciste pis"
     ]
 },
 
 {
-    pregunta:"¿Qué día cumple años?",
-    pista:"Solo escribí el número.",
+    pregunta:"¿Qué día cumplís años?",
     respuestas:[
         "22"
     ]
 },
 
 {
-    pregunta:"¿En qué mes cumple años?",
-    pista:"Es el mes 9 del año. Escribí el nombre.",
+    pregunta:"¿En qué mes cumplimos nuestro aniversario de un año?",
     respuestas:[
-        "septiembre",
-        "setiembre"
+        "octubre"
     ]
 },
 
 {
-    pregunta:"¿Cuántos meses llevamos aproximadamente juntos según lo que estamos celebrando ahora?",
-    pista:"Escribí solamente el número.",
+    pregunta:"¿Cuántos meses llevamos juntos actualmente?",
     respuestas:[
         "11",
         "once"
@@ -642,39 +587,25 @@ const preguntas = [
 },
 
 {
-    pregunta:"¿Cuándo te escribí mi primera carta especial?",
-    pista:"Fue en una fecha muy importante para vos.",
+    pregunta:"¿Cuándo te hice mi primera carta especial?",
     respuestas:[
+        "en tu cumpleaños",
         "tu cumpleaños",
+        "en su cumpleaños",
         "su cumpleaños",
         "tu cumple",
         "su cumple",
-        "cumpleaños",
-        "cumple"
+        "cumpleaños"
     ]
 },
 
 {
     pregunta:"¿Qué regalo fue uno de los que más ilusión te hizo?",
-    pista:"Son dos cosas. 🧸🍫",
     respuestas:[
-        "peluche con chocolate",
         "un peluche con chocolate",
+        "peluche con chocolate",
         "peluche y chocolate",
         "peluche chocolate"
-    ]
-},
-
-{
-    pregunta:"¿Qué cosa pensás que te queda especialmente linda y que hace que yo me quede mirándote?",
-    pista:"No es una parte de tu ropa. ❤️",
-    respuestas:[
-        "tus ojos",
-        "ojos",
-        "tu sonrisa",
-        "sonrisa",
-        "tus ojos y sonrisa",
-        "tus ojos y tu sonrisa"
     ]
 }
 
@@ -684,9 +615,7 @@ let actual=0;
 let intentos=0;
 
 
-/* ========================= */
 /* COMENZAR */
-/* ========================= */
 
 function comenzar(){
 
@@ -695,13 +624,10 @@ function comenzar(){
     document.getElementById("juego").style.display="block";
 
     cargarPregunta();
-
 }
 
 
-/* ========================= */
-/* NORMALIZAR RESPUESTAS */
-/* ========================= */
+/* NORMALIZAR */
 
 function normalizar(texto){
 
@@ -716,9 +642,7 @@ function normalizar(texto){
 }
 
 
-/* ========================= */
-/* CARGAR */
-/* ========================= */
+/* CARGAR PREGUNTA */
 
 function cargarPregunta(){
 
@@ -726,9 +650,6 @@ function cargarPregunta(){
 
     document.getElementById("pregunta")
         .textContent=p.pregunta;
-
-    document.getElementById("pista")
-        .textContent="💡 "+p.pista;
 
     document.getElementById("respuesta")
         .value="";
@@ -749,28 +670,23 @@ function cargarPregunta(){
         .style.width=
         ((actual)/22*100)+"%";
 
-    document.getElementById("respuesta")
-        .focus();
-
+    document.getElementById("respuesta").focus();
 }
 
 
-/* ========================= */
 /* COMPROBAR */
-/* ========================= */
 
 function comprobar(){
 
-    const entrada=
-        normalizar(
-            document.getElementById("respuesta").value
-        );
+    const entrada=normalizar(
+        document.getElementById("respuesta").value
+    );
 
     if(!entrada){
 
         document.getElementById("mensaje")
             .textContent=
-            "Escribí una respuesta primero 😏";
+            "Escribí una respuesta primero. 😏";
 
         return;
     }
@@ -804,38 +720,35 @@ function comprobar(){
 
             }
 
-        },1100);
+        },1000);
 
     }else{
 
         document.getElementById("mensaje")
             .textContent=
-            "Mmm... esa no es 😈 Pensalo un poquito más.";
+            "❌ No es esa... pensalo un poquito más.";
 
         document.getElementById("intentos")
             .textContent=
-            "Intento "+intentos+" — No te rindas 💙";
+            "Intento "+intentos+" 💙";
 
     }
-
 }
 
 
-/* ENTER PARA RESPONDER */
+/* ENTER */
 
 document.getElementById("respuesta")
-    .addEventListener("keydown",function(e){
+.addEventListener("keydown",function(e){
 
-        if(e.key==="Enter"){
-            comprobar();
-        }
+    if(e.key==="Enter"){
+        comprobar();
+    }
 
-    });
+});
 
 
-/* ========================= */
 /* FINAL */
-/* ========================= */
 
 function terminar(){
 
@@ -853,9 +766,7 @@ function terminar(){
 }
 
 
-/* ========================= */
 /* CORAZONES */
-/* ========================= */
 
 function crearCorazon(){
 
