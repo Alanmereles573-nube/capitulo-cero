@@ -4,204 +4,302 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Día 4 💙</title>
+<title>Día 6 💙</title>
 
 <style>
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
 }
 
-body {
-    min-height: 100vh;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+body{
+    min-height:100vh;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    color:white;
     background:
-        radial-gradient(circle at top, #1976d2, #0d47a1 45%, #03152f);
-    color: white;
-    overflow-x: hidden;
+        radial-gradient(circle at 50% 10%,#174a83,#081b35 50%,#020711);
+    overflow-x:hidden;
 }
 
-/* CORAZONES */
+/* FONDO */
 
-.corazones {
-    position: fixed;
-    inset: 0;
-    overflow: hidden;
-    pointer-events: none;
-    z-index: 0;
+.fondo{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    overflow:hidden;
+    z-index:0;
 }
 
-.corazon {
-    position: absolute;
-    bottom: -50px;
-    color: #64b5f6;
-    font-size: 20px;
-    animation: subir 8s linear infinite;
-    opacity: .7;
+.corazon{
+    position:absolute;
+    bottom:-40px;
+    font-size:20px;
+    opacity:.55;
+    animation:flotar 9s linear infinite;
 }
 
-@keyframes subir {
-    0% {
-        transform: translateY(0) rotate(0deg);
-        opacity: 0;
+@keyframes flotar{
+    0%{
+        transform:translateY(0) rotate(0deg);
+        opacity:0;
     }
-
-    15% {
-        opacity: .8;
+    15%{
+        opacity:.7;
     }
-
-    100% {
-        transform: translateY(-110vh) rotate(25deg);
-        opacity: 0;
+    100%{
+        transform:translateY(-110vh) rotate(25deg);
+        opacity:0;
     }
 }
 
-/* CONTENIDO */
+/* CONTENEDOR */
 
-.contenedor {
-    position: relative;
-    z-index: 2;
-    min-height: 100vh;
-    max-width: 700px;
-    margin: auto;
-    padding: 40px 20px 70px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+.contenedor{
+    position:relative;
+    z-index:2;
+    max-width:700px;
+    margin:auto;
+    min-height:100vh;
+    padding:35px 18px 70px;
+    text-align:center;
 }
 
-/* CORAZÓN PRINCIPAL */
+/* PORTADA */
 
-.corazon-grande {
-    font-size: 70px;
-    animation: latido 1.7s infinite;
-    margin-bottom: 20px;
+.portada{
+    min-height:95vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
 }
 
-@keyframes latido {
-    0%, 100% {
-        transform: scale(1);
+.dia{
+    font-size:12px;
+    letter-spacing:5px;
+    color:#90caf9;
+    margin-bottom:18px;
+}
+
+.corazon-grande{
+    font-size:70px;
+    animation:latido 1.8s infinite;
+    margin-bottom:20px;
+}
+
+@keyframes latido{
+    0%,100%{transform:scale(1)}
+    50%{transform:scale(1.12)}
+}
+
+h1{
+    font-size:clamp(40px,10vw,62px);
+    font-weight:400;
+    margin-bottom:18px;
+}
+
+.intro{
+    font-size:18px;
+    line-height:1.8;
+    color:rgba(255,255,255,.78);
+    max-width:580px;
+}
+
+/* BOTÓN */
+
+.boton{
+    margin-top:30px;
+    padding:15px 30px;
+    border:none;
+    border-radius:50px;
+    background:rgba(144,202,249,.13);
+    border:1px solid rgba(144,202,249,.4);
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.boton:hover{
+    transform:translateY(-2px);
+    background:rgba(144,202,249,.2);
+}
+
+.boton:active{
+    transform:scale(.96);
+}
+
+/* JUEGO */
+
+.juego{
+    display:none;
+    min-height:100vh;
+    padding-top:60px;
+}
+
+.juego.activo{
+    display:block;
+}
+
+.progreso{
+    width:100%;
+    height:6px;
+    background:rgba(255,255,255,.1);
+    border-radius:20px;
+    margin:25px 0 35px;
+    overflow:hidden;
+}
+
+.progreso-barra{
+    width:0%;
+    height:100%;
+    background:#64b5f6;
+    transition:.5s;
+}
+
+.pregunta{
+    padding:28px 18px;
+    border-radius:28px;
+    background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.12);
+    backdrop-filter:blur(15px);
+}
+
+.pregunta h2{
+    font-size:25px;
+    font-weight:400;
+    line-height:1.5;
+    margin-bottom:25px;
+}
+
+.opciones{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+
+.opcion{
+    padding:17px;
+    border-radius:16px;
+    border:1px solid rgba(255,255,255,.14);
+    background:rgba(255,255,255,.055);
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+}
+
+.opcion:active{
+    transform:scale(.98);
+}
+
+.correcta{
+    border-color:#81d4fa!important;
+    background:rgba(129,212,250,.16)!important;
+}
+
+.incorrecta{
+    border-color:#ef9a9a!important;
+    background:rgba(239,154,154,.1)!important;
+}
+
+.mensaje{
+    min-height:28px;
+    margin-top:18px;
+    color:#90caf9;
+    line-height:1.5;
+}
+
+/* CARTA */
+
+.carta{
+    display:none;
+    min-height:100vh;
+    padding-top:70px;
+}
+
+.carta.activa{
+    display:block;
+}
+
+.sobre{
+    padding:35px 22px;
+    border-radius:30px;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.10),
+            rgba(255,255,255,.035)
+        );
+    border:1px solid rgba(255,255,255,.15);
+    box-shadow:0 25px 80px rgba(0,0,0,.35);
+    backdrop-filter:blur(15px);
+    animation:aparecer 1.2s ease;
+}
+
+@keyframes aparecer{
+    from{
+        opacity:0;
+        transform:translateY(25px);
     }
-
-    50% {
-        transform: scale(1.15);
+    to{
+        opacity:1;
+        transform:translateY(0);
     }
 }
 
-.dia {
-    font-size: 13px;
-    letter-spacing: 5px;
-    color: #bbdefb;
-    margin-bottom: 20px;
+.sobre h2{
+    font-size:32px;
+    font-weight:400;
+    margin-bottom:25px;
 }
 
-h1 {
-    font-size: clamp(42px, 10vw, 65px);
-    font-weight: 500;
-    margin-bottom: 25px;
+.sobre p{
+    font-size:18px;
+    line-height:2;
+    color:rgba(255,255,255,.82);
+    margin-bottom:20px;
 }
 
-.subtitulo {
-    font-size: 21px;
-    color: #e3f2fd;
-    margin-bottom: 25px;
+.separador{
+    margin:25px 0;
+    color:#90caf9;
+    letter-spacing:8px;
 }
 
-.tarjeta {
-    width: 100%;
-    padding: 32px 22px;
-    border-radius: 30px;
-    background: rgba(255,255,255,.10);
-    border: 1px solid rgba(255,255,255,.20);
-    backdrop-filter: blur(15px);
-    box-shadow: 0 20px 70px rgba(0,0,0,.3);
+.firma{
+    font-size:24px!important;
+    color:#90caf9!important;
+    margin-top:30px;
 }
 
-.tarjeta p {
-    font-size: 18px;
-    line-height: 1.9;
-    color: #eaf6ff;
-    margin-bottom: 20px;
-}
-
-.regalo {
-    margin: 30px 0;
-    padding: 25px;
-    border-radius: 25px;
-    background: rgba(0,0,0,.15);
-    border: 1px solid rgba(255,255,255,.15);
-}
-
-.regalo .emoji {
-    font-size: 70px;
-    margin-bottom: 15px;
-}
-
-.regalo h2 {
-    font-size: 28px;
-    color: #fff;
-    margin-bottom: 10px;
-}
-
-.regalo p {
-    margin: 0;
-    font-size: 17px;
-}
-
-.frase {
-    font-size: 22px;
-    line-height: 1.7;
-    color: #bbdefb;
-    font-style: italic;
-    margin: 30px 0;
-}
-
-.manana {
-    padding: 20px;
-    border-radius: 20px;
-    background: rgba(255,255,255,.08);
-    border: 1px solid rgba(255,255,255,.12);
-}
-
-.manana strong {
-    display: block;
-    font-size: 20px;
-    margin-bottom: 8px;
-}
-
-.manana span {
-    color: #bbdefb;
-}
-
-.final {
-    margin-top: 35px;
-    font-size: 13px;
-    letter-spacing: 3px;
-    color: rgba(255,255,255,.55);
-}
-
-.firma {
-    font-size: 24px !important;
-    color: #fff !important;
+.final{
+    margin-top:35px;
+    color:rgba(255,255,255,.45);
+    font-size:12px;
+    letter-spacing:3px;
 }
 
 /* MÓVIL */
 
-@media(max-width:500px) {
+@media(max-width:500px){
 
-    .contenedor {
-        padding: 30px 15px 60px;
+    .contenedor{
+        padding-left:15px;
+        padding-right:15px;
     }
 
-    .tarjeta {
-        padding: 27px 17px;
+    .pregunta{
+        padding:25px 15px;
     }
 
-    .tarjeta p {
-        font-size: 17px;
+    .sobre{
+        padding:30px 18px;
+    }
+
+    .sobre p{
+        font-size:17px;
     }
 }
 </style>
@@ -209,150 +307,420 @@ h1 {
 
 <body>
 
-<!-- CORAZONES AZULES -->
+<!-- FONDO -->
 
-<div class="corazones">
+<div class="fondo">
 
     <span class="corazon" style="left:5%;animation-delay:0s;">💙</span>
-    <span class="corazon" style="left:15%;animation-delay:2s;">💙</span>
-    <span class="corazon" style="left:27%;animation-delay:4s;">💙</span>
-    <span class="corazon" style="left:40%;animation-delay:1s;">💙</span>
-    <span class="corazon" style="left:52%;animation-delay:5s;">💙</span>
-    <span class="corazon" style="left:65%;animation-delay:3s;">💙</span>
-    <span class="corazon" style="left:78%;animation-delay:6s;">💙</span>
-    <span class="corazon" style="left:90%;animation-delay:1.5s;">💙</span>
+    <span class="corazon" style="left:18%;animation-delay:3s;">💙</span>
+    <span class="corazon" style="left:31%;animation-delay:6s;">💙</span>
+    <span class="corazon" style="left:47%;animation-delay:1s;">💙</span>
+    <span class="corazon" style="left:62%;animation-delay:4s;">💙</span>
+    <span class="corazon" style="left:76%;animation-delay:2s;">💙</span>
+    <span class="corazon" style="left:91%;animation-delay:5s;">💙</span>
 
 </div>
 
 
 <div class="contenedor">
 
+<!-- ========================= -->
+<!-- PORTADA -->
+<!-- ========================= -->
+
+<section class="portada" id="portada">
+
     <div class="corazon-grande">
         💙
     </div>
 
     <div class="dia">
-        DÍA 4 / 22
+        DÍA 6 / 22
     </div>
 
     <h1>
-        Para vos ❤️
+        Una pequeña prueba...
     </h1>
 
-    <p class="subtitulo">
-        Espero que te haya gustado tu sorpresa...
+    <p class="intro">
+        Hoy quiero hacer algo diferente.
+        <br><br>
+        Preparé un pequeño juego para vos.
+        No importa si acertás todo...
+        aunque espero que sí. 😏
+        <br><br>
+        Porque después de jugar,
+        hay algo que quiero decirte.
     </p>
 
+    <button class="boton" onclick="comenzar()">
+        Comenzar 💙
+    </button>
 
-    <div class="tarjeta">
-
-        <p>
-            Quería dejarte este pequeño mensaje
-            porque hoy fue un día especial. 💙
-        </p>
-
-        <p>
-            Espero de todo corazón que te haya gustado
-            el peluche que te regalé.
-        </p>
+</section>
 
 
-        <div class="regalo">
+<!-- ========================= -->
+<!-- JUEGO -->
+<!-- ========================= -->
 
-            <div class="emoji">
-                🧸
-            </div>
+<section class="juego" id="juego">
 
-            <h2>
-                Tu Stitch 💙
-            </h2>
+    <div class="dia">
+        ¿CUÁNTO ME CONOCÉS?
+    </div>
 
-            <p>
-                Lo elegí pensando en vos
-                y con muchísimo cariño.
-            </p>
+    <h1 style="font-size:35px;">
+        Solo vos sabés ❤️
+    </h1>
 
+    <div class="progreso">
+        <div class="progreso-barra" id="barra"></div>
+    </div>
+
+    <div class="pregunta">
+
+        <h2 id="textoPregunta"></h2>
+
+        <div class="opciones" id="opciones"></div>
+
+        <div class="mensaje" id="mensaje"></div>
+
+    </div>
+
+</section>
+
+
+<!-- ========================= -->
+<!-- CARTA FINAL -->
+<!-- ========================= -->
+
+<section class="carta" id="carta">
+
+    <div class="dia">
+        DESBLOQUEASTE LA CARTA ❤️
+    </div>
+
+    <div class="sobre">
+
+        <h2>
+            Para vos...
+        </h2>
+
+        <div class="separador">
+            💙 💙 💙
         </div>
 
-
         <p>
-            Puede parecer un detalle pequeño,
-            pero para mí lo importante es que
-            cada regalo tenga un poquito de todo
-            el amor que siento por vos.
+            Si llegaste hasta acá,
+            primero quiero decirte algo:
+            gracias por jugar.
         </p>
 
         <p>
-            Quiero que sepas que te amo muchísimo
-            y que te merecés esto y muchísimo más.
+            Pero la verdad es que este juego
+            era solamente una excusa.
         </p>
 
+        <p>
+            Una excusa para poder dejarte
+            unas palabras que quizás
+            no siempre sé cómo decirte
+            en persona.
+        </p>
 
-        <div class="frase">
+        <p>
+            Te amo muchísimo.
+            Y cada día que pasa me doy cuenta
+            de lo importante que sos para mí.
+        </p>
 
-            "Ojalá cada vez que mires este regalito
-            te acuerdes de mí y de todo el amor
-            con el que te lo di." 💙
+        <p>
+            Me encanta compartir momentos con vos,
+            reírnos, hablar de cualquier cosa,
+            hacer planes y simplemente
+            saber que estás ahí.
+        </p>
 
+        <p>
+            Quiero que sepas que cada detalle
+            que estoy preparando durante estos días
+            lo hago pensando en vos.
+        </p>
+
+        <p>
+            No quiero que solamente recibas regalos.
+            Quiero que cada uno de ellos
+            te haga sentir querida,
+            especial y recordada.
+        </p>
+
+        <div class="separador">
+            💙 ✨ 💙
         </div>
 
+        <p>
+            Porque te merecés muchísimo.
+            Te merecés amor,
+            momentos lindos,
+            sonrisas
+            y todas esas pequeñas cosas
+            que hacen feliz al corazón.
+        </p>
 
-        <div class="manana">
+        <p>
+            Y si pudiera,
+            te regalaría el mundo entero.
+            Pero mientras tanto,
+            voy a seguir regalándote
+            pequeños pedacitos de mi corazón.
+        </p>
 
-            <strong>
-                Y esto todavía no termina... 👀
-            </strong>
-
-            <span>
-                Mañana nos vemos con otra cosita.
-                ❤️
-            </span>
-
-        </div>
-
+        <p>
+            Este fue solamente el Día 6...
+            todavía queda muchísimo por descubrir. 👀
+        </p>
 
         <p class="firma">
-            Te amo muchísimo. 💙❤️
+            Te amo con todo mi corazón. 💙
         </p>
 
+        <div class="final">
+            DÍA 6 COMPLETADO ✓
+        </div>
+
     </div>
 
-
-    <div class="final">
-        DÍA 4 COMPLETADO ✓
-    </div>
+</section>
 
 </div>
 
 
 <script>
 
-/* CREAR CORAZONES NUEVOS */
+/* ========================= */
+/* PREGUNTAS */
+/* ========================= */
+
+const preguntas = [
+
+{
+    pregunta:"¿Qué es lo que más me gusta hacer cuando estoy con vos?",
+    opciones:[
+        "Mirarte y molestarte 😏",
+        "Dormir todo el día 😴",
+        "Jugar solo 🎮"
+    ],
+    correcta:0
+},
+
+{
+    pregunta:"¿Qué prefiero: un momento especial con vos o algo material?",
+    opciones:[
+        "Algo material 🎁",
+        "Un momento con vos ❤️",
+        "No sé 🤔"
+    ],
+    correcta:1
+},
+
+{
+    pregunta:"¿Qué palabra describe mejor todo lo que siento por vos?",
+    opciones:[
+        "Cariño",
+        "Amor ❤️",
+        "Amistad"
+    ],
+    correcta:1
+},
+
+{
+    pregunta:"¿Qué quiero seguir haciendo con vos?",
+    opciones:[
+        "Crear recuerdos juntos 📸",
+        "No hacer nada 😂",
+        "Desaparecer 👻"
+    ],
+    correcta:0
+},
+
+{
+    pregunta:"Y la más importante... ¿sabés cuánto te amo?",
+    opciones:[
+        "Muchísimo ❤️",
+        "Poquito 😏",
+        "No sé..."
+    ],
+    correcta:0
+}
+
+];
+
+let actual=0;
+
+
+/* ========================= */
+/* COMENZAR */
+/* ========================= */
+
+function comenzar(){
+
+    document.getElementById("portada")
+        .style.display="none";
+
+    document.getElementById("juego")
+        .classList.add("activo");
+
+    cargarPregunta();
+
+}
+
+
+/* ========================= */
+/* CARGAR PREGUNTA */
+/* ========================= */
+
+function cargarPregunta(){
+
+    const p=preguntas[actual];
+
+    document.getElementById("textoPregunta")
+        .textContent=p.pregunta;
+
+    const opciones=
+        document.getElementById("opciones");
+
+    opciones.innerHTML="";
+
+    document.getElementById("mensaje")
+        .textContent="";
+
+    p.opciones.forEach((texto,index)=>{
+
+        const boton=document.createElement("button");
+
+        boton.className="opcion";
+
+        boton.textContent=texto;
+
+        boton.onclick=()=>{
+            responder(boton,index);
+        };
+
+        opciones.appendChild(boton);
+
+    });
+
+    document.getElementById("barra")
+        .style.width=
+        ((actual)/preguntas.length*100)+"%";
+}
+
+
+/* ========================= */
+/* RESPONDER */
+/* ========================= */
+
+function responder(boton,index){
+
+    const p=preguntas[actual];
+
+    const botones=
+        document.querySelectorAll(".opcion");
+
+    botones.forEach(b=>{
+        b.disabled=true;
+    });
+
+    if(index===p.correcta){
+
+        boton.classList.add("correcta");
+
+        document.getElementById("mensaje")
+            .textContent=
+            "¡Correcto! Sabía que me conocías. 💙";
+
+    }else{
+
+        boton.classList.add("incorrecta");
+
+        botones[p.correcta]
+            .classList.add("correcta");
+
+        document.getElementById("mensaje")
+            .textContent=
+            "Casi... pero te perdono porque te amo. 😂❤️";
+    }
+
+    setTimeout(()=>{
+
+        actual++;
+
+        if(actual<preguntas.length){
+
+            cargarPregunta();
+
+        }else{
+
+            terminarJuego();
+
+        }
+
+    },1400);
+
+}
+
+
+/* ========================= */
+/* TERMINAR */
+/* ========================= */
+
+function terminarJuego(){
+
+    document.getElementById("barra")
+        .style.width="100%";
+
+    document.getElementById("juego")
+        .classList.remove("activo");
+
+    document.getElementById("carta")
+        .classList.add("activa");
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+
+/* ========================= */
+/* CORAZONES NUEVOS */
+/* ========================= */
 
 function crearCorazon(){
 
-    const corazon = document.createElement("span");
+    const c=document.createElement("span");
 
-    corazon.className = "corazon";
+    c.className="corazon";
 
-    corazon.innerHTML = "💙";
+    c.textContent="💙";
 
-    corazon.style.left =
-        Math.random() * 100 + "%";
+    c.style.left=
+        Math.random()*100+"%";
 
-    corazon.style.fontSize =
-        (15 + Math.random() * 25) + "px";
+    c.style.fontSize=
+        (15+Math.random()*20)+"px";
 
-    corazon.style.animationDuration =
-        (6 + Math.random() * 5) + "s";
+    c.style.animationDuration=
+        (6+Math.random()*5)+"s";
 
-    document
-        .querySelector(".corazones")
-        .appendChild(corazon);
+    document.querySelector(".fondo")
+        .appendChild(c);
 
-    setTimeout(() => {
-        corazon.remove();
-    },10000);
+    setTimeout(()=>{
+        c.remove();
+    },11000);
 }
 
 setInterval(crearCorazon,900);
