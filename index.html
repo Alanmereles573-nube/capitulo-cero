@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Día 6 💙</title>
+<title>Día 7 💙</title>
 
 <style>
 *{
@@ -18,11 +18,13 @@ body{
     font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
     color:white;
     background:
-        radial-gradient(circle at top,#1565c0,#08264b 50%,#020914);
+        radial-gradient(circle at top,#3b82c4,#123b63 45%,#061522);
     overflow-x:hidden;
 }
 
-.fondo{
+/* CORAZONES */
+
+.corazones{
     position:fixed;
     inset:0;
     overflow:hidden;
@@ -34,20 +36,26 @@ body{
     position:absolute;
     bottom:-50px;
     animation:subir linear infinite;
-    opacity:.6;
+    opacity:.65;
 }
 
 @keyframes subir{
     0%{
-        transform:translateY(0) rotate(0deg);
+        transform:translateY(0) scale(.8) rotate(0deg);
         opacity:0;
     }
-    15%{opacity:.7;}
+
+    20%{
+        opacity:.7;
+    }
+
     100%{
-        transform:translateY(-110vh) rotate(25deg);
+        transform:translateY(-110vh) scale(1.2) rotate(20deg);
         opacity:0;
     }
 }
+
+/* CONTENEDOR */
 
 .contenedor{
     position:relative;
@@ -55,9 +63,10 @@ body{
     width:100%;
     max-width:700px;
     margin:auto;
-    padding:30px 17px 70px;
-    text-align:center;
+    padding:30px 18px 70px;
 }
+
+/* PORTADA */
 
 .portada{
     min-height:100vh;
@@ -65,202 +74,156 @@ body{
     flex-direction:column;
     justify-content:center;
     align-items:center;
+    text-align:center;
 }
 
-.corazonGrande{
-    font-size:72px;
-    animation:latido 1.7s infinite;
+.huella{
+    font-size:65px;
     margin-bottom:20px;
+    animation:latido 2s infinite;
 }
 
 @keyframes latido{
-    0%,100%{transform:scale(1);}
-    50%{transform:scale(1.13);}
+    0%,100%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.12);
+    }
 }
 
 .dia{
     font-size:12px;
     letter-spacing:5px;
-    color:#90caf9;
+    color:#b9ddff;
     margin-bottom:20px;
 }
 
 h1{
-    font-size:clamp(40px,10vw,62px);
+    font-size:48px;
     font-weight:400;
-    margin-bottom:20px;
+    margin-bottom:22px;
 }
 
 .intro{
     font-size:18px;
     line-height:1.8;
-    color:rgba(255,255,255,.8);
+    color:rgba(255,255,255,.82);
 }
 
 .boton{
-    margin-top:30px;
+    margin-top:32px;
     padding:16px 32px;
     border-radius:50px;
-    border:1px solid rgba(144,202,249,.5);
-    background:rgba(144,202,249,.12);
+    border:1px solid rgba(255,255,255,.35);
+    background:rgba(255,255,255,.12);
     color:white;
     font-size:16px;
     cursor:pointer;
 }
 
-/* JUEGO */
+/* CONTENIDO */
 
-.juego{
+.contenido{
     display:none;
-    min-height:100vh;
-    padding-top:50px;
+    text-align:center;
 }
 
-.progresoTexto{
-    color:#90caf9;
-    font-size:14px;
-    margin-bottom:12px;
+.titulo{
+    font-size:38px;
+    font-weight:400;
+    margin-bottom:15px;
 }
 
-.barra{
-    height:6px;
-    background:rgba(255,255,255,.1);
-    border-radius:20px;
-    overflow:hidden;
-    margin-bottom:30px;
+.subtitulo{
+    font-size:17px;
+    line-height:1.8;
+    color:rgba(255,255,255,.75);
+    margin-bottom:35px;
 }
 
-.barraInterna{
-    width:0%;
-    height:100%;
-    background:#64b5f6;
-    transition:.4s;
+/* FOTOS */
+
+.fotoCaja{
+    margin:25px 0;
+    padding:15px;
+    border-radius:25px;
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.15);
 }
 
-.tarjeta{
-    padding:30px 20px;
+.fotoCaja img{
+    width:100%;
+    border-radius:18px;
+    display:block;
+}
+
+.nota{
+    padding:22px 10px 10px;
+    font-size:17px;
+    line-height:1.8;
+    color:rgba(255,255,255,.85);
+}
+
+/* CARTA DEL PERRITO */
+
+.carta{
+    margin-top:45px;
+    padding:32px 23px;
     border-radius:30px;
-    background:rgba(255,255,255,.07);
-    border:1px solid rgba(255,255,255,.14);
+    background:rgba(255,255,255,.09);
+    border:1px solid rgba(255,255,255,.17);
     backdrop-filter:blur(15px);
     box-shadow:0 20px 70px rgba(0,0,0,.35);
 }
 
-.tarjeta h2{
-    font-size:25px;
-    font-weight:400;
-    line-height:1.5;
-    margin-bottom:28px;
-}
-
-input{
-    width:100%;
-    padding:17px;
-    border-radius:15px;
-    border:1px solid rgba(255,255,255,.2);
-    background:rgba(0,0,0,.18);
-    color:white;
-    outline:none;
-    text-align:center;
-    font-size:17px;
-}
-
-input:focus{
-    border-color:#90caf9;
-}
-
-.comprobar{
-    margin-top:18px;
-    padding:14px 28px;
-    border-radius:50px;
-    border:1px solid rgba(144,202,249,.5);
-    background:rgba(144,202,249,.12);
-    color:white;
-    font-size:16px;
-    cursor:pointer;
-}
-
-.mensaje{
-    min-height:30px;
-    margin-top:20px;
-    line-height:1.5;
-    color:#90caf9;
-}
-
-.intentos{
-    margin-top:10px;
-    font-size:12px;
-    color:rgba(255,255,255,.4);
-}
-
-/* CARTA */
-
-.carta{
-    display:none;
-    min-height:100vh;
-    padding-top:60px;
-}
-
-.carta.activa{
-    display:block;
-}
-
-.sobre{
-    padding:35px 22px;
-    border-radius:30px;
-    background:rgba(255,255,255,.08);
-    border:1px solid rgba(255,255,255,.16);
-    backdrop-filter:blur(15px);
-    animation:aparecer 1.2s ease;
-}
-
-@keyframes aparecer{
-    from{
-        opacity:0;
-        transform:translateY(30px);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
-}
-
-.sobre h2{
-    font-size:34px;
-    font-weight:400;
+.cartaTitulo{
+    font-size:31px;
     margin-bottom:25px;
 }
 
-.sobre p{
+.carta p{
     font-size:18px;
     line-height:2;
-    color:rgba(255,255,255,.83);
-    margin-bottom:20px;
+    color:rgba(255,255,255,.87);
+    margin-bottom:22px;
 }
 
-.separador{
-    margin:25px 0;
-    color:#64b5f6;
-    letter-spacing:8px;
+.patita{
+    font-size:45px;
+    margin:20px 0;
 }
 
 .firma{
-    font-size:25px!important;
-    color:#90caf9!important;
+    color:#b9ddff!important;
+    font-size:21px!important;
 }
 
+/* MENSAJE FINAL */
+
 .final{
-    margin-top:35px;
-    font-size:12px;
-    letter-spacing:3px;
-    color:rgba(255,255,255,.4);
+    margin-top:40px;
+    padding:25px 15px;
+    text-align:center;
+}
+
+.final p{
+    font-size:16px;
+    line-height:1.8;
+    color:rgba(255,255,255,.7);
+}
+
+.corazonFinal{
+    font-size:40px;
+    margin-bottom:15px;
 }
 </style>
 </head>
 
 <body>
 
-<div class="fondo" id="fondo"></div>
+<div class="corazones" id="corazones"></div>
 
 <div class="contenedor">
 
@@ -268,149 +231,200 @@ input:focus{
 
 <section class="portada" id="portada">
 
-    <div class="corazonGrande">💙</div>
+    <div class="huella">
+        🐶💙
+    </div>
 
     <div class="dia">
-        DÍA 6 / 22
+        DÍA 7 / 22
     </div>
 
     <h1>
-        El desafío
+        Un pequeño detalle
     </h1>
 
     <p class="intro">
-        Hoy hay algo diferente preparado para vos.
+        Hoy queremos regalarte algo diferente...
         <br><br>
-        Vas a tener que demostrar cuánto
-        recordás de nuestra historia.
+        Algo que puedas mirar y recordar.
         <br><br>
-        <strong>22 preguntas.</strong>
-        <br>
-        Una sola historia: la nuestra. ❤️
+        Porque hay momentos que merecen
+        quedarse para siempre. 📸❤️
     </p>
 
-    <button class="boton" onclick="comenzar()">
-        Comenzar 💙
+    <button class="boton" onclick="mostrarContenido()">
+        Abrir 💙
     </button>
 
 </section>
 
 
-<!-- JUEGO -->
+<!-- CONTENIDO -->
 
-<section class="juego" id="juego">
-
-    <div class="dia">
-        DESAFÍO 22
-    </div>
-
-    <div class="progresoTexto" id="progresoTexto">
-        Pregunta 1 de 22
-    </div>
-
-    <div class="barra">
-        <div class="barraInterna" id="barra"></div>
-    </div>
-
-    <div class="tarjeta">
-
-        <h2 id="pregunta"></h2>
-
-        <input
-            type="text"
-            id="respuesta"
-            autocomplete="off"
-            placeholder="Escribí tu respuesta..."
-        >
-
-        <button class="comprobar" onclick="comprobar()">
-            Comprobar 💙
-        </button>
-
-        <div class="mensaje" id="mensaje"></div>
-
-        <div class="intentos" id="intentos"></div>
-
-    </div>
-
-</section>
-
-
-<!-- CARTA FINAL -->
-
-<section class="carta" id="carta">
+<section class="contenido" id="contenido">
 
     <div class="dia">
-        DESAFÍO COMPLETADO 🔐
+        DÍA 7
     </div>
 
-    <div class="sobre">
+    <h2 class="titulo">
+        Para vos ❤️
+    </h2>
 
-        <h2>
-            Para vos... 💙
+    <p class="subtitulo">
+        Algunas fotos pueden parecer solamente fotos...
+        <br>
+        pero nosotros sabemos todo lo que hay detrás de ellas.
+    </p>
+
+
+    <!-- FOTO 1 -->
+
+    <div class="fotoCaja">
+
+        <!--
+        Si querés poner una foto,
+        reemplazá "foto1.jpg" por el nombre de tu foto.
+        -->
+
+        <img src="foto1.jpg" alt="Nuestro recuerdo">
+
+        <div class="nota">
+            Hay momentos que parecen pequeños,
+            pero con la persona correcta se convierten
+            en recuerdos enormes. 💙
+        </div>
+
+    </div>
+
+
+    <!-- FOTO 2 -->
+
+    <div class="fotoCaja">
+
+        <img src="foto2.jpg" alt="Nuestro recuerdo">
+
+        <div class="nota">
+            Si alguna vez dudás de lo importante
+            que sos para mí, acordate de todas las
+            sonrisas que compartimos.
+        </div>
+
+    </div>
+
+
+    <!-- FOTO 3 -->
+
+    <div class="fotoCaja">
+
+        <img src="foto3.jpg" alt="Nuestro recuerdo">
+
+        <div class="nota">
+            No quiero guardar solamente fotos de
+            nosotros. Quiero seguir llenando la
+            galería de momentos que algún día
+            podamos recordar juntos. ❤️
+        </div>
+
+    </div>
+
+
+    <!-- CARTA DEL PERRITO -->
+
+    <div class="carta">
+
+        <div class="patita">
+            🐾
+        </div>
+
+        <h2 class="cartaTitulo">
+            Una cosita de alguien muy especial... 🐶
         </h2>
 
-        <div class="separador">
-            💙 ✨ 💙
+        <p>
+            Hola, mamá... 🥹💙
+        </p>
+
+        <p>
+            Capaz todavía no puedo hablar como
+            hablan ustedes, pero si pudiera,
+            hay algo que te diría todos los días.
+        </p>
+
+        <p>
+            Gracias por quererme, por cuidarme,
+            por darme cariño y por hacerme sentir
+            que también tengo un lugar en tu corazón.
+        </p>
+
+        <p>
+            Yo quizás sea chiquito, pero sé
+            perfectamente cuánto te quiere mi papá.
+            ❤️
+        </p>
+
+        <p>
+            Lo veo en la forma en que habla de vos,
+            en cómo sonríe cuando está con vos
+            y en todos esos pequeños detalles
+            que hace para verte feliz.
+        </p>
+
+        <p>
+            Y yo también te quiero muchísimo,
+            mamá.
+        </p>
+
+        <p>
+            Así que cuando veas estas fotos,
+            acordate de que no solamente hay
+            una persona que te ama muchísimo...
+        </p>
+
+        <p>
+            También hay un pequeño compañero
+            de cuatro patas que tuvo mucha suerte
+            de encontrarte. 🐶💙
+        </p>
+
+        <div class="patita">
+            🐾❤️🐾
         </div>
-
-        <p>
-            Si llegaste hasta acá, significa que
-            lograste completar las 22 preguntas.
-        </p>
-
-        <p>
-            Pero más que acertar respuestas,
-            acabás de recorrer algunos de los
-            recuerdos que forman nuestra historia.
-        </p>
-
-        <p>
-            Desde aquel domingo en que nos conocimos,
-            hasta cada charla, cada mate, cada risa
-            y cada momento que compartimos.
-        </p>
-
-        <p>
-            Me encantan tus ojos, tu sonrisa
-            y todas esas pequeñas cosas que te hacen
-            ser vos.
-        </p>
-
-        <p>
-            Quiero seguir creando recuerdos juntos,
-            seguir conociéndote cada día más
-            y seguir viviendo momentos que algún día
-            podamos mirar atrás y recordar con una sonrisa.
-        </p>
-
-        <div class="separador">
-            💙 💙 💙
-        </div>
-
-        <p>
-            Todo esto que estoy preparando durante
-            estos días lo hago con muchísimo amor.
-        </p>
-
-        <p>
-            Porque te merecés esto y muchísimo más.
-            Y quiero que cada pequeño detalle
-            te recuerde cuánto te amo.
-        </p>
-
-        <p>
-            Este fue solamente el Día 6...
-            todavía quedan muchas cosas por descubrir. 👀
-        </p>
 
         <p class="firma">
-            Te amo muchísimo. 💙
+            Con muchísimo amor,
+            <br>
+            tu pequeño bebé de cuatro patas. 🐶
         </p>
 
-        <div class="final">
-            DÍA 6 COMPLETADO ✓
+    </div>
+
+
+    <!-- MENSAJE FINAL -->
+
+    <div class="final">
+
+        <div class="corazonFinal">
+            💙
         </div>
+
+        <p>
+            Y esto es solamente una pequeña parte
+            de todo el amor que tenemos para darte.
+        </p>
+
+        <p>
+            Gracias por ser vos.
+            Gracias por cada momento.
+            Gracias por formar parte de nuestra historia.
+        </p>
+
+        <p>
+            <strong>
+                Te amamos muchísimo.
+            </strong>
+            🐶❤️
+        </p>
 
     </div>
 
@@ -421,342 +435,13 @@ input:focus{
 
 <script>
 
-/* ========================= */
-/* LAS 22 PREGUNTAS */
-/* ========================= */
+/* MOSTRAR CONTENIDO */
 
-const preguntas = [
-
-{
-    pregunta:"¿Qué día de la semana nos conocimos?",
-    respuestas:["domingo"]
-},
-
-{
-    pregunta:"¿En qué fecha comenzamos oficialmente nuestra relación?",
-    respuestas:[
-        "10 de octubre de 2025",
-        "10/10/2025",
-        "10-10-2025",
-        "10 octubre 2025"
-    ]
-},
-
-{
-    pregunta:"¿Dónde fue nuestra primera salida en Tigre?",
-    respuestas:[
-        "mcdonalds",
-        "mc donalds",
-        "mc donald",
-        "mcdonald"
-    ]
-},
-
-{
-    pregunta:"¿Cuál fue uno de los primeros regalos que te hice?",
-    respuestas:[
-        "tulipanes",
-        "tulipan",
-        "flores de tulipan"
-    ]
-},
-
-{
-    pregunta:"¿Cuál es el apodo con el que te digo?",
-    respuestas:[
-        "enana"
-    ]
-},
-
-{
-    pregunta:"¿Qué frase usamos entre nosotros?",
-    respuestas:[
-        "tu kp",
-        "tukp"
-    ]
-},
-
-{
-    pregunta:"¿Cuál es esa comida que siempre comés?",
-    respuestas:[
-        "arroz con queso"
-    ]
-},
-
-{
-    pregunta:"¿Cuál es la canción especial para nosotros?",
-    respuestas:[
-        "babysita"
-    ]
-},
-
-{
-    pregunta:"¿Qué estábamos haciendo en aquella foto especial?",
-    respuestas:[
-        "hablando y tomando mate",
-        "tomando mate y hablando",
-        "hablando tomando mate"
-    ]
-},
-
-{
-    pregunta:"¿Cómo te gusta decirme?",
-    respuestas:[
-        "mi paraguayito",
-        "paraguayito"
-    ]
-},
-
-{
-    pregunta:"¿Qué personaje es especial cuando hablamos de nuestros peluches?",
-    respuestas:[
-        "stitch",
-        "stich"
-    ]
-},
-
-{
-    pregunta:"¿Qué posición jugás en fútbol?",
-    respuestas:[
-        "delantera",
-        "delantero"
-    ]
-},
-
-{
-    pregunta:"¿Cómo nos conocimos?",
-    respuestas:[
-        "en persona",
-        "personalmente"
-    ]
-},
-
-{
-    pregunta:"¿Por dónde seguimos hablando después de conocernos?",
-    respuestas:[
-        "whatsapp"
-    ]
-},
-
-{
-    pregunta:"¿Qué fue lo primero que me gustó de vos?",
-    respuestas:[
-        "tus ojos y tu sonrisa",
-        "tus ojos y sonrisa",
-        "ojos y sonrisa"
-    ]
-},
-
-{
-    pregunta:"¿A qué país queremos viajar juntos?",
-    respuestas:[
-        "paraguay"
-    ]
-},
-
-{
-    pregunta:"¿Qué anécdota vergonzosa todavía recordamos?",
-    respuestas:[
-        "cuando se hizo pis",
-        "se hizo pis",
-        "cuando te hiciste pis",
-        "te hiciste pis"
-    ]
-},
-
-{
-    pregunta:"¿Qué día cumplís años?",
-    respuestas:[
-        "22"
-    ]
-},
-
-{
-    pregunta:"¿En qué mes cumplimos nuestro aniversario de un año?",
-    respuestas:[
-        "octubre"
-    ]
-},
-
-{
-    pregunta:"¿Cuántos meses llevamos juntos actualmente?",
-    respuestas:[
-        "11",
-        "once"
-    ]
-},
-
-{
-    pregunta:"¿Cuándo te hice mi primera carta especial?",
-    respuestas:[
-        "en tu cumpleaños",
-        "tu cumpleaños",
-        "en su cumpleaños",
-        "su cumpleaños",
-        "tu cumple",
-        "su cumple",
-        "cumpleaños"
-    ]
-},
-
-{
-    pregunta:"¿Qué regalo fue uno de los que más ilusión te hizo?",
-    respuestas:[
-        "un peluche con chocolate",
-        "peluche con chocolate",
-        "peluche y chocolate",
-        "peluche chocolate"
-    ]
-}
-
-];
-
-let actual=0;
-let intentos=0;
-
-
-/* COMENZAR */
-
-function comenzar(){
+function mostrarContenido(){
 
     document.getElementById("portada").style.display="none";
 
-    document.getElementById("juego").style.display="block";
-
-    cargarPregunta();
-}
-
-
-/* NORMALIZAR */
-
-function normalizar(texto){
-
-    return texto
-        .toLowerCase()
-        .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g,"")
-        .replace(/[.,!?¿¡]/g,"")
-        .replace(/\s+/g," ")
-        .trim();
-
-}
-
-
-/* CARGAR PREGUNTA */
-
-function cargarPregunta(){
-
-    const p=preguntas[actual];
-
-    document.getElementById("pregunta")
-        .textContent=p.pregunta;
-
-    document.getElementById("respuesta")
-        .value="";
-
-    document.getElementById("mensaje")
-        .textContent="";
-
-    intentos=0;
-
-    document.getElementById("intentos")
-        .textContent="";
-
-    document.getElementById("progresoTexto")
-        .textContent=
-        "Pregunta "+(actual+1)+" de 22";
-
-    document.getElementById("barra")
-        .style.width=
-        ((actual)/22*100)+"%";
-
-    document.getElementById("respuesta").focus();
-}
-
-
-/* COMPROBAR */
-
-function comprobar(){
-
-    const entrada=normalizar(
-        document.getElementById("respuesta").value
-    );
-
-    if(!entrada){
-
-        document.getElementById("mensaje")
-            .textContent=
-            "Escribí una respuesta primero. 😏";
-
-        return;
-    }
-
-    const correctas=
-        preguntas[actual].respuestas.map(normalizar);
-
-    intentos++;
-
-    if(correctas.includes(entrada)){
-
-        document.getElementById("mensaje")
-            .textContent=
-            "¡Correcto! ❤️";
-
-        document.getElementById("barra")
-            .style.width=
-            ((actual+1)/22*100)+"%";
-
-        setTimeout(()=>{
-
-            actual++;
-
-            if(actual<22){
-
-                cargarPregunta();
-
-            }else{
-
-                terminar();
-
-            }
-
-        },1000);
-
-    }else{
-
-        document.getElementById("mensaje")
-            .textContent=
-            "❌ No es esa... pensalo un poquito más.";
-
-        document.getElementById("intentos")
-            .textContent=
-            "Intento "+intentos+" 💙";
-
-    }
-}
-
-
-/* ENTER */
-
-document.getElementById("respuesta")
-.addEventListener("keydown",function(e){
-
-    if(e.key==="Enter"){
-        comprobar();
-    }
-
-});
-
-
-/* FINAL */
-
-function terminar(){
-
-    document.getElementById("juego")
-        .style.display="none";
-
-    document.getElementById("carta")
-        .classList.add("activa");
+    document.getElementById("contenido").style.display="block";
 
     window.scrollTo({
         top:0,
@@ -770,31 +455,33 @@ function terminar(){
 
 function crearCorazon(){
 
-    const c=document.createElement("span");
+    const corazon=document.createElement("span");
 
-    c.className="corazon";
+    corazon.className="corazon";
 
-    c.textContent="💙";
+    corazon.textContent="💙";
 
-    c.style.left=
+    corazon.style.left=
         Math.random()*100+"%";
 
-    c.style.fontSize=
+    corazon.style.fontSize=
         (15+Math.random()*25)+"px";
 
-    c.style.animationDuration=
+    corazon.style.animationDuration=
         (6+Math.random()*5)+"s";
 
-    document.getElementById("fondo")
-        .appendChild(c);
+    document.getElementById("corazones")
+        .appendChild(corazon);
 
-    setTimeout(()=>{
-        c.remove();
+    setTimeout(function(){
+
+        corazon.remove();
+
     },11000);
 
 }
 
-setInterval(crearCorazon,800);
+setInterval(crearCorazon,700);
 
 </script>
 
