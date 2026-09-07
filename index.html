@@ -22,8 +22,6 @@ body{
     overflow-x:hidden;
 }
 
-/* CORAZONES */
-
 .corazones{
     position:fixed;
     inset:0;
@@ -44,18 +42,14 @@ body{
         transform:translateY(0) scale(.8) rotate(0deg);
         opacity:0;
     }
-
     20%{
         opacity:.7;
     }
-
     100%{
         transform:translateY(-110vh) scale(1.2) rotate(20deg);
         opacity:0;
     }
 }
-
-/* CONTENEDOR */
 
 .contenedor{
     position:relative;
@@ -78,7 +72,7 @@ body{
 }
 
 .huella{
-    font-size:65px;
+    font-size:70px;
     margin-bottom:20px;
     animation:latido 2s infinite;
 }
@@ -87,7 +81,6 @@ body{
     0%,100%{
         transform:scale(1);
     }
-
     50%{
         transform:scale(1.12);
     }
@@ -114,13 +107,18 @@ h1{
 
 .boton{
     margin-top:32px;
-    padding:16px 32px;
+    padding:16px 35px;
     border-radius:50px;
     border:1px solid rgba(255,255,255,.35);
     background:rgba(255,255,255,.12);
     color:white;
     font-size:16px;
     cursor:pointer;
+    transition:.3s;
+}
+
+.boton:active{
+    transform:scale(.95);
 }
 
 /* CONTENIDO */
@@ -128,49 +126,55 @@ h1{
 .contenido{
     display:none;
     text-align:center;
+    animation:aparecer 1.2s ease;
 }
 
 .titulo{
-    font-size:38px;
+    font-size:40px;
     font-weight:400;
-    margin-bottom:15px;
+    margin-bottom:18px;
 }
 
 .subtitulo{
-    font-size:17px;
-    line-height:1.8;
-    color:rgba(255,255,255,.75);
-    margin-bottom:35px;
+    font-size:18px;
+    line-height:1.9;
+    color:rgba(255,255,255,.76);
+    margin-bottom:40px;
 }
 
-/* FOTOS */
+@keyframes aparecer{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
 
-.fotoCaja{
-    margin:25px 0;
-    padding:15px;
-    border-radius:25px;
+/* MENSAJE */
+
+.mensaje{
+    padding:28px 22px;
+    border-radius:28px;
     background:rgba(255,255,255,.08);
     border:1px solid rgba(255,255,255,.15);
+    backdrop-filter:blur(15px);
+    margin-bottom:30px;
 }
 
-.fotoCaja img{
-    width:100%;
-    border-radius:18px;
-    display:block;
+.mensaje p{
+    font-size:18px;
+    line-height:1.9;
+    color:rgba(255,255,255,.86);
 }
 
-.nota{
-    padding:22px 10px 10px;
-    font-size:17px;
-    line-height:1.8;
-    color:rgba(255,255,255,.85);
-}
-
-/* CARTA DEL PERRITO */
+/* CARTA */
 
 .carta{
-    margin-top:45px;
-    padding:32px 23px;
+    margin-top:35px;
+    padding:35px 23px;
     border-radius:30px;
     background:rgba(255,255,255,.09);
     border:1px solid rgba(255,255,255,.17);
@@ -178,21 +182,29 @@ h1{
     box-shadow:0 20px 70px rgba(0,0,0,.35);
 }
 
-.cartaTitulo{
+.patita{
+    font-size:48px;
+    margin:10px 0 22px;
+}
+
+.carta h2{
     font-size:31px;
-    margin-bottom:25px;
+    font-weight:400;
+    margin-bottom:28px;
 }
 
 .carta p{
     font-size:18px;
     line-height:2;
-    color:rgba(255,255,255,.87);
+    color:rgba(255,255,255,.88);
     margin-bottom:22px;
 }
 
-.patita{
-    font-size:45px;
-    margin:20px 0;
+.separador{
+    margin:28px 0;
+    color:#9bd3ff;
+    font-size:20px;
+    letter-spacing:8px;
 }
 
 .firma{
@@ -200,24 +212,25 @@ h1{
     font-size:21px!important;
 }
 
-/* MENSAJE FINAL */
+/* FINAL */
 
 .final{
     margin-top:40px;
-    padding:25px 15px;
-    text-align:center;
+    padding:25px 10px;
+}
+
+.final .corazonFinal{
+    font-size:42px;
+    margin-bottom:20px;
 }
 
 .final p{
     font-size:16px;
-    line-height:1.8;
-    color:rgba(255,255,255,.7);
-}
-
-.corazonFinal{
-    font-size:40px;
+    line-height:1.9;
+    color:rgba(255,255,255,.72);
     margin-bottom:15px;
 }
+
 </style>
 </head>
 
@@ -227,7 +240,9 @@ h1{
 
 <div class="contenedor">
 
+<!-- ===================== -->
 <!-- PORTADA -->
+<!-- ===================== -->
 
 <section class="portada" id="portada">
 
@@ -240,26 +255,29 @@ h1{
     </div>
 
     <h1>
-        Un pequeño detalle
+        Para vos...
     </h1>
 
     <p class="intro">
-        Hoy queremos regalarte algo diferente...
+        Hoy no hay preguntas.
         <br><br>
-        Algo que puedas mirar y recordar.
+        No hay desafíos.
         <br><br>
-        Porque hay momentos que merecen
-        quedarse para siempre. 📸❤️
+        Solamente hay unas palabras
+        que alguien muy especial
+        quería decirte. 🐾
     </p>
 
-    <button class="boton" onclick="mostrarContenido()">
+    <button class="boton" onclick="abrir()">
         Abrir 💙
     </button>
 
 </section>
 
 
+<!-- ===================== -->
 <!-- CONTENIDO -->
+<!-- ===================== -->
 
 <section class="contenido" id="contenido">
 
@@ -268,63 +286,31 @@ h1{
     </div>
 
     <h2 class="titulo">
-        Para vos ❤️
+        Un mensaje especial 💙
     </h2>
 
     <p class="subtitulo">
-        Algunas fotos pueden parecer solamente fotos...
-        <br>
-        pero nosotros sabemos todo lo que hay detrás de ellas.
+        Hay alguien que también quería
+        decirte cuánto te quiere...
+        <br><br>
+        Y aunque no pueda escribirte,
+        hoy papá me dejó hablar por él. 🐶
     </p>
 
 
-    <!-- FOTO 1 -->
+    <div class="mensaje">
 
-    <div class="fotoCaja">
+        <p>
+            Antes de seguir...
+            quiero que sepas algo:
+        </p>
 
-        <!--
-        Si querés poner una foto,
-        reemplazá "foto1.jpg" por el nombre de tu foto.
-        -->
+        <br>
 
-        <img src="foto1.jpg" alt="Nuestro recuerdo">
-
-        <div class="nota">
-            Hay momentos que parecen pequeños,
-            pero con la persona correcta se convierten
-            en recuerdos enormes. 💙
-        </div>
-
-    </div>
-
-
-    <!-- FOTO 2 -->
-
-    <div class="fotoCaja">
-
-        <img src="foto2.jpg" alt="Nuestro recuerdo">
-
-        <div class="nota">
-            Si alguna vez dudás de lo importante
-            que sos para mí, acordate de todas las
-            sonrisas que compartimos.
-        </div>
-
-    </div>
-
-
-    <!-- FOTO 3 -->
-
-    <div class="fotoCaja">
-
-        <img src="foto3.jpg" alt="Nuestro recuerdo">
-
-        <div class="nota">
-            No quiero guardar solamente fotos de
-            nosotros. Quiero seguir llenando la
-            galería de momentos que algún día
-            podamos recordar juntos. ❤️
-        </div>
+        <p>
+            Todo esto está hecho pensando
+            en vos y en lo especial que sos.
+        </p>
 
     </div>
 
@@ -337,70 +323,97 @@ h1{
             🐾
         </div>
 
-        <h2 class="cartaTitulo">
-            Una cosita de alguien muy especial... 🐶
+        <h2>
+            Hola, mamá... 🐶💙
         </h2>
 
         <p>
-            Hola, mamá... 🥹💙
+            Soy yo.
         </p>
 
         <p>
-            Capaz todavía no puedo hablar como
-            hablan ustedes, pero si pudiera,
-            hay algo que te diría todos los días.
+            Sé que todavía no puedo hablar como
+            hablan ustedes, pero si pudiera hacerlo,
+            hay tantas cosas que quisiera decirte.
         </p>
 
         <p>
-            Gracias por quererme, por cuidarme,
-            por darme cariño y por hacerme sentir
-            que también tengo un lugar en tu corazón.
-        </p>
-
-        <p>
-            Yo quizás sea chiquito, pero sé
-            perfectamente cuánto te quiere mi papá.
-            ❤️
-        </p>
-
-        <p>
-            Lo veo en la forma en que habla de vos,
-            en cómo sonríe cuando está con vos
-            y en todos esos pequeños detalles
-            que hace para verte feliz.
-        </p>
-
-        <p>
-            Y yo también te quiero muchísimo,
+            Quiero decirte que te quiero muchísimo,
             mamá.
         </p>
 
         <p>
-            Así que cuando veas estas fotos,
-            acordate de que no solamente hay
-            una persona que te ama muchísimo...
+            Gracias por cada caricia, por cada abrazo,
+            por cada vez que me cuidás y por todo
+            el amor que me das.
+        </p>
+
+        <div class="separador">
+            🐾 💙 🐾
+        </div>
+
+        <p>
+            También quiero contarte un secreto...
         </p>
 
         <p>
-            También hay un pequeño compañero
-            de cuatro patas que tuvo mucha suerte
-            de encontrarte. 🐶💙
+            Yo veo cómo te mira papá.
         </p>
 
-        <div class="patita">
-            🐾❤️🐾
+        <p>
+            Veo cómo sonríe cuando está con vos,
+            cómo habla de vos y cómo intenta
+            hacerte feliz con cada pequeño detalle.
+        </p>
+
+        <p>
+            Y creo que tuve mucha suerte...
+            porque no solamente tengo un papá
+            que me quiere muchísimo,
+            también tengo una mamá que es
+            demasiado especial para mí.
+        </p>
+
+        <p>
+            Tal vez soy pequeño y no puedo
+            decirte todo esto en persona...
+        </p>
+
+        <p>
+            pero si alguna vez te sentís triste,
+            acordate de que hay unas patitas
+            que siempre van a querer estar cerca tuyo.
+        </p>
+
+        <p>
+            Y cuando me mires,
+            acordate de que yo también te elegí
+            como mi mamá. 🥹💙
+        </p>
+
+        <div class="separador">
+            ❤️ 🐾 ❤️
         </div>
 
+        <p>
+            Te quiero muchísimo, mamá.
+        </p>
+
+        <p>
+            Y espero que sigamos creando
+            muchísimos momentos juntos.
+        </p>
+
         <p class="firma">
-            Con muchísimo amor,
-            <br>
-            tu pequeño bebé de cuatro patas. 🐶
+            Con todo mi amor,
+            <br><br>
+            tu pequeño bebé de cuatro patas. 🐶💙
         </p>
 
     </div>
 
 
-    <!-- MENSAJE FINAL -->
+    <!-- MENSAJE DE LOS DOS -->
 
     <div class="final">
 
@@ -409,21 +422,29 @@ h1{
         </div>
 
         <p>
-            Y esto es solamente una pequeña parte
-            de todo el amor que tenemos para darte.
-        </p>
-
-        <p>
-            Gracias por ser vos.
-            Gracias por cada momento.
-            Gracias por formar parte de nuestra historia.
+            Y de parte de los dos...
         </p>
 
         <p>
             <strong>
-                Te amamos muchísimo.
+                Gracias por existir.
             </strong>
-            🐶❤️
+        </p>
+
+        <p>
+            Gracias por cada momento,
+            cada sonrisa y cada recuerdo
+            que estamos construyendo juntos.
+        </p>
+
+        <p>
+            Te amamos muchísimo. 🐶❤️
+        </p>
+
+        <p style="margin-top:25px;">
+            <em>
+                Esto recién continúa...
+            </em>
         </p>
 
     </div>
@@ -435,9 +456,9 @@ h1{
 
 <script>
 
-/* MOSTRAR CONTENIDO */
+/* ABRIR */
 
-function mostrarContenido(){
+function abrir(){
 
     document.getElementById("portada").style.display="none";
 
@@ -474,9 +495,7 @@ function crearCorazon(){
         .appendChild(corazon);
 
     setTimeout(function(){
-
         corazon.remove();
-
     },11000);
 
 }
