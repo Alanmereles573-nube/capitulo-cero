@@ -4,9 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Día 7 💙</title>
+<title>Día 8 💜</title>
 
 <style>
+
 *{
     box-sizing:border-box;
     margin:0;
@@ -18,11 +19,13 @@ body{
     font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
     color:white;
     background:
-        radial-gradient(circle at top,#3b82c4,#123b63 45%,#061522);
+        radial-gradient(circle at 50% 0%,#9b30ff,#5b0aa8 45%,#18002d);
     overflow-x:hidden;
 }
 
-.corazones{
+/* CORAZONES */
+
+.fondo{
     position:fixed;
     inset:0;
     overflow:hidden;
@@ -32,24 +35,30 @@ body{
 
 .corazon{
     position:absolute;
-    bottom:-50px;
-    animation:subir linear infinite;
-    opacity:.65;
+    bottom:-60px;
+    opacity:0;
+    animation:subir linear forwards;
 }
 
 @keyframes subir{
+
     0%{
-        transform:translateY(0) scale(.8) rotate(0deg);
+        transform:translateY(0) scale(.7) rotate(0deg);
         opacity:0;
     }
-    20%{
-        opacity:.7;
+
+    15%{
+        opacity:.8;
     }
+
     100%{
-        transform:translateY(-110vh) scale(1.2) rotate(20deg);
+        transform:translateY(-110vh) scale(1.2) rotate(25deg);
         opacity:0;
     }
+
 }
+
+/* CONTENEDOR */
 
 .contenedor{
     position:relative;
@@ -57,7 +66,7 @@ body{
     width:100%;
     max-width:700px;
     margin:auto;
-    padding:30px 18px 70px;
+    padding:30px 18px 80px;
 }
 
 /* PORTADA */
@@ -71,25 +80,28 @@ body{
     text-align:center;
 }
 
-.huella{
-    font-size:70px;
+.corazonGrande{
+    font-size:75px;
     margin-bottom:20px;
-    animation:latido 2s infinite;
+    animation:latido 1.8s infinite;
 }
 
 @keyframes latido{
+
     0%,100%{
         transform:scale(1);
     }
+
     50%{
-        transform:scale(1.12);
+        transform:scale(1.15);
     }
+
 }
 
 .dia{
     font-size:12px;
     letter-spacing:5px;
-    color:#b9ddff;
+    color:#e3b3ff;
     margin-bottom:20px;
 }
 
@@ -101,351 +113,446 @@ h1{
 
 .intro{
     font-size:18px;
-    line-height:1.8;
-    color:rgba(255,255,255,.82);
+    line-height:1.9;
+    color:rgba(255,255,255,.88);
 }
 
 .boton{
-    margin-top:32px;
+    margin-top:35px;
     padding:16px 35px;
     border-radius:50px;
-    border:1px solid rgba(255,255,255,.35);
-    background:rgba(255,255,255,.12);
+    border:1px solid rgba(255,255,255,.4);
+    background:rgba(180,60,255,.25);
     color:white;
     font-size:16px;
     cursor:pointer;
     transition:.3s;
+    box-shadow:0 0 25px rgba(170,0,255,.25);
+}
+
+.boton:hover{
+    background:rgba(200,80,255,.4);
+    transform:scale(1.04);
 }
 
 .boton:active{
-    transform:scale(.95);
+    transform:scale(.94);
 }
 
-/* CONTENIDO */
+/* EXPERIENCIA */
 
-.contenido{
+.experiencia{
     display:none;
     text-align:center;
-    animation:aparecer 1.2s ease;
-}
-
-.titulo{
-    font-size:40px;
-    font-weight:400;
-    margin-bottom:18px;
-}
-
-.subtitulo{
-    font-size:18px;
-    line-height:1.9;
-    color:rgba(255,255,255,.76);
-    margin-bottom:40px;
+    animation:aparecer 1s ease;
 }
 
 @keyframes aparecer{
+
     from{
         opacity:0;
         transform:translateY(30px);
     }
+
     to{
         opacity:1;
         transform:translateY(0);
     }
+
 }
 
-/* MENSAJE */
+.titulo{
+    font-size:38px;
+    font-weight:400;
+    margin-bottom:18px;
+}
 
-.mensaje{
-    padding:28px 22px;
-    border-radius:28px;
-    background:rgba(255,255,255,.08);
-    border:1px solid rgba(255,255,255,.15);
+.texto{
+    font-size:18px;
+    line-height:1.8;
+    color:rgba(255,255,255,.8);
+    margin-bottom:35px;
+}
+
+/* TARJETAS */
+
+.tarjeta{
+    padding:30px 22px;
+    border-radius:30px;
+    background:rgba(120,0,190,.2);
+    border:1px solid rgba(230,180,255,.22);
     backdrop-filter:blur(15px);
+    box-shadow:0 20px 70px rgba(0,0,0,.4);
     margin-bottom:30px;
 }
 
-.mensaje p{
-    font-size:18px;
-    line-height:1.9;
-    color:rgba(255,255,255,.86);
-}
-
-/* CARTA */
-
-.carta{
-    margin-top:35px;
-    padding:35px 23px;
-    border-radius:30px;
-    background:rgba(255,255,255,.09);
-    border:1px solid rgba(255,255,255,.17);
-    backdrop-filter:blur(15px);
-    box-shadow:0 20px 70px rgba(0,0,0,.35);
-}
-
-.patita{
-    font-size:48px;
-    margin:10px 0 22px;
-}
-
-.carta h2{
-    font-size:31px;
+.tarjeta h2{
+    font-size:25px;
     font-weight:400;
-    margin-bottom:28px;
+    margin-bottom:15px;
 }
 
-.carta p{
-    font-size:18px;
-    line-height:2;
-    color:rgba(255,255,255,.88);
-    margin-bottom:22px;
+.pequeno{
+    font-size:14px;
+    color:rgba(255,255,255,.6);
+    margin-bottom:25px;
 }
 
-.separador{
-    margin:28px 0;
-    color:#9bd3ff;
-    font-size:20px;
-    letter-spacing:8px;
+/* BARRA */
+
+.contenedorBarra{
+    width:100%;
+    height:20px;
+    background:rgba(255,255,255,.12);
+    border-radius:50px;
+    overflow:hidden;
+    border:1px solid rgba(255,255,255,.15);
 }
 
-.firma{
-    color:#b9ddff!important;
-    font-size:21px!important;
+.barra{
+    height:100%;
+    width:0%;
+    border-radius:50px;
+    background:linear-gradient(
+        90deg,
+        #8a2be2,
+        #c95cff,
+        #f0b3ff
+    );
+    transition:width .2s;
+    box-shadow:0 0 15px rgba(200,70,255,.7);
+}
+
+input[type="range"]{
+    width:100%;
+    margin-top:25px;
+    accent-color:#c84cff;
+}
+
+.numero{
+    font-size:38px;
+    margin-top:20px;
+    color:#e8baff;
+}
+
+.mensaje{
+    min-height:50px;
+    margin-top:18px;
+    font-size:17px;
+    line-height:1.6;
+    color:#dda5ff;
+}
+
+/* SEGUNDA BARRA */
+
+.segunda{
+    display:none;
+}
+
+.barraAmor{
+    width:0%;
+    height:100%;
+    border-radius:50px;
+    background:linear-gradient(
+        90deg,
+        #8a2be2,
+        #d15cff,
+        #ffffff
+    );
+    transition:width .15s linear;
+    box-shadow:0 0 18px rgba(200,60,255,.8);
+}
+
+.numeroGrande{
+    font-size:48px;
+    margin-top:20px;
+    color:#efcfff;
+    font-weight:300;
 }
 
 /* FINAL */
 
 .final{
-    margin-top:40px;
-    padding:25px 10px;
+    display:none;
+    margin-top:35px;
+    padding:35px 22px;
+    border-radius:30px;
+    background:rgba(110,0,180,.2);
+    border:1px solid rgba(235,190,255,.25);
+    backdrop-filter:blur(15px);
+    animation:aparecer 1.5s ease;
+    box-shadow:0 20px 80px rgba(90,0,150,.3);
 }
 
-.final .corazonFinal{
-    font-size:42px;
+.final .emoji{
+    font-size:60px;
     margin-bottom:20px;
 }
 
+.final h2{
+    font-size:34px;
+    font-weight:400;
+    margin-bottom:25px;
+}
+
 .final p{
-    font-size:16px;
-    line-height:1.9;
-    color:rgba(255,255,255,.72);
-    margin-bottom:15px;
+    font-size:18px;
+    line-height:2;
+    color:rgba(255,255,255,.88);
+    margin-bottom:20px;
+}
+
+.frase{
+    margin-top:30px;
+    padding:25px 15px;
+    border-top:1px solid rgba(235,180,255,.25);
+    border-bottom:1px solid rgba(235,180,255,.25);
+    font-size:20px!important;
+    color:#e5b6ff!important;
+}
+
+.firma{
+    font-size:22px!important;
+    color:#fff!important;
+}
+
+.botonFinal{
+    margin-top:25px;
+    padding:15px 28px;
+    border-radius:50px;
+    border:1px solid rgba(255,255,255,.35);
+    background:rgba(180,50,255,.25);
+    color:white;
+    cursor:pointer;
+    font-size:15px;
 }
 
 </style>
 </head>
 
+
 <body>
 
-<div class="corazones" id="corazones"></div>
+<div class="fondo" id="fondo"></div>
 
 <div class="contenedor">
 
-<!-- ===================== -->
+
 <!-- PORTADA -->
-<!-- ===================== -->
 
 <section class="portada" id="portada">
 
-    <div class="huella">
-        🐶💙
+    <div class="corazonGrande">
+        💜
     </div>
 
     <div class="dia">
-        DÍA 7 / 22
+        DÍA 8 / 22
     </div>
 
     <h1>
-        Para vos...
+        El detector de amor
     </h1>
 
     <p class="intro">
-        Hoy no hay preguntas.
+
+        Hoy necesito comprobar algo...
+
         <br><br>
-        No hay desafíos.
+
+        ¿Qué tan grande es lo nuestro?
+
         <br><br>
-        Solamente hay unas palabras
-        que alguien muy especial
-        quería decirte. 🐾
+
+        Tranquila...
+        esta vez no hay respuestas correctas.
+
+        <br><br>
+
+        Solamente tenés que ser sincera. 💜
+
     </p>
 
-    <button class="boton" onclick="abrir()">
-        Abrir 💙
+    <button class="boton" onclick="comenzar()">
+        Comenzar 💜
     </button>
 
 </section>
 
 
-<!-- ===================== -->
-<!-- CONTENIDO -->
-<!-- ===================== -->
+<!-- EXPERIENCIA -->
 
-<section class="contenido" id="contenido">
+<section class="experiencia" id="experiencia">
 
     <div class="dia">
-        DÍA 7
+        DÍA 8
     </div>
 
     <h2 class="titulo">
-        Un mensaje especial 💙
+        Vamos a descubrirlo... 👀
     </h2>
 
-    <p class="subtitulo">
-        Hay alguien que también quería
-        decirte cuánto te quiere...
-        <br><br>
-        Y aunque no pueda escribirte,
-        hoy papá me dejó hablar por él. 🐶
-    </p>
+    <p class="texto">
 
-
-    <div class="mensaje">
-
-        <p>
-            Antes de seguir...
-            quiero que sepas algo:
-        </p>
+        Primero quiero saber algo de vos.
 
         <br>
 
-        <p>
-            Todo esto está hecho pensando
-            en vos y en lo especial que sos.
+        Mové la barra hasta el número
+        que realmente sientas.
+
+    </p>
+
+
+    <!-- PRIMERA BARRA -->
+
+    <div class="tarjeta">
+
+        <h2>
+            ¿Cuánto me amás? 💜
+        </h2>
+
+        <p class="pequeno">
+            Sé completamente sincera...
         </p>
+
+        <div class="contenedorBarra">
+
+            <div
+                class="barra"
+                id="barraElla">
+            </div>
+
+        </div>
+
+        <input
+            type="range"
+            min="0"
+            max="100"
+            value="0"
+            id="slider"
+        >
+
+        <div
+            class="numero"
+            id="numero">
+            0%
+        </div>
+
+        <div
+            class="mensaje"
+            id="mensaje">
+            Mové la barra... 👀
+        </div>
+
+        <button
+            class="boton"
+            onclick="aceptarAmor()">
+
+            Este es mi número 💜
+
+        </button>
 
     </div>
 
 
-    <!-- CARTA DEL PERRITO -->
+    <!-- SEGUNDA BARRA -->
 
-    <div class="carta">
+    <div
+        class="tarjeta segunda"
+        id="segunda">
 
-        <div class="patita">
-            🐾
+        <h2>
+            Ahora me toca a mí... 💜
+        </h2>
+
+        <p class="pequeno">
+            Vamos a medir cuánto te amo yo.
+        </p>
+
+        <div class="contenedorBarra">
+
+            <div
+                class="barraAmor"
+                id="barraYo">
+            </div>
+
+        </div>
+
+        <div
+            class="numeroGrande"
+            id="numeroYo">
+            0%
+        </div>
+
+        <div
+            class="mensaje"
+            id="mensajeYo">
+            Calculando...
+        </div>
+
+    </div>
+
+
+    <!-- FINAL -->
+
+    <div
+        class="final"
+        id="final">
+
+        <div class="emoji">
+            🥹💜
         </div>
 
         <h2>
-            Hola, mamá... 🐶💙
+            MEDICIÓN IMPOSIBLE
         </h2>
 
         <p>
-            Soy yo.
+            Parece que encontramos un pequeño
+            problema...
         </p>
 
         <p>
-            Sé que todavía no puedo hablar como
-            hablan ustedes, pero si pudiera hacerlo,
-            hay tantas cosas que quisiera decirte.
+            El amor que siento por vos
+            simplemente no entra en una escala.
         </p>
 
-        <p>
-            Quiero decirte que te quiero muchísimo,
-            mamá.
-        </p>
+        <p class="frase">
 
-        <p>
-            Gracias por cada caricia, por cada abrazo,
-            por cada vez que me cuidás y por todo
-            el amor que me das.
-        </p>
+            “Si alguna vez te preguntás
+            qué tan importante sos para mí,
+            no mires solamente lo que digo.
 
-        <div class="separador">
-            🐾 💙 🐾
-        </div>
+            <br><br>
 
-        <p>
-            También quiero contarte un secreto...
-        </p>
+            Mirá todo lo que hago
+            para verte sonreír.”
 
-        <p>
-            Yo veo cómo te mira papá.
-        </p>
-
-        <p>
-            Veo cómo sonríe cuando está con vos,
-            cómo habla de vos y cómo intenta
-            hacerte feliz con cada pequeño detalle.
-        </p>
-
-        <p>
-            Y creo que tuve mucha suerte...
-            porque no solamente tengo un papá
-            que me quiere muchísimo,
-            también tengo una mamá que es
-            demasiado especial para mí.
-        </p>
-
-        <p>
-            Tal vez soy pequeño y no puedo
-            decirte todo esto en persona...
-        </p>
-
-        <p>
-            pero si alguna vez te sentís triste,
-            acordate de que hay unas patitas
-            que siempre van a querer estar cerca tuyo.
-        </p>
-
-        <p>
-            Y cuando me mires,
-            acordate de que yo también te elegí
-            como mi mamá. 🥹💙
-        </p>
-
-        <div class="separador">
-            ❤️ 🐾 ❤️
-        </div>
-
-        <p>
-            Te quiero muchísimo, mamá.
-        </p>
-
-        <p>
-            Y espero que sigamos creando
-            muchísimos momentos juntos.
         </p>
 
         <p class="firma">
-            Con todo mi amor,
-            <br><br>
-            tu pequeño bebé de cuatro patas. 🐶💙
+
+            Y si tuviera que elegir
+            una y otra vez...
+
+            <br>
+
+            siempre te elegiría a vos. 💜
+
         </p>
 
-    </div>
-
-
-    <!-- MENSAJE DE LOS DOS -->
-
-    <div class="final">
-
-        <div class="corazonFinal">
-            💙
+        <div style="font-size:35px;margin-top:20px;">
+            ∞ 💜 ∞
         </div>
 
-        <p>
-            Y de parte de los dos...
-        </p>
+        <button
+            class="botonFinal"
+            onclick="finalizar()">
 
-        <p>
-            <strong>
-                Gracias por existir.
-            </strong>
-        </p>
+            Día 8 completado 💜
 
-        <p>
-            Gracias por cada momento,
-            cada sonrisa y cada recuerdo
-            que estamos construyendo juntos.
-        </p>
-
-        <p>
-            Te amamos muchísimo. 🐶❤️
-        </p>
-
-        <p style="margin-top:25px;">
-            <em>
-                Esto recién continúa...
-            </em>
-        </p>
+        </button>
 
     </div>
 
@@ -456,13 +563,13 @@ h1{
 
 <script>
 
-/* ABRIR */
+/* COMENZAR */
 
-function abrir(){
+function comenzar(){
 
     document.getElementById("portada").style.display="none";
 
-    document.getElementById("contenido").style.display="block";
+    document.getElementById("experiencia").style.display="block";
 
     window.scrollTo({
         top:0,
@@ -472,15 +579,213 @@ function abrir(){
 }
 
 
+/* SLIDER DE ELLA */
+
+const slider =
+document.getElementById("slider");
+
+slider.addEventListener("input",function(){
+
+    let valor=this.value;
+
+    document.getElementById("barraElla")
+        .style.width=valor+"%";
+
+    document.getElementById("numero")
+        .textContent=valor+"%";
+
+
+    if(valor<30){
+
+        document.getElementById("mensaje")
+            .textContent=
+            "¿Tan poquito? 😭😂";
+
+    }
+
+    else if(valor<60){
+
+        document.getElementById("mensaje")
+            .textContent=
+            "Mmm... esperaba un poquito más. 😏";
+
+    }
+
+    else if(valor<90){
+
+        document.getElementById("mensaje")
+            .textContent=
+            "Eso ya me gusta más... 💜";
+
+    }
+
+    else if(valor<100){
+
+        document.getElementById("mensaje")
+            .textContent=
+            "Casi llegamos... 👀💜";
+
+    }
+
+    else{
+
+        document.getElementById("mensaje")
+            .textContent=
+            "100%... pero todavía falta descubrir algo. 🥹";
+
+    }
+
+});
+
+
+/* ACEPTAR */
+
+function aceptarAmor(){
+
+    document.getElementById("segunda")
+        .style.display="block";
+
+    document.getElementById("segunda")
+        .scrollIntoView({
+            behavior:"smooth",
+            block:"center"
+        });
+
+    setTimeout(function(){
+
+        iniciarContador();
+
+    },700);
+
+}
+
+
+/* AMOR DE ÉL */
+
+function iniciarContador(){
+
+    let numero=0;
+
+    const barra =
+        document.getElementById("barraYo");
+
+    const texto =
+        document.getElementById("numeroYo");
+
+    const mensaje =
+        document.getElementById("mensajeYo");
+
+
+    const intervalo=setInterval(function(){
+
+        numero++;
+
+        texto.textContent=numero+"%";
+
+
+        if(numero<=100){
+
+            barra.style.width=numero+"%";
+
+        }
+
+
+        if(numero<50){
+
+            mensaje.textContent=
+                "Calculando cuánto te amo...";
+
+        }
+
+        else if(numero<100){
+
+            mensaje.textContent=
+                "Todavía no alcanza... 💜";
+
+        }
+
+        else if(numero<150){
+
+            mensaje.textContent=
+                "100% no es suficiente...";
+
+        }
+
+        else if(numero<200){
+
+            mensaje.textContent=
+                "Seguimos subiendo... 🥹";
+
+        }
+
+        else if(numero<300){
+
+            mensaje.textContent=
+                "Esto ya se salió de control...";
+
+        }
+
+        else if(numero<500){
+
+            mensaje.textContent=
+                "El sistema no entiende este amor... 💜";
+
+        }
+
+        else{
+
+            mensaje.textContent=
+                "ERROR: amor imposible de medir.";
+
+        }
+
+
+        if(numero>=500){
+
+            clearInterval(intervalo);
+
+            setTimeout(function(){
+
+                document.getElementById("final")
+                    .style.display="block";
+
+                document.getElementById("final")
+                    .scrollIntoView({
+                        behavior:"smooth",
+                        block:"center"
+                    });
+
+            },1200);
+
+        }
+
+    },35);
+
+}
+
+
+/* FINAL */
+
+function finalizar(){
+
+    document.querySelector(".botonFinal")
+        .textContent=
+        "❤️ Gracias por jugar ❤️";
+
+}
+
+
 /* CORAZONES */
 
 function crearCorazon(){
 
-    const corazon=document.createElement("span");
+    const corazon=
+        document.createElement("span");
 
     corazon.className="corazon";
 
-    corazon.textContent="💙";
+    corazon.textContent=
+        Math.random()>.5 ? "💜" : "💗";
 
     corazon.style.left=
         Math.random()*100+"%";
@@ -491,16 +796,18 @@ function crearCorazon(){
     corazon.style.animationDuration=
         (6+Math.random()*5)+"s";
 
-    document.getElementById("corazones")
+    document.getElementById("fondo")
         .appendChild(corazon);
 
     setTimeout(function(){
+
         corazon.remove();
+
     },11000);
 
 }
 
-setInterval(crearCorazon,700);
+setInterval(crearCorazon,650);
 
 </script>
 
