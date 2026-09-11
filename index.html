@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Día 11 💜</title>
+<title>Día 11 | 50%</title>
 
 <style>
 
@@ -14,16 +14,34 @@
     padding:0;
 }
 
+html{
+    scroll-behavior:smooth;
+}
+
 body{
     min-height:100vh;
     font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-    color:white;
+    color:#fff;
+
     background:
-        radial-gradient(circle at 50% 0%,#a020f0,#5b0a91 45%,#170022);
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(93,255,220,.18),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 0% 100%,
+            rgba(215,196,155,.10),
+            transparent 30%
+        ),
+        #080b0a;
+
     overflow-x:hidden;
 }
 
-/* FONDO */
+/* =========================
+   FONDO
+========================= */
 
 .fondo{
     position:fixed;
@@ -33,9 +51,9 @@ body{
     z-index:0;
 }
 
-.corazon{
+.particula{
     position:absolute;
-    bottom:-60px;
+    bottom:-30px;
     opacity:0;
     animation:subir linear forwards;
 }
@@ -43,55 +61,73 @@ body{
 @keyframes subir{
 
     0%{
-        transform:translateY(0) scale(.7) rotate(0deg);
+        transform:translateY(0) scale(.5);
         opacity:0;
     }
 
-    20%{
-        opacity:.75;
+    15%{
+        opacity:.65;
     }
 
     100%{
-        transform:translateY(-110vh) scale(1.25) rotate(25deg);
+        transform:translateY(-110vh) scale(1.2);
         opacity:0;
     }
 
 }
 
-/* CONTENEDOR */
+/* =========================
+   CONTENEDOR
+========================= */
 
 .contenedor{
     position:relative;
     z-index:2;
+
     width:100%;
     max-width:720px;
+
     margin:auto;
-    padding:25px 18px 80px;
+
+    padding:25px 18px 90px;
 }
 
-/* PORTADA */
+/* =========================
+   PORTADA
+========================= */
 
 .portada{
+
     min-height:100vh;
+
     display:flex;
     flex-direction:column;
+
     justify-content:center;
     align-items:center;
+
     text-align:center;
+
 }
 
 .numero11{
-    font-size:85px;
+
+    font-size:100px;
     font-weight:200;
+
+    color:#a7ffe9;
+
     line-height:1;
-    color:#e6b3ff;
+
     text-shadow:
-        0 0 20px rgba(210,100,255,.7),
-        0 0 50px rgba(210,100,255,.35);
-    animation:brillo 2s infinite;
+        0 0 15px rgba(92,255,218,.45),
+        0 0 50px rgba(92,255,218,.18);
+
+    animation:respirar 3s infinite ease-in-out;
+
 }
 
-@keyframes brillo{
+@keyframes respirar{
 
     0%,100%{
         transform:scale(1);
@@ -99,55 +135,109 @@ body{
     }
 
     50%{
-        transform:scale(1.08);
+        transform:scale(1.06);
         opacity:1;
     }
 
 }
 
 .dia{
-    margin-top:20px;
-    font-size:12px;
-    letter-spacing:6px;
-    color:#e2b0ff;
+
+    margin-top:22px;
+
+    font-size:11px;
+
+    letter-spacing:7px;
+
+    color:#9df5df;
+
 }
 
 h1{
-    margin-top:22px;
-    font-size:42px;
-    font-weight:400;
+
+    margin-top:25px;
+
+    font-size:43px;
+
+    font-weight:300;
+
+    letter-spacing:-1px;
+
 }
 
 .intro{
+
     margin-top:25px;
+
+    max-width:560px;
+
     font-size:18px;
+
     line-height:1.9;
-    color:rgba(255,255,255,.84);
+
+    color:#dedfd9;
+
 }
 
 .boton{
-    margin-top:35px;
-    padding:16px 35px;
+
+    margin-top:38px;
+
+    padding:16px 36px;
+
     border-radius:50px;
-    border:1px solid rgba(255,255,255,.35);
-    background:rgba(180,50,255,.25);
+
+    border:1px solid rgba(130,255,225,.45);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(74,207,178,.25),
+            rgba(255,255,255,.06)
+        );
+
     color:white;
+
     font-size:16px;
+
     cursor:pointer;
-    box-shadow:0 0 30px rgba(180,40,255,.25);
+
+    box-shadow:
+        0 0 25px rgba(80,255,220,.12);
+
     transition:.3s;
+
+}
+
+.boton:hover{
+
+    transform:translateY(-3px);
+
+    border-color:#a8ffe9;
+
+    box-shadow:
+        0 0 35px rgba(80,255,220,.22);
+
 }
 
 .boton:active{
-    transform:scale(.94);
+
+    transform:scale(.95);
+
 }
 
-/* EXPERIENCIA */
+/* =========================
+   EXPERIENCIA
+========================= */
 
 .experiencia{
+
     display:none;
+
     text-align:center;
+
     animation:aparecer 1.2s ease;
+
 }
 
 @keyframes aparecer{
@@ -165,207 +255,469 @@ h1{
 }
 
 .titulo{
-    font-size:38px;
-    font-weight:400;
+
     margin-top:20px;
+
+    font-size:39px;
+
+    font-weight:300;
+
 }
 
 .texto{
+
     margin-top:20px;
+
     font-size:18px;
+
     line-height:1.9;
-    color:rgba(255,255,255,.78);
+
+    color:#d8d9d4;
+
 }
 
-/* PROGRESO */
+/* =========================
+   TARJETA PROGRESO
+========================= */
 
 .progreso{
+
     margin-top:40px;
-    padding:30px 22px;
-    border-radius:30px;
-    background:rgba(110,0,170,.22);
-    border:1px solid rgba(235,190,255,.22);
-    backdrop-filter:blur(15px);
-    box-shadow:0 20px 70px rgba(0,0,0,.35);
+
+    padding:35px 23px;
+
+    border-radius:32px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.08),
+            rgba(255,255,255,.025)
+        );
+
+    border:
+
+        1px solid
+        rgba(180,255,238,.18);
+
+    backdrop-filter:blur(18px);
+
+    box-shadow:
+        0 25px 80px rgba(0,0,0,.45);
+
 }
 
 .porcentaje{
-    font-size:58px;
+
+    font-size:68px;
+
     font-weight:200;
-    color:#edc4ff;
+
+    color:#a7ffe9;
+
+    text-shadow:
+        0 0 25px rgba(92,255,218,.25);
+
 }
 
 .progresoTexto{
+
     margin-top:8px;
-    font-size:15px;
-    color:rgba(255,255,255,.65);
+
+    font-size:14px;
+
+    letter-spacing:1px;
+
+    color:#b8bbb5;
+
 }
 
 .barraExterior{
+
     width:100%;
-    height:18px;
-    margin-top:28px;
-    background:rgba(255,255,255,.1);
+
+    height:17px;
+
+    margin-top:30px;
+
+    background:
+        rgba(255,255,255,.08);
+
     border-radius:50px;
+
     overflow:hidden;
+
 }
 
 .barraInterior{
+
     width:0%;
+
     height:100%;
+
     border-radius:50px;
-    background:linear-gradient(
-        90deg,
-        #7b1fa2,
-        #c44dff,
-        #f0b3ff
-    );
-    box-shadow:0 0 20px rgba(210,70,255,.8);
+
+    background:
+        linear-gradient(
+            90deg,
+            #318f7b,
+            #68e8ca,
+            #ffffff
+        );
+
+    box-shadow:
+        0 0 18px rgba(87,255,218,.55);
+
     transition:width .08s linear;
+
 }
 
-/* MENSAJE MITAD */
+/* =========================
+   MITAD
+========================= */
 
 .mitad{
+
     display:none;
-    margin-top:35px;
+
+    margin-top:40px;
+
+    padding:32px 22px;
+
+    border-radius:30px;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(94,238,207,.10),
+            rgba(255,255,255,.035)
+        );
+
+    border:
+        1px solid
+        rgba(150,255,233,.18);
+
     animation:aparecer 1s ease;
+
 }
 
 .mitad h2{
-    font-size:30px;
-    font-weight:400;
-    margin-bottom:18px;
+
+    font-size:31px;
+
+    font-weight:300;
+
+    color:#b5ffeb;
+
+    margin-bottom:20px;
+
 }
 
 .mitad p{
+
     font-size:18px;
+
     line-height:1.9;
-    color:rgba(255,255,255,.84);
+
+    color:#e2e3df;
+
 }
 
-/* FASE 2 */
+/* =========================
+   FASE 2
+========================= */
 
 .fase{
+
     display:none;
+
     margin-top:45px;
+
     animation:aparecer 1.3s ease;
+
 }
 
 .faseEtiqueta{
-    font-size:12px;
+
+    font-size:11px;
+
     letter-spacing:5px;
-    color:#dfadff;
+
+    color:#cfc4a9;
+
 }
 
 .fase h2{
+
     margin-top:15px;
-    font-size:42px;
-    font-weight:400;
+
+    font-size:45px;
+
+    font-weight:300;
+
+    color:#a7ffe9;
+
 }
 
 .fase p{
+
     margin-top:20px;
+
     font-size:18px;
+
     line-height:1.9;
-    color:rgba(255,255,255,.8);
+
+    color:#d9dad5;
+
 }
 
-/* DIAS */
+/* =========================
+   DIAS
+========================= */
 
 .dias{
+
     margin-top:35px;
+
     display:grid;
-    grid-template-columns:repeat(4,1fr);
+
+    grid-template-columns:
+        repeat(4,1fr);
+
     gap:12px;
+
 }
 
 .diaCaja{
-    min-height:75px;
+
+    min-height:76px;
+
     display:flex;
+
     flex-direction:column;
+
     justify-content:center;
+
     align-items:center;
-    border-radius:18px;
-    background:rgba(255,255,255,.07);
-    border:1px solid rgba(255,255,255,.12);
+
+    border-radius:20px;
+
+    background:
+        rgba(255,255,255,.045);
+
+    border:
+        1px solid
+        rgba(255,255,255,.10);
+
+    transition:.3s;
+
+}
+
+.diaCaja:hover{
+
+    border-color:
+        rgba(112,255,222,.35);
+
+    transform:translateY(-2px);
+
 }
 
 .diaCaja .numero{
-    font-size:22px;
-    color:#e8bdff;
+
+    font-size:23px;
+
+    color:#a9ffeb;
+
 }
 
-.diaCaja .candado{
-    margin-top:5px;
-    font-size:13px;
-    opacity:.55;
+.candado{
+
+    margin-top:6px;
+
+    font-size:12px;
+
+    color:#888c87;
+
 }
 
 .diaFinal{
+
     grid-column:1 / -1;
-    min-height:95px;
-    border:1px solid rgba(230,170,255,.25);
-    background:rgba(150,30,220,.13);
+
+    min-height:100px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(94,238,207,.10),
+            rgba(214,195,155,.06)
+        );
+
+    border:
+        1px solid
+        rgba(170,255,237,.20);
+
 }
 
 .diaFinal .numero{
-    font-size:30px;
+
+    font-size:31px;
+
 }
 
-/* RECOMPENSA */
+/* =========================
+   RECOMPENSA
+========================= */
 
 .recompensa{
+
     display:none;
+
     margin-top:45px;
-    padding:32px 22px;
-    border-radius:30px;
-    background:rgba(100,0,150,.22);
-    border:1px solid rgba(235,190,255,.25);
-    backdrop-filter:blur(15px);
-    animation:aparecer 1.2s ease;
+
+    padding:36px 23px;
+
+    border-radius:32px;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(89,237,204,.12),
+            rgba(255,255,255,.035)
+        );
+
+    border:
+        1px solid
+        rgba(155,255,236,.22);
+
+    backdrop-filter:blur(18px);
+
+    box-shadow:
+        0 25px 90px rgba(0,0,0,.45);
+
+    animation:aparecer 1.3s ease;
+
 }
 
 .recompensaIcono{
-    font-size:55px;
-    margin-bottom:20px;
+
+    font-size:58px;
+
+    margin-bottom:22px;
+
 }
 
 .recompensa h2{
+
     font-size:31px;
-    font-weight:400;
-    margin-bottom:20px;
+
+    font-weight:300;
+
+    color:#b1ffeb;
+
 }
 
 .recompensa p{
+
+    margin-top:18px;
+
     font-size:18px;
+
     line-height:1.9;
-    color:rgba(255,255,255,.85);
+
+    color:#e1e2dd;
+
 }
 
 .secreto{
-    margin-top:25px;
-    padding:22px 15px;
-    border-top:1px solid rgba(255,255,255,.15);
-    border-bottom:1px solid rgba(255,255,255,.15);
-    color:#e5b8ff!important;
+
+    margin-top:28px !important;
+
+    padding:23px 14px;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.12);
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,.12);
+
+    color:#c9bea2 !important;
+
 }
 
+/* =========================
+   FINAL
+========================= */
+
 .final{
+
     display:none;
+
     margin-top:30px;
-    padding:28px 18px;
+
+    padding:25px 10px;
+
+    animation:aparecer 1.3s ease;
+
 }
 
 .final p{
-    font-size:19px;
+
+    font-size:18px;
+
     line-height:1.9;
+
+    color:#dfe0db;
+
 }
 
 .grande{
-    font-size:30px!important;
-    color:#f0c9ff!important;
-    margin-top:20px;
+
+    margin-top:25px;
+
+    font-size:29px !important;
+
+    font-weight:300;
+
+    color:#a9ffea !important;
+
+}
+
+.firma{
+
+    margin-top:28px;
+
+    color:#cfc4a9 !important;
+
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:480px){
+
+    h1{
+        font-size:36px;
+    }
+
+    .titulo{
+        font-size:33px;
+    }
+
+    .numero11{
+        font-size:82px;
+    }
+
+    .dias{
+        grid-template-columns:
+            repeat(3,1fr);
+    }
+
 }
 
 </style>
@@ -374,16 +726,22 @@ h1{
 
 <body>
 
-<div class="fondo" id="fondo"></div>
+<div
+    class="fondo"
+    id="fondo">
+</div>
+
 
 <div class="contenedor">
 
 
-<!-- ========================== -->
-<!-- PORTADA -->
-<!-- ========================== -->
+<!-- =========================
+     PORTADA
+========================= -->
 
-<section class="portada" id="portada">
+<section
+    class="portada"
+    id="portada">
 
     <div class="numero11">
         11
@@ -420,16 +778,16 @@ h1{
         class="boton"
         onclick="comenzar()">
 
-        Ver qué pasa 💜
+        Continuar →
 
     </button>
 
 </section>
 
 
-<!-- ========================== -->
-<!-- EXPERIENCIA -->
-<!-- ========================== -->
+<!-- =========================
+     EXPERIENCIA
+========================= -->
 
 <section
     class="experiencia"
@@ -451,8 +809,11 @@ h1{
 
         <br><br>
 
-        Pero hay algo que todavía
-        no sabés...
+        Pero antes de seguir...
+
+        <br>
+
+        hay algo que tenés que ver.
 
     </p>
 
@@ -464,11 +825,15 @@ h1{
         <div
             class="porcentaje"
             id="porcentaje">
+
             0%
+
         </div>
 
         <div class="progresoTexto">
+
             Progreso de la misión
+
         </div>
 
         <div class="barraExterior">
@@ -490,30 +855,32 @@ h1{
         id="mitad">
 
         <h2>
-            MITAD COMPLETADA 🔓
+            MITAD COMPLETADA
         </h2>
 
         <p>
 
-            Si pensabas que ya habías
+            11 días quedaron atrás.
+
+            <br><br>
+
+            Y si pensabas que ya habías
             visto lo mejor...
 
             <br><br>
 
             <strong>
-                te equivocaste. 😈
+                te tengo una noticia. 👀
             </strong>
 
             <br><br>
 
-            Porque hasta ahora solamente
-            estaba preparando el terreno.
+            Esto no era el final.
 
             <br><br>
 
             <strong>
-                Lo que viene ahora es
-                la segunda parte.
+                Era solamente la primera mitad.
             </strong>
 
         </p>
@@ -528,26 +895,36 @@ h1{
         id="fase">
 
         <div class="faseEtiqueta">
-            SISTEMA DE SORPRESAS
+            NUEVA ETAPA
         </div>
 
         <h2>
-            FASE 2 🔓
+            FASE 2
         </h2>
 
         <p>
 
-            Los primeros 11 días
-            quedaron atrás.
+            A partir de ahora,
+            las cosas cambian.
 
             <br><br>
 
-            Ahora quedan otros 11.
+            Quedan 11 días.
 
             <br><br>
 
-            Y esta vez...
-            las cosas van a ser diferentes. 👀
+            Y no pienso desperdiciar
+            ninguno de ellos.
+
+            <br><br>
+
+            Lo que viene...
+
+            <br>
+
+            <strong>
+                va a ser todavía mejor.
+            </strong>
 
         </p>
 
@@ -624,14 +1001,16 @@ h1{
     </div>
 
 
-    <!-- RECOMPENSA -->
+    <!-- =========================
+         RECOMPENSA
+    ========================= -->
 
     <div
         class="recompensa"
         id="recompensa">
 
         <div class="recompensaIcono">
-            🔓✨
+            ✨
         </div>
 
         <h2>
@@ -646,29 +1025,35 @@ h1{
 
         </p>
 
-        <p style="margin-top:15px;">
+        <p>
 
             No te voy a decir qué es.
 
             <br><br>
 
             Solamente puedo decirte
-            que es algo que querías... 👀
+            que es algo que querías...
+
+            <br><br>
+
+            👀
 
         </p>
 
         <p class="secreto">
 
-            **FASE 2 ACTIVADA.**
+            <strong>
+                FASE 2 ACTIVADA.
+            </strong>
 
             <br><br>
 
-            Y ahora sí...
+            Ahora sí...
 
             <br><br>
 
             <strong>
-                Andá a buscar tu sorpresa. 💜
+                Andá a buscar tu sorpresa. 🩵
             </strong>
 
         </p>
@@ -676,7 +1061,9 @@ h1{
     </div>
 
 
-    <!-- FINAL -->
+    <!-- =========================
+         FINAL
+    ========================= -->
 
     <div
         class="final"
@@ -695,23 +1082,26 @@ h1{
             <br><br>
 
             imaginá lo que todavía
-            falta. 😈💜
+            falta.
 
         </p>
 
-        <p style="margin-top:25px;">
+        <p class="firma">
 
-            <strong>
-                Día 11 completado.
-            </strong>
+            11 días hechos con amor.
+
+            <br>
+
+            11 días todavía por vivir.
 
             <br><br>
 
-            Nos vemos en el 12.
+            Nos vemos en el Día 12. 🩵
 
         </p>
 
     </div>
+
 
 </section>
 
@@ -720,9 +1110,9 @@ h1{
 
 <script>
 
-/* ========================== */
-/* COMENZAR */
-/* ========================== */
+/* =========================
+   COMENZAR
+========================= */
 
 function comenzar(){
 
@@ -742,9 +1132,9 @@ function comenzar(){
 }
 
 
-/* ========================== */
-/* PROGRESO AL 50% */
-/* ========================== */
+/* =========================
+   BARRA 50%
+========================= */
 
 function iniciarProgreso(){
 
@@ -783,6 +1173,7 @@ function iniciarProgreso(){
                             block:"center"
                         });
 
+
                     setTimeout(
                         desbloquearFase,
                         1800
@@ -797,9 +1188,9 @@ function iniciarProgreso(){
 }
 
 
-/* ========================== */
-/* FASE 2 */
-/* ========================== */
+/* =========================
+   FASE 2
+========================= */
 
 function desbloquearFase(){
 
@@ -812,6 +1203,7 @@ function desbloquearFase(){
             block:"center"
         });
 
+
     setTimeout(function(){
 
         document.getElementById("recompensa")
@@ -823,6 +1215,7 @@ function desbloquearFase(){
                 block:"center"
             });
 
+
         setTimeout(function(){
 
             document.getElementById("final")
@@ -830,57 +1223,67 @@ function desbloquearFase(){
 
         },1200);
 
-    },2500);
+    },2300);
 
 }
 
 
-/* ========================== */
-/* CORAZONES */
-/* ========================== */
+/* =========================
+   PARTÍCULAS
+========================= */
 
-function crearCorazon(){
+function crearParticula(){
 
-    const corazon=
+    const particula=
         document.createElement("span");
 
-    corazon.className="corazon";
+    particula.className=
+        "particula";
 
-    const corazones=[
-        "💜",
-        "💜",
-        "💗",
-        "✨"
+    const elementos=[
+        "✦",
+        "✧",
+        "·",
+        "🩵"
     ];
 
-    corazon.textContent=
-        corazones[
+    particula.textContent=
+        elementos[
             Math.floor(
-                Math.random()*corazones.length
+                Math.random()*elementos.length
             )
         ];
 
-    corazon.style.left=
+    particula.style.left=
         Math.random()*100+"%";
 
-    corazon.style.fontSize=
-        (14+Math.random()*25)+"px";
+    particula.style.fontSize=
+        (10+Math.random()*18)+"px";
 
-    corazon.style.animationDuration=
-        (6+Math.random()*5)+"s";
+    particula.style.color=
+        Math.random()>.5
+        ? "#8fffe2"
+        : "#d8c8a8";
+
+    particula.style.animationDuration=
+        (6+Math.random()*6)+"s";
 
     document.getElementById("fondo")
-        .appendChild(corazon);
+        .appendChild(particula);
+
 
     setTimeout(function(){
 
-        corazon.remove();
+        particula.remove();
 
-    },11000);
+    },13000);
 
 }
 
-setInterval(crearCorazon,650);
+setInterval(
+    crearParticula,
+    550
+);
 
 </script>
 
